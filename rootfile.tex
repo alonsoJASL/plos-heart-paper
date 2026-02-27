@@ -1,0 +1,248 @@
+\documentclass{article}
+% In case you're using an earlier version of LaTeX
+% \usepackage{etex}
+% \reserveinserts{28}
+
+% Use utf-8 encoding for foreign characters
+\usepackage[utf8]{inputenc}
+
+% If Spanish characters are required.
+%\usepackage[greek,spanish]{babel}  
+\usepackage[pdftex]{graphicx}
+
+% Setup for fullpage use and change geometry:
+\usepackage[paperwidth=170mm, paperheight=225mm, margin=20mm]{geometry}
+%\usepackage{geometry}
+\usepackage{fullpage}
+
+%Setup for multicolumn use
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{textcomp}
+\usepackage{tikz}
+\usepackage{IEEEtrantools}
+\usepackage{pgfplots}
+\usepackage{verbatim}
+\usepackage{schemabloc}
+\usepackage{latexsym}
+\usepackage{lscape}
+\usepackage{subfigure}
+%\usepackage{listofsymbols}
+%\usepackage[final]{listofsymbols} Use only for the final run TeX run.
+\usepackage{yfonts}
+\usepackage{mathabx}
+\usepackage[inline]{enumitem}
+
+%\usepackage[pdf]{pstricks}
+
+\usepackage{longtable}
+\usepackage{tabularx}
+%\usepackage{graphics}
+\usepackage{listings}
+\usepackage{array}
+\usepackage[refpages]{gloss}
+\usepackage{textgreek}
+\usepackage[numbers,sort&compress]{natbib} % you're welcome on your awesome bibliography
+
+\definecolor{LinkColor}{rgb}{0,0,0}
+\usepackage[textwidth=2cm]{todonotes}
+\setlength{\marginparwidth}{2cm}
+
+\newcommand{\todoref}[1]{\todo[color=green!40, size=\footnotesize]{#1}}
+\newcommand{\todolineref}[1]{\todo[color=green!40, size=\normalsize, inline]{#1}}
+\newcommand{\mytodo}[1]{\todo[color=yellow!40, size=\footnotesize]{#1}}
+\newcommand{\mytodoline}[1]{\todo[color=yellow!40, size=\normalsize, inline]{#1}}
+\newcommand{\important}[1]{\todo[color=orange!40, size=\normalsize, inline]{#1}}
+  
+% easy MATLAB code input (you need to get mcode first)
+%\usepackage[framed,numbered]{mcode}
+
+\graphicspath{{./pics/}}
+
+%----------------------------------
+% Macros and definitions of the work.
+%----------------------------------
+
+% contiene código de MATLAB
+% -----usage: \lstinputlisting{archivoMatlab.m}
+% -----en lugar de : 
+%           \lstinputlisting{/Users/JoseAlonso/Documents/MATLAB/archivoMatlab.m}
+\newcommand{\autor}{ Jos\'e Alonso Sol\'is-Lemus$^{1,\dag}$, 
+        Rosie K. Barrows$^{1,\dag}$,  \\
+        Cristobal Rodero$^1$, 
+        Marina Strocchi$^1$, \\
+        Natalie Montarello$^2$, Nishant Lahoti$^2$, 
+        Cesare Corrado$^1$, \\
+        Abdul Qayyum$^1$, 
+        Shahrokh Rahmani$^1$,  
+        Caroline Roney$^3$, \\
+        Gernot Plank$^{4,5}$,
+        Cristoph Augustin$^{4,5}$, 
+        Hao Xu$^2$, 
+        Alistair Young$^2$, \\
+        Pras Pathmanathan$^6$, 
+        Ronak Rajani$^2$,
+        Steven A. Niederer$^{1,7}$}
+\newcommand{\titulo}{
+    % Integrated Image-to-Mesh Framework for Patient-Specific Four-Chamber Heart Models
+    Assessing the Importance of Sex and Disease-Specific Anatomy in 
+    Electrophysiology and Mechanical Simulations with a Newly Developed 
+    Public Virtual Cohort of Four-Chamber Heart Models
+    }
+
+% Caracteres extraños
+\newcommand{\tildeps}{\tilde{\epsilon}}
+\newcommand{\uu}{\mathbf{u}}
+
+% teoremas y así
+\newtheorem{teo}{Theorem}
+\newtheorem{dfn}{Definition}
+
+% define symbols
+\newcommand{\TAT}[1]{\ensuremath{\mathrm{TAT}_{#1}}} % Total activation time
+\newcommand{\VOL}[1]{\ensuremath{\mathrm{Vol}_{#1}}} % Volume
+\newcommand{\deltaVol}[1]{\ensuremath{\Delta \mathrm{Vol}_{#1}}} % Volume change
+\newcommand{\deltaVolNorm}[1]{\ensuremath{\mathcal{V}_{#1}}} % Normalised volume change 
+
+% define acronyms 
+\newcommand{\CMnS}{CM\&S}
+\newcommand{\Ctl}{$C$}
+\newcommand{\HF}{$HF$} % Heart Failure
+\newcommand{\HFN}{$HF_N$} % Heart Failure Narrow QRS
+\newcommand{\HFW}{$HF_W$} % Heart Failure Wide QRS
+\newcommand{\LV}{LV} % Left Ventricle
+\newcommand{\RV}{RV} % Right Ventricle
+\newcommand{\LA}{LA} % Left Atrium
+\newcommand{\RA}{RA} % Right Atrium
+\newcommand{\SAN}{SAN} % Sino Atrial Node
+
+
+% ---------------------------------
+\makegloss
+
+\author{
+    \autor
+}
+\title{\titulo}
+\date{{\flushleft
+    \small
+    1. National Heart and Lung Institute, Imperial College London \\
+    2. School of Biomedical Engineering and Imaging Sciences, King's College London\\
+    3. Queen Mary University of London\\
+    4. Gottfried Schatz Research Center, Division of Medical Physics and Biophysics, Medical University of Graz\\ 
+    5. BioTechMed-Graz \\
+    6. Food and Drug Administration, United States\\
+    7. Alan Turing Institute\\ 
+    \dag \emph{Shared first authorship}\\
+    }
+}
+\begin{document}
+%\nocite{*}
+%---------------------------------
+%for 1.2 sptacing:
+%\renewcommand{\baselinestretch}{1.20}\normalsize
+%---------------------------------
+\maketitle
+% \begin{abstract}
+%     This work presents a reproducible pipeline to create patient-specific four-chamber heart models 
+%     suitable for electrophysiology and mechanics simulations. 
+%     Cardiac simulations are often performed on one or a limited number of anatomies, 
+%     with sex rarely reported.
+%     Also, there is little understanding of how anatomical variability—including 
+%     sex and disease—affects predicted function. 
+%     This limits clinical translation and regulatory credibility.
+%     % 
+%     We present, CEMRG heartbuilder, an automated workflow to generate four chamber heart meshes; 
+%     integrating segmentation, mesh generation, fibre orientation and simulation setup. 
+%     %
+%     We generated high-resolution heart models from CT scans of a 
+%     sex-balanced cohort of 50 subjects, split into
+%     26 controls, 24 heart failure patients (subdivided into narrow- and wide-QRS groups). 
+%     The resulting models create a virtual cohort that captures key anatomical variability. 
+%     All models have been made publicly available.
+%     % 
+%     We ran benchmark electrophysiology and mechanics simulations, using
+%     reference stiffness and conductivity parameters across all cases,
+%     to assess functional implications of anatomical differences.
+%     %
+%     Heart failure models exhibited larger chamber volumes, greater volume changes 
+%     (as a surrogate for reduced stiffness), 
+%     and prolonged activation times relative to controls. 
+%     These effects were consistent across sexes, though right ventricular activation time showed 
+%     a significant sex-related difference. 
+%     Comparison with published clinical metrics confirmed that simulated left ventricular and 
+%     atrial volumes and activation times reflected expected differences between healthy and heart failure anatomies.
+%     %
+%     This work establishes a standardized, end-to-end workflow, and a publicly available virtual cohort.
+%     The workflow advances reproducibility and best-practices, while the virtual cohort enables
+%     anatomical variability assessment in cardiac modeling, supporting clinical and regulatory translation. 
+        
+% \end{abstract}
+\begin{abstract} 
+    This work presents a study on how sex and disease can influence cardiac electrophysiology and 
+    mechanics using a virtual cohort of four-chamber heart models.
+    % Cardiovascular diseases (CVD) are one of the leading causes of death, 
+    % but the underlying mechanisms leading to CVD remain poorly understood. 
+    % This makes selecting the optimal treatment for different patients challenging. 
+    Patient anatomy varies across sex and disease. 
+    % However, the need to capture this variation in in-silico studies is not known, 
+    However, capturing this variation in in-silico studies remains poorly accounted for,
+    % with studies using both representative cases or virtual cohorts.
+    with studies often using either single representative cases or imbalanced virtual cohorts.
+    Whole-heart electromechanics models incorporate the patient's anatomy, 
+    electrophysiology and mechanics across different scales, from molecular, 
+    tissue and whole-heart and circulatory system levels. 
+    However, cardiac models are typically built from one or a small number of anatomies, 
+    with sex rarely reported and the effects of anatomical variability, which include those due to 
+    sex or disease, largely unexplored. 
+    This limits clinical translation and reduces regulatory credibility.
+
+    We developed fifty patient-specific anatomical models of 25 male and 25 female hearts in 
+    heart failure and control cases.
+    We ran benchmark passive inflation and paced activation simulations with consistent parameters and 
+    boundary conditions across cases to isolate the impact of anatomical variations with sex and disease.
+    % We developed CEMRG heartbuilder, an automated workflow that integrates segmentation, mesh generation, 
+    % fibre orientation, and simulation setup. 
+    % Using this pipeline, we generated models from CT scans of a sex-balanced cohort of 50 subjects, 
+    % including both healthy controls and heart failure patients. 
+    % All models were used to simulate electrical activation and mechanical inflation 
+    % using identical parameters to isolate the impact of anatomy on functional predictions. 
+
+    Heart failure models exhibited increased chamber volumes, larger volume changes during inflation, 
+    and delayed activation times relative to controls. 
+    These trends were consistent across sexes, although right ventricular activation showed a significant 
+    sex-based difference. 
+    % Simulated metrics aligned with known clinical observations, supporting the biological validation of our cohort.
+
+    % This work provides a standardised, end-to-end workflow and a shared resource for the in silico cardiac 
+    % modelling community. 
+    % By enabling assessment of anatomical variability at scale, it supports reproducibility, model credibility, and 
+    % future clinical translation.
+    Variations in anatomy with sex and disease have a significant impact on cardiac simulations, 
+    which support the inclusion of multiple heart anatomical models in in-silico trials.
+    The resulting virtual cohort captures key anatomical variability and is publicly available at 
+    \url{https://doi.org/10.5281/zenodo.17048090} and our code is available 
+    at \url{https://github.com/OpenHeartDevelopers/cemrg-heartbuilder}.
+\end{abstract}
+
+%--- OPTIONAL ------------------------------
+%\tableofcontents
+%\listoffigures
+%\listoftables
+%---------------------------------
+
+%---------------------------------
+\input{sections/intro_bis}
+\input{sections/materials}
+\input{sections/methods}
+\input{sections/results_final}
+\input{sections/discussion_final}
+\input{sections/conclusion}
+
+\input{docsettings/footer} 
+
+\end{document}
+

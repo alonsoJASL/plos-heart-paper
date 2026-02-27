@@ -1,0 +1,116 @@
+\section{Results}
+Fifty whole-heart models (Figure~\ref{fig:hearts}) were created, 
+each including EP and mechanics simulations described in Section~\ref{sec:simulations}.
+All simulations were performed with the same parameters for each model.
+Therefore, the differences in simulations between sexes reported below relate to 
+differences in anatomy.
+% \paragraph{Descriptive statistics.}
+We first examined the distributions of all core metrics across sex and condition.
+A full table of means and standard deviations is provided in the Supplementary Material.
+We found no significant difference in age between males and females
+(M: $53.4\pm15.0$\,y; F: $54.6\pm10.7$\,y; $p=0.75$). 
+% % supplementary material: summary_table.xlsx 
+
+\begin{figure}[hbpt]
+    \centering
+    \includegraphics[width=\linewidth]{pics/hearts2.pdf}
+    \caption{
+        \textbf{Three-dimensional whole-heart reconstructions from the virtual cohort, grouped }
+        and labelled by sex and condition. Each colour corresponds to a different structure in the mesh.
+        Each model was derived from a patient’s CT scan and includes fibre orientations, 
+        illustrating anatomical variability across sex and heart-failure subtypes. 
+        Abbreviations: $M_{HF_N}$: Male, HF narrow-QRS; $M_{HF_W}$: Male, HF wide-QRS; $M_C$: Male, Control; 
+        $F_{HF_N}$: Female, HF narrow-QRS; $F_{HF_W}$: Female, HF wide-QRS; $F_C$: Female, Control.
+    }
+    \label{fig:hearts}
+\end{figure}
+
+
+% \subsection{Clinical literature metrics.}
+Next, we assessed model volumes and the outputs of the EP and mechanics simulations.
+In each case, we report the results from the two-way ANOVA and the post-hoc tests, showing 
+the effect sizes. 
+Where no interaction was present, we examined independent effects.
+In both cases, only statistically significant results after FDR correction are reported here.
+Effect sizes were computed using Cohen’s $d$ and are visualised in Figure~\ref{fig:cohen-big-effects}.
+
+% \paragraph{\LA volume.} $\VOL{LA}$ had a significanfly higher mean in \HF\ patients,
+\paragraph{\LV\ volume.} 
+$\VOL{LV}$ was significantly larger in \HF\ patients and showed a significant interaction 
+($p<0.05$ in ANOVA and all post-hoc comparisons).
+For all but three male controls, the \LV\ volumes fall within the normal range 
+($[109,218]$~mL)
+compared to the UKBB reference values~\cite{petersen-2017-reference}.
+Similarly, female controls also fall mostly within their corresponding normal range
+($[88,161]~mL$).
+We display the results in Figure~\ref{fig:validation-volumes}.
+The effects sizes were also large between \HF\ and control groups, but they were much 
+larger in males than in females, for instance, 
+interactions involving females ranged between $0.9<d<1.17$, 
+while interactions involving males were higher than $d>1.4$ 
+($p<0.05$ in all cases, Figure~\ref{fig:cohen-big-effects}(a)).
+
+\begin{figure}[hbpt]
+    \centering
+    \includegraphics[width=\textwidth]{pics/results-validation-volumes-improved.pdf}
+    \caption{
+        \textbf{Comparison of measured ventricle volumes from the virtual cohort with}
+        clinical literature values and ranges from UKBB.
+        The UKBB normal ranges are defined as measurements within the 95\% prediction interval
+        of the study by~\cite{petersen-2017-reference}. 
+        Two graphs, corresponding to the \LV\ and \RV\ metrics and reference volumes. 
+        Each plot is separated by sex and coloured by condition, with Controls in blue and 
+        Heart Failure in orange.
+        Normal ranges are shown as greyed areas, and exceeding the upper limit of the
+        reference range may indicate pathological ventricular dilation. 
+    }
+    \label{fig:validation-volumes}
+\end{figure}
+% ()
+\paragraph{Volume change in the \LV.}
+We used volume change as a surrogate for stiffness. 
+\LV volume change was significantly larger in males compared to females and in 
+\HF patients compared to controls (both main effects with $p<0.01$), 
+but we did not detect a significant sex~$\times$~condition interaction ($p=0.44$), 
+indicating that sex and condition contribute independently to \LV\ volume change. 
+The effect sizes were large, with $d=0.94, p<0.01$ for \HF\ vs controls, 
+and $d=0.78, p<0.01$ for male vs female comparisons (Figure~\ref{fig:cohen-big-effects}(b)).
+
+\paragraph{Activation times.}
+For ventricular $\TAT{V}$, no significant interaction was found between sex and condition ($p=0.76$), 
+however, the independent effect sizes were large. 
+First, $\TAT{V}$ was significantly longer in males compared to females ($d=1.4, p<0.01$), 
+and in \HF\ patients compared to controls ($d=0.72, p=0.014$).
+$\TAT{LA}$ showed a similar pattern. First, no significant interaction between sex and condition 
+was found ($p=0.24$). Second, the independent effects were significant and moderate, showing 
+prolonged activation times in \HF\ vs. controls ($d=0.62, p<0.05$) and prolonged activation 
+in males vs. females ($d=0.59, p<0.05$). 
+
+\paragraph{Normalised volume changes in \LV.}
+$\deltaVolNorm{LV}$ showed a significant interaction in the ANOVA between sex and condition ($p<0.05$).
+Post-hoc tests only showed effects sizes were significant when comparing
+\begin{itemize*}
+    \item[] Male \HF\ vs. male controls ($d=-1.33$),
+    \item[] Male vs. female with \HF\ ($d=-1.09$),
+\end{itemize*} 
+both with $p<0.05$.
+
+% The largest effects were consistently observed in the ventricular metrics, 
+% particularly in right ventricular volume and activation time between sexes, and in 
+% left ventricular volume between males with and without heart failure.
+
+\begin{figure}[hbpt]
+    \centering
+    \includegraphics[width=\linewidth]{pics/cohen-big-effects.pdf}
+    \caption{
+        \textbf{Cohen’s d effect sizes from post-hoc comparisons following two-way ANOVA.}
+        Metrics and group comparisons are displayed on the y-axis.
+        This graph only shows effects with a high effect size and a corrected p-value $p<0.05$. 
+        (a) Effect sizes for group comparisons performed when the Sex~$\times$~Condition 
+        interaction was statistically significant, justifying 4 simple-effect post-hoc tests.
+        (b) Effect sizes for marginal comparisons, when no significant interaction was found.
+        \textit{Abbreviations}: M=Male, F=Female; C=Control, HF=Heart Failure; TAT=Total Activation time, 
+        L/R=Left/Right, V=Ventricle.
+    }
+    \label{fig:cohen-big-effects}
+\end{figure}

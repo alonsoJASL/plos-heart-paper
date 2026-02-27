@@ -1,0 +1,363 @@
+% Template for PLoS
+% Version 3.7 Aug 2025
+%
+% % % % % % % % % % % % % % % % % % % % % %
+%
+% -- IMPORTANT NOTE
+%
+% This template contains comments intended 
+% to minimize problems and delays during our production 
+% process. Please follow the template instructions
+% whenever possible.
+%
+% % % % % % % % % % % % % % % % % % % % % % % 
+%
+% Once your paper is accepted for publication, 
+% PLEASE REMOVE ALL TRACKED CHANGES in this file 
+% and leave only the final text of your manuscript. 
+% PLOS recommends the use of latexdiff to track changes during review, as this will help to maintain a clean tex file.
+% Visit https://www.ctan.org/pkg/latexdiff?lang=en for info or contact us at latex@plos.org.
+%
+%
+% There are no restrictions on package use within the LaTeX files except that no packages listed in the template may be deleted.
+%
+% Please do not include colors or graphics in the text.
+%
+% The manuscript LaTeX source should be contained within a single file (do not use \input, \externaldocument, or similar commands).
+%
+% % % % % % % % % % % % % % % % % % % % % % %
+%
+% -- FIGURES AND TABLES
+%
+% Please include tables/figure captions directly after the paragraph where they are first cited in the text.
+%
+% DO NOT INCLUDE GRAPHICS IN YOUR MANUSCRIPT
+% - Figures should be uploaded separately from your manuscript file. 
+% - Figures generated using LaTeX should be extracted and removed from the PDF before submission. 
+% - Figures containing multiple panels/subfigures must be combined into one image file before submission.
+% For figure citations, please use "Fig" instead of "Figure".
+% See http://journals.plos.org/plosone/s/figures for PLOS figure guidelines.
+%
+% Tables should be cell-based and may not contain:
+% - spacing/line breaks within cells to alter layout or alignment
+% - do not nest tabular environments (no tabular environments within tabular environments)
+% - no graphics or colored text (cell background color/shading OK)
+% See http://journals.plos.org/plosone/s/tables for table guidelines.
+%
+% For tables that exceed the width of the text column, use the adjustwidth environment as illustrated in the example table in text below.
+%
+% % % % % % % % % % % % % % % % % % % % % % % %
+%
+% -- EQUATIONS, MATH SYMBOLS, SUBSCRIPTS, AND SUPERSCRIPTS
+%
+% IMPORTANT
+% Below are a few tips to help format your equations and other special characters according to our specifications. For more tips to help reduce the possibility of formatting errors during conversion, please see our LaTeX guidelines at http://journals.plos.org/plosone/s/latex
+%
+% For inline equations, please be sure to include all portions of an equation in the math environment.  For example, x$^2$ is incorrect; this should be formatted as $x^2$ (or $\mathrm{x}^2$ if the romanized font is desired).
+%
+% Do not include text that is not math in the math environment. For example, CO2 should be written as CO\textsubscript{2} instead of CO$_2$.
+%
+% Please add line breaks to long display equations when possible in order to fit size of the column. 
+%
+% For inline equations, please do not include punctuation (commas, etc) within the math environment unless this is part of the equation.
+%
+% When adding superscript or subscripts outside of brackets/braces, please group using {}.  For example, change "[U(D,E,\gamma)]^2" to "{[U(D,E,\gamma)]}^2". 
+%
+% Do not use \cal for caligraphic font.  Instead, use \mathcal{}
+%
+% % % % % % % % % % % % % % % % % % % % % % % % 
+%
+% Please contact latex@plos.org with any questions.
+%
+% % % % % % % % % % % % % % % % % % % % % % % %
+
+\documentclass[10pt,letterpaper]{article}
+\usepackage[top=0.85in,left=2.75in,footskip=0.75in]{geometry}
+
+% amsmath and amssymb packages, useful for mathematical formulas and symbols
+\usepackage{amsmath,amssymb}
+
+% Use adjustwidth environment to exceed column width (see example table in text)
+\usepackage{changepage}
+
+% textcomp package and marvosym package for additional characters
+\usepackage{textcomp,marvosym}
+
+% cite package, to clean up citations in the main text. Do not remove.
+\usepackage{cite}
+
+% Use nameref to cite supporting information files (see Supporting Information section for more info)
+\usepackage{nameref,hyperref}
+
+% line numbers
+\usepackage[right]{lineno}
+
+% ligatures disabled
+\usepackage[nopatch=eqnum]{microtype}
+\DisableLigatures[f]{encoding = *, family = * }
+
+% color can be used to apply background shading to table cells only
+\usepackage[table]{xcolor}
+
+% array package and thick rules for tables
+\usepackage{array}
+
+% create "+" rule type for thick vertical lines
+\newcolumntype{+}{!{\vrule width 2pt}}
+
+% create \thickcline for thick horizontal lines of variable length
+\newlength\savedwidth
+\newcommand\thickcline[1]{%
+  \noalign{\global\savedwidth\arrayrulewidth\global\arrayrulewidth 2pt}%
+  \cline{#1}%
+  \noalign{\vskip\arrayrulewidth}%
+  \noalign{\global\arrayrulewidth\savedwidth}%
+}
+
+% \thickhline command for thick horizontal lines that span the table
+\newcommand\thickhline{\noalign{\global\savedwidth\arrayrulewidth\global\arrayrulewidth 2pt}%
+\hline
+\noalign{\global\arrayrulewidth\savedwidth}}
+
+
+% Remove comment for double spacing
+\usepackage{setspace} 
+\doublespacing
+
+% Text layout
+\raggedright
+\setlength{\parindent}{0.5cm}
+\textwidth 5.25in
+\textheight 8.75in
+
+% Bold the 'Figure #' in the caption and separate it from the title/caption with a period
+% Captions will be left justified
+\usepackage[aboveskip=1pt,labelfont=bf,labelsep=period,justification=raggedright,singlelinecheck=off]{caption}
+\renewcommand{\figurename}{Fig}
+
+% Please use the included `plos2025.bst` as your BibTeX style
+\bibliographystyle{plos2025}
+
+% Remove brackets from numbering in List of References
+\makeatletter
+\renewcommand{\@biblabel}[1]{\quad#1.}
+\makeatother
+
+% Header and Footer with logo
+\usepackage{lastpage,fancyhdr,graphicx}
+\usepackage{epstopdf}
+%\pagestyle{myheadings}
+\pagestyle{fancy}
+\fancyhf{}
+%\setlength{\headheight}{27.023pt}
+%\lhead{\includegraphics[width=2.0in]{PLOS-submission.eps}}
+\rfoot{\thepage/\pageref{LastPage}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrule}{\hrule height 2pt \vspace{2mm}}
+\fancyheadoffset[L]{2.25in}
+\fancyfootoffset[L]{2.25in}
+\lfoot{\today}
+
+%% Include all user-defined macros below
+% define symbols
+\newcommand{\TAT}[1]{\ensuremath{\mathrm{TAT}_{#1}}} % Total activation time
+\newcommand{\VOL}[1]{\ensuremath{\mathrm{Vol}_{#1}}} % Volume
+\newcommand{\deltaVol}[1]{\ensuremath{\Delta \mathrm{Vol}_{#1}}} % Volume change
+\newcommand{\deltaVolNorm}[1]{\ensuremath{\mathcal{V}_{#1}}} % Normalised volume change 
+
+% define acronyms 
+\newcommand{\CMnS}{CM\&S}
+\newcommand{\Ctl}{$C$}
+\newcommand{\HF}{$HF$} % Heart Failure
+\newcommand{\HFN}{$HF_N$} % Heart Failure Narrow QRS
+\newcommand{\HFW}{$HF_W$} % Heart Failure Wide QRS
+\newcommand{\LV}{LV} % Left Ventricle
+\newcommand{\RV}{RV} % Right Ventricle
+\newcommand{\LA}{LA} % Left Atrium
+\newcommand{\RA}{RA} % Right Atrium
+\newcommand{\SAN}{SAN} % Sino Atrial Node
+
+\newcommand{\autor}{ Jos\'e Alonso Sol\'is-Lemus\textsuperscript{1,\Yinyang}, 
+        Rosie K. Barrows\textsuperscript{1,\Yinyang},  
+        Cristobal Rodero\textsuperscript{1}, 
+        Marina Strocchi\textsuperscript{1}, 
+        Natalie Montarello\textsuperscript{2}, Nishant Lahoti\textsuperscript{2}, 
+        Cesare Corrado\textsuperscript{1}, 
+        Abdul Qayyum\textsuperscript{1}, 
+        Shahrokh Rahmani\textsuperscript{1},  
+        Caroline Roney\textsuperscript{3}, 
+        Gernot Plank\textsuperscript{4,5},
+        Cristoph Augustin\textsuperscript{4,5}, 
+        Hao Xu\textsuperscript{2}, 
+        Alistair Young\textsuperscript{2}, 
+        Pras Pathmanathan\textsuperscript{6}, 
+        Ronak Rajani\textsuperscript{2},
+        Steven A. Niederer\textsuperscript{1,7}
+}
+\newcommand{\titulo}{
+    % Integrated Image-to-Mesh Framework for Patient-Specific Four-Chamber Heart Models
+    Assessing the Importance of Sex and Disease-Specific Anatomy in 
+    Electrophysiology and Mechanical Simulations with a Newly Developed 
+    Public Virtual Cohort of Four-Chamber Heart Models
+    }
+
+%% END MACROS SECTION
+
+
+\begin{document}
+\vspace*{0.2in}
+
+% Title must be 250 characters or less.
+\begin{flushleft}
+{\Large
+\textbf{\titulo} % Please use "sentence case" for title and headings (capitalize only the first word in a title (or heading), the first word in a subtitle (or subheading), and any proper nouns).
+}
+\newline
+% Insert author names, affiliations and corresponding author email (do not include titles, positions, or degrees).
+\\
+\autor\ 
+\\
+\bigskip
+\textbf{1} National Heart and Lung Institute, Imperial College London 
+\\
+\textbf{2} School of Biomedical Engineering and Imaging Sciences, King's College London
+\\
+\textbf{3} Queen Mary University of London
+\\
+\textbf{4} Gottfried Schatz Research Center, Division of Medical Physics and Biophysics, Medical University of Graz
+\\ 
+\textbf{5} BioTechMed-Graz 
+\\
+\textbf{6} Food and Drug Administration, United States
+\\
+\textbf{7} Alan Turing Institute
+\\ 
+\bigskip
+
+% Insert additional author notes using the symbols described below. Insert symbol callouts after author names as necessary.
+% 
+% Remove or comment out the author notes below if they aren't used.
+%
+% Primary Equal Contribution Note
+\Yinyang These authors share first authorship.
+
+% Additional Equal Contribution Note
+% Also use this double-dagger symbol for special authorship notes, such as senior authorship.
+% \ddag These authors also contributed equally to this work.
+
+% Current address notes
+% \textcurrency Current Address: Dept/Program/Center, Institution Name, City, State, Country % change symbol to "\textcurrency a" if more than one current address note
+% \textcurrency b Insert second current address 
+% \textcurrency c Insert third current address
+
+% Deceased author note
+% \dag Deceased
+
+% Group/Consortium Author Note
+% \textpilcrow Membership list can be found in the Acknowledgments section.
+
+% Use the asterisk to denote corresponding authorship and provide email address in note below.
+* j.solis-lemus@imperial.ac.uk
+
+\end{flushleft}
+% Please keep the abstract below 300 words
+
+% For PLOS Medicine research article authors, please structure your abstract
+% with "Background", "Method and Findings" and "Conclusion" sections per
+% journal requirements.
+
+% For PLOS Neglected Tropical Diseases research article authors, please
+% structure your abstract with "Background", "Methodology", "Findings", and
+% "Conclusion" sections per journal requirements.
+%
+\section*{Abstract}
+This work presents a study on how sex and disease can influence cardiac electrophysiology and 
+    mechanics using a virtual cohort of four-chamber heart models.
+    Patient anatomy varies across sex and disease. 
+    However, capturing this variation in in-silico studies remains poorly accounted for,
+    with studies often using either single representative cases or imbalanced virtual cohorts.
+    Whole-heart electromechanics models incorporate the patient's anatomy, 
+    electrophysiology and mechanics across different scales, from molecular, 
+    tissue and whole-heart and circulatory system levels. 
+    However, cardiac models are typically built from one or a small number of anatomies, 
+    with sex rarely reported and the effects of anatomical variability, which include those due to 
+    sex or disease, largely unexplored. 
+    This limits clinical translation and reduces regulatory credibility.
+
+    We developed fifty patient-specific anatomical models of 25 male and 25 female hearts in 
+    heart failure and control cases.
+    We ran benchmark passive inflation and paced activation simulations with consistent parameters and 
+    boundary conditions across cases to isolate the impact of anatomical variations with sex and disease.
+
+    Heart failure models exhibited increased chamber volumes, larger volume changes during inflation, 
+    and delayed activation times relative to controls. 
+    These trends were consistent across sexes, although right ventricular activation showed a significant 
+    sex-based difference. 
+
+    Variations in anatomy with sex and disease have a significant impact on cardiac simulations, 
+    which support the inclusion of multiple heart anatomical models in in-silico trials.
+    The resulting virtual cohort captures key anatomical variability and is publicly available at 
+    \url{https://doi.org/10.5281/zenodo.17048090} and our code is available 
+    at \url{https://github.com/OpenHeartDevelopers/cemrg-heartbuilder}.
+
+% Please keep the Author Summary between 150 and 200 words. Use first person.
+% PLOS ONE, PLOS Biology, PLOS Global Public Health, PLOS Mental Health, and PLOS Water authors please skip this step. Author Summary is not valid for submissions to these journals.
+
+% For PLOS Medicine authors, please structure your author summary with answers to the following questions:
+% Why was this study done?
+% What did the researchers do and find?
+% What do these findings mean?
+%
+\section*{Author summary}
+Understanding how sex and disease affect the heart’s electrical and mechanical behaviour is essential 
+for developing accurate and credible computational models. 
+In this study, we built a balanced virtual cohort of fifty patient-specific, four-chamber heart models 
+from male and female individuals with and without heart failure. 
+We designed a single, streamlined pipeline to generate these models and ran benchmark simulations of 
+electrical activation and passive inflation to evaluate how anatomical differences influence cardiac function.
+
+We found that heart failure models showed larger chamber volumes, greater volume changes, and 
+delayed activation times compared with controls. 
+These patterns were consistent between sexes, although right ventricular activation showed a clear 
+sex-related difference. Our results demonstrate that anatomical variability across sex and disease 
+has a measurable effect on cardiac simulations.
+By releasing this virtual cohort and its underlying pipeline publicly, we aim to support reproducible and 
+transparent in-silico studies and to advance the use of virtual populations in regulatory and clinical 
+applications.
+
+\linenumbers
+
+\input{sections_no_figs/intro_bis}
+\input{sections_no_figs/materials}
+\input{sections_no_figs/methods}
+\input{sections_no_figs/results_final}
+\input{sections_no_figs/discussion_final}
+\input{sections_no_figs/conclusion}
+
+% \section*{Acknowledgments}
+
+% This section is intended only for general acknowledgements and thanks. Any
+% information related to funding, data availability, author contributions, etc.
+% should be entered directly into their dedicated fields in the PLOS Editorial
+% Manager submission system, which will then be incorporated into the appropriate
+% section in your article during the production process.
+
+\nolinenumbers
+
+% Please compile your BiBTeX database using the "plos2025.bst" BibTeX style.
+% This file is part of the current package.
+% A sample BibTeX file is also included as "plos_bibtex_sample.bib".
+%
+% or
+%
+% Type in your references following Vancouver style and reference formatting instructions
+% available at https://journals.plos.org/plosone/s/submission-guidelines#loc-references
+% \begin{thebibliography}{}
+% \bibitem{}
+% Text
+% \end{thebibliography}
+
+\bibliography{myrefs}
+
+\end{document}
+

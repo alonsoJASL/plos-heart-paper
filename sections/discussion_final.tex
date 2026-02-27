@@ -1,0 +1,195 @@
+\section{Discussion}
+% 1. summarise what we have shown.
+We created a sex-balanced virtual cohort of 50 whole-heart models derived from clinical CT scans of 
+both healthy individuals and \HF\ patients. 
+We used a semi-automated pipeline to generate these models,
+which includes segmentation, mesh generation, fibre orientation assignment, and simulation setup.
+The models enabled the exploration of differences in volume, and activation time across sex and disease groups, 
+using benchmark electrophysiology and mechanics simulations. 
+With this study, we demonstrate that anatomical differences between sexes and across disease states have a 
+significant impact on both electrical and mechanical simulation predictions in the heart. 
+This highlights the critical need to account for such variations when developing and 
+applying computational models in cardiology.
+
+% 2. comment on other workflows
+A variety of computational pipelines have been proposed to construct heart models, 
+ranging from atria-only or ventricles-only representations to anatomically detailed four-chamber reconstructions.
+The works by~\cite{roney-2023-atriamodels} and~\cite{azzolin-2023-atriamodels} proposed 
+patient-specific atrial models, including anatomical regions and fibre orientations from clinical data.
+In contrast, other pipelines focus only on ventricular chambers~\cite{govil-2023-bivmodels,banerjee-2021-bivmodels}.
+A notable whole-heart model was developed by~\cite{zhang-2012-fourchmodels}, 
+which builds detailed four-chamber meshes of the entire heart from patient imaging and has been enhanced 
+since to improve 
+simulation fidelity, 
+multi-scale integration, and 
+clinical translation.
+The resulting models are anatomically detailed, but the method depended on extensive user guidance to 
+create the initial atlas, limiting throughput and scale.
+Other groups~\cite{gillette_personalized_2022} have also demonstrated personalised whole-heart 
+electrophysiology models, but again with significant manual setup and typically small cohorts.
+In summary, existing pipelines either produce atria-only or ventricle-only models, 
+or else deliver high-detail four-chamber meshes at the cost of manual effort.
+Our framework seeks to overcome these limitations by producing anatomically complete four-chamber 
+(atria + ventricles) models with minimal manual input, combining scalability with high anatomical fidelity.
+
+\subsection{Building Patient-Specific Whole-Heart Models: Workflow Insights}
+The models were created using a standardised pipeline, CEMRG heartbuilder, 
+which allows for the generation of patient-specific models from CT scans. 
+The segmentation framework has enabled a substantial reduction in overall model generation time relative to 
+earlier methods. The pipeline requires approximately 5 hours per heart on average.
+It is also significantly more detailed than most publicly available pipelines. 
+For instance, methods evaluated in the MICCAI 2024 Whole Heart Segmentation Challenge~\cite{miccai2024_challenge} 
+typically produce 7–10 output labels, insufficient for physiologically realistic biophysical simulations. 
+In contrast, our approach employs a 37-label standard~\cite{strocchi2020_cohort,strocchi2020_simulating}, 
+encompassing detailed delineation of blood pools, myocardia, valve planes,
+and major vessels across all four chambers.
+
+% \subsection{Discussion on the results}
+\subsection{Impact of Anatomical Variability on Electromechanical Predictions}
+All whole-heart models were simulated using identical parameters for both electrophysiology and mechanics. 
+% This design choice ensured that any inter-group variation in simulation output arose solely from 
+% differences in anatomy, rather than from parameter fitting or model calibration. 
+We did not include active contraction in the benchmark as these simulations often require patient specific 
+parameters to match contraction, pre-load and after load, 
+reducing our ability to compare consistent simulations across anatomies.
+As such, the results reflect the isolated impact of structural variation due to sex or disease status on 
+predicted electrical activation and mechanical inflation.
+The results from the two-way ANOVA showed, in most cases, non significant interactions.
+This means that we could only look at the independent effects: control vs \HF\ and 
+male vs female. 
+The characterisation of effect sizes (small, moderate, and large) by~\cite{gignac-2016-effects}, 
+were included as a guideline, based on the distribution of effect sizes obtained.
+
+\subsection{Comparison with Clinical Reference Ranges}
+Validation against population-based MRI reference data~\cite{petersen-2017-reference} 
+confirmed that control models reproduced expected sex-specific chamber sizes.
+Male and female \LV\ and \RV\ volumes were largely consistent with normal ranges, 
+supporting the accuracy of our anatomical pipeline.
+In heart failure, \LV\ enlargement was most pronounced in males, frequently exceeding 
+reference thresholds, consistent with classical patterns of systolic dilation.
+Females also showed increased \LV\ volumes, though these remained mostly within upper limits, 
+highlighting sex differences in disease expression.
+\RV\ enlargement was less prominent in both males and females with \HF. 
+This might be reflecting clinical reports that \RV\ size is less sensitive to early disease~\cite{ro-2023-rv_volume}.
+These results demonstrate that the virtual cohort captures both healthy anatomy and pathological remodelling, 
+while also exposing the limitations of fixed reference ranges that do not account for sex and disease interplay.
+
+\paragraph{Impact of Sex and Heart Failure in \emph{In-Silico} Studies}
+Our simulations consistently separated groups by sex and disease status, even in the absence of tuned 
+electrophysiological or mechanical parameters.
+Absolute \LV\ volume increases were particularly marked in male \HF, reproducing the clinical signature of 
+pathological dilation~\cite{kasa-2024-lv_volume,ito-2021-lv_volume}.
+Larger $\deltaVol{LV}$ in \HF\ patients suggest structurally thinner or more distensible 
+walls~\cite{zile-2004-stiffness,aurigemma-2006-stiffness}.
+Similarly, larger $\deltaVol{LA}$ would indicate other issues like increased prediction of mortality or  
+hospitalisation~\cite{Carpenito-2021-la-stiffness,kim-2023-la-stiffness}.
+When expressed as a normalised change, however, \HF\ females showed the greatest relative differences, 
+a finding likely driven by smaller baseline chamber sizes.
+This emphasises that absolute and relative measures provide complementary insights and must be interpreted carefully 
+in sex-stratified analyses~\cite{steuernagel2023_sex_bias}.
+Electrical activation followed similar logic: ventricular and atrial activation were prolonged in \HF\ and in males, 
+consistent with clinical QRS and conduction observations~\cite{sanders-2003-atrialremodelling,buck-2008-crt}, 
+though interactions were not significant.
+These convergent trends across independent metrics highlight that anatomical variability alone can generate 
+clinically relevant patterns of electromechanical behaviour, a finding consistent with model-based predictions 
+of sex-specific conduction behaviour~\cite{Lee2019_gender}.
+These findings suggest that even without personalisation of tissue properties or conduction parameters, 
+anatomically driven whole-heart simulations can outline group-level trends in cardiac function.
+The consistent importance of sex and disease differences across multiple metrics reinforces the clinical 
+relevance of the modelling pipeline and motivates its use in larger-scale studies~\cite{strocchi2020_cohort}.
+
+\subsection{Establishing Model Credibility and Validation Strategies for In Silico Clinical Trials}
+In silico studies using virtual cohorts of patients, referred to as in silico clinical trials (ISCTs), 
+require careful demonstration of model credibility for their conclusions to be considered reliable. 
+Credibility is primarily established by performing validation, that is, comparison of model predictions 
+with real-world data. 
+However, unlike relatively simple models of standalone medical devices, or drug safety/efficacy studies 
+using a generic action potential model, ISCTs present a much wider range of possible validation strategies. 
+As discussed in detail in~\cite{pathmanathan-credibility-2024}, possible evaluation activities include: 
+validation of a device/drug model in isolation 
+(e.g., bench test validation of a pacemaker lead mechanics model); 
+individual-level validation of patient models in the cohort 
+(i.e., comparing predictions from a specific patient model with clinical data from the specific patient 
+the model represents), 
+population-level validation of the cohort or sub-cohorts 
+(e.g., comparing the distribution of model outputs across the cohort with clinical data from the 
+corresponding real-world population), 
+validation of coupled device-patient or drug-patient models 
+(e.g., PKPD validation studies), 
+and validation of any statistical model used to convert patient model outputs into clinical endpoints. 
+Also, there are important additional activities that should be performed, such as assessing the virtual 
+cohort representativeness; 
+these are not strictly model validation activities and more akin to model input validation for 
+simple models.
+ 
+Overall, an ISCT is expected to be supported by a body of evidence on model credibility. 
+For a virtual cohort such as the sex-balanced 50 patient cohort provided here, 
+intended for re-use in variety of future device or drug ISCTs, 
+a hierarchical evaluation approach can be used to generate an initial body of credibility evidence 
+to support a future ISCT.
+In this work, we have performed the first steps of such a hierarchical approach, 
+by assessing cohort representativeness (and simultaneously assessing accuracy of the model generation pipeline) 
+through comparison the ventricular and atrial volumes in the male and female cohort subsets with 
+corresponding UK BioBank data.
+ 
+A natural next step would be to perform sex-specific population-level validation: 
+demonstrating that the distribution of model outputs, for each of the male and female sub-cohorts, 
+match the distribution observed in the male and female populations, 
+particularly for outputs for which a statistically significant sex difference was observed. 
+For instance, predicted chamber $\TAT{}$ distributions could be compared with sex-specific population 
+QRS duration data, 
+after an appropriate transformation to account for the fact that $\TAT{}$ is only a surrogate for QRS.
+Individualized validation, while more challenging, could be performed for newly generated patient models.
+Ultimately, these results would be supplemented by context-specific validation when the cohort is used in a 
+device/drug ISCT, together with other credibility assessment activities such as verification and 
+uncertainty quantification~\cite{health_assessing_2023}.
+
+\subsection{Limitations}
+This work has four main limitations that should be considered when interpreting the results.
+% + sample size 
+First, the small sample size within each category of \HF , narrow and wide QRS duration, 
+limits the statistical power for detecting subtle effects or interactions. 
+Nonetheless, by balancing sex and \HF\ subtype, our dataset offers a structured 
+starting point for exploring sex-disease interactions in-silico.
+Furthermore, it can serve as a foundation for synthetic cohort 
+generation~\cite{rodero-2021-virtualcohort1000,rodero-2021-virtualcohortextreme}
+with a more diverse range of anatomical and clinical characteristics. 
+% + complex simulations
+Secondly, the simulations performed in this work were benchmark simulations 
+% + parameters not calibrated 
+and the parameters were not calibrated to the individual anatomies.
+However, the use of a common set of parameters across all cases
+ensured that the differences observed in the results were purely anatomical.
+% time spent on the pipeline
+Third, the pipeline requires 5 hours per heart on average, 
+with 2 hours spent performing manual corrections required at the segmentation stage.
+Even so, this is a significant reduction compared to previous methods.
+Finally, limitations remain at the segmentation stage. 
+Because this step underpins all subsequent model construction, 
+we discuss its implications in more detail in the following section.
+
+\subsubsection{Critical Role of Segmentation in Model Accuracy}
+The segmentation stage is a critical bottleneck in the pipeline,
+requiring notable manual input to ensure anatomical fidelity.
+The most frequent issues involve small gaps or discontinuities in the myocardium, 
+where the wall becomes excessively thin.
+The segmentation method proposed by~\cite{hao2021_ccta} is not robust against some artefacts
+introduced by implanted devices, such as the bright streaks caused by leads or stents in \HF\ patients. 
+Manual steps and corrections in the pipeline could potentially be replaced with more 
+robust algorithms. 
+For example, recent work by~\cite{qayyum-2025-foundationmodel} demonstrated a 
+foundation model capable of deriving full myocardial masks without user input.
+Finally, given the limited soft-tissue contrast and resolution of standard CT scans, 
+the myocardial thickness in chambers outside of the \LV\ is set to a user-specified constant.
+This approximation may not reflect the true myocardial thickness 
+and may underestimate simulation variability.
+
+Despite these limitations, our current approach balances physiological realism with scalability, 
+enabling whole-heart simulations across a sizeable cohort. 
+Incorporating more refined fibre estimation methods remains an important direction for improving 
+predictive accuracy in personalised cardiac models.
+By incorporating this level of anatomical detail into a reproducible, Python-based workflow, 
+our pipeline bridges the gap between clinical image segmentation and simulation-ready models. 
+It provides a viable route to building whole-heart virtual cohorts for in-silico trials and 
+aligns with regulatory guidelines on model credibility and anatomical completeness~\cite{fda2023_web}.
+

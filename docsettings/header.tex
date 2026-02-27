@@ -1,0 +1,85 @@
+\documentclass{article}
+% In case you're using an earlier version of LaTeX
+\usepackage{etex}
+\reserveinserts{28}
+
+% Use utf-8 encoding for foreign characters
+\usepackage[utf8]{inputenc}
+
+% If Spanish characters are required.
+%\usepackage[greek,spanish]{babel}  
+\usepackage[pdftex]{graphicx}
+
+% Setup for fullpage use and change geometry:
+\usepackage[paperwidth=170mm, paperheight=225mm, margin=20mm]{geometry}
+%\usepackage{geometry}
+\usepackage{fullpage}
+
+%Setup for multicolumn use
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{textcomp}
+\usepackage{tikz}
+\usepackage{IEEEtrantools}
+\usepackage{pgfplots}
+\usepackage{verbatim}
+\usepackage{schemabloc}
+\usepackage{latexsym}
+\usepackage{lscape}
+\usepackage{subfigure}
+%\usepackage{listofsymbols}
+%\usepackage[final]{listofsymbols} Use only for the final run TeX run.
+\usepackage{yfonts}
+\usepackage{mathabx}
+
+%\usepackage[pdf]{pstricks}
+
+\usepackage{longtable}
+\usepackage{tabularx}
+%\usepackage{graphics}
+\usepackage{listings}
+\usepackage{array}
+\usepackage[refpages]{gloss}
+\usepackage{textgreek}
+\usepackage[numbers]{natbib} % you're welcome on your awesome bibliography
+
+\definecolor{LinkColor}{rgb}{0,0,0}
+\usepackage{hyperref}
+  
+% easy MATLAB code input (you need to get mcode first)
+%\usepackage[framed,numbered]{mcode}
+
+\graphicspath{{./pics/}}
+
+%----------------------------------
+% Macros and definitions of the work.
+%----------------------------------
+
+% contiene código de MATLAB
+% -----usage: \lstinputlisting{archivoMatlab.m}
+% -----en lugar de : 
+%           \lstinputlisting{/Users/JoseAlonso/Documents/MATLAB/archivoMatlab.m}
+\newcommand{\autor}{José Alonso Solís Lemus}
+\newcommand{\titulo}{TITLE OF THE DOCUMENT (THESIS or REPORT)}
+
+% Caracteres extraños
+\newcommand{\tildeps}{\tilde{\epsilon}}
+\newcommand{\uu}{\mathbf{u}}
+
+% teoremas y así
+\newtheorem{teo}{Theorem}
+\newtheorem{dfn}{Definition}
+% ---------------------------------
+\makegloss
+
+\author{\autor}
+\title{\titulo}
+\date{Last updated: \today}
+
+
+%Si no se quieren hojas numeradas
+%\pagestyle{headings}
+%----------------------------------
