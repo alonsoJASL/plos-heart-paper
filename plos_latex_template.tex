@@ -87,6 +87,11 @@
 % cite package, to clean up citations in the main text. Do not remove.
 \usepackage{cite}
 
+\usepackage[draft]{changes}  % use mode draft to show changes
+\definechangesauthor[name={Jos\'e Alonso Sol\'is-Lemus}, color=blue]{JASL}
+\definechangesauthor[name={Rosie K. Barrows}, color=orange]{RKB}
+\definechangesauthor[name={Cristobal Rodero}, color=green]{CR}
+
 % Use nameref to cite supporting information files (see Supporting Information section for more info)
 \usepackage{nameref,hyperref}
 
@@ -274,8 +279,10 @@
 % "Conclusion" sections per journal requirements.
 %
 \section*{Abstract}
-This work presents a study on how sex and disease can influence cardiac electrophysiology and 
-    mechanics using a virtual cohort of four-chamber heart models.
+This work presents a study on how \added[id=JASL]{differences in cardiac 
+    anatomy attributed to} sex and disease can influence cardiac 
+    electrophysiology and mechanics using a virtual cohort of four-chamber 
+    heart models.
     Patient anatomy varies across sex and disease. 
     However, capturing this variation in in-silico studies remains poorly accounted for,
     with studies often using either single representative cases or imbalanced virtual cohorts.
@@ -336,6 +343,8 @@ applications.
 \input{sections/results_final}
 \input{sections/discussion_final}
 \input{sections/conclusion}
+
+\listofchanges
 
 % \section*{Acknowledgments}
 % This section is intended only for general acknowledgements and thanks. Any

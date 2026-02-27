@@ -37,6 +37,8 @@
 \usepackage[inline]{enumitem}
 
 %\usepackage[pdf]{pstricks}
+\usepackage[draft]{changes}  % use mode draft to show changes
+\definechangesauthor[name={Jos\'e Alonso Sol\'is-Lemus}, color=blue]{JASL}
 
 \usepackage{longtable}
 \usepackage{tabularx}
@@ -182,8 +184,11 @@
         
 % \end{abstract}
 \begin{abstract} 
-    This work presents a study on how sex and disease can influence cardiac electrophysiology and 
-    mechanics using a virtual cohort of four-chamber heart models.
+    This work presents a study on how \added[id=JASL]{differences in cardiac 
+    anatomy attributed to} sex and disease can influence cardiac 
+    electrophysiology and mechanics using a virtual cohort of four-chamber 
+    heart models.
+
     % Cardiovascular diseases (CVD) are one of the leading causes of death, 
     % but the underlying mechanisms leading to CVD remain poorly understood. 
     % This makes selecting the optimal treatment for different patients challenging. 
@@ -241,6 +246,7 @@
 \input{sections/results_final}
 \input{sections/discussion_final}
 \input{sections/conclusion}
+
 
 \input{docsettings/footer} 
 

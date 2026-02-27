@@ -72,19 +72,37 @@ regional strain analysis~\cite{sillett2023_strain1}.
 However, the extension of such tools to comprehensive whole-heart modelling, including 
 all four chambers, has not been systematically demonstrated or standardised.
 
-In this study, we present CEMRG Heartbuilder, 
+In this study, we \replaced[id=JASL]{developed}{present} CEMRG Heartbuilder, 
 a Python-based library designed to systematically generate patient-specific, 
 four-chamber heart models from clinical computerised tomography (CT) data. 
+\deleted[id=JASL]{
 Our workflow integrates custom image analysis routines with 
 wrappers for external tools, building upon the reproducible and user-friendly CemrgApp platform. 
-We applied the workflow to a new cohort of 50 patients (balanced by sex), 
-classified into three clinical groups: controls ($n=26$), heart failure with narrow QRS ($n=12$), 
-and heart failure with wide QRS ($n=12$). For each case, models were created from a CT scan 
-to a simulation-ready mesh with fibres, and subsequently used to run benchmark electrophysiological and 
-mechanical simulations. 
-The simulations demonstrated the feasibility and robustness of the approach,
-and, through the use of uniform material properties, isolated the impact of disease and sex differences 
-in anatomy on reference mechanical and electro physiological simulations.
+}
+\replaced[id=JASL]{
+    We applied the workflow to a new cohort of 50 patients (balanced by sex), 
+    classified into three clinical groups: controls ($n=26$), heart failure with narrow QRS ($n=12$), 
+    and heart failure with wide QRS ($n=12$). For each case, models were created from a CT scan 
+    to a simulation-ready mesh with fibres, and subsequently used to run benchmark electrophysiological and 
+    mechanical simulations. 
+}{
+    We applied this workflow to a cohort of 50 patients, balanced by sex, including healthy controls 
+    and two heart failure subtypes (narrow and wide QRS). 
+    Benchmark simulations with uniform material properties isolated the impact of anatomical differences 
+    attributed to sex and disease on cardiac electrophysiology and mechanics.
+}
+\replaced[id=JASL]{
+    The simulations demonstrated the feasibility and robustness of the approach,
+    and, through the use of uniform material properties, isolated the impact of disease and sex differences 
+    in anatomy on reference mechanical and electro physiological simulations.
+}{
+    The results demonstrate the feasibility and robustness of the approach.
+}
+\deleted[id=JASL]{The aim of this study is to develop a workflow for creating hearts, 
+apply the workflow to create a new open source sex balanced control and disease cohort, 
+and test the impact of sex and disease differences in anatomy on reference simulations. }
+\replaced[id=JASL]{Figure~\ref{fig:heartbuilder_pipeline} provides an overview of the pipeline and the resulting cohort.}
+{Figure~\ref{fig:heartbuilder_pipeline} provides an overview of the workflow and resulting cohort.}
 
 \begin{figure}[hbpt]
     \centering
@@ -102,10 +120,6 @@ in anatomy on reference mechanical and electro physiological simulations.
 \end{figure}
 
 
-The aim of this study is to develop a workflow for creating hearts, 
-apply the workflow to create a new open source sex balanced control and disease cohort, 
-and test the impact of sex and disease differences in anatomy on reference simulations. 
-Figure~\ref{fig:heartbuilder_pipeline} provides an overview of the pipeline and the resulting cohort.
 % Thus, the objective is to create and a new cohort of 50 patient-specific, whole-heart models, 
 % which include balanced representation of sex and classification into three clinical groups: 
 % healthy controls, heart failure with narrow QRS, and heart failure with wide QRS.
