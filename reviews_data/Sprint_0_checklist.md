@@ -6,6 +6,14 @@
 
 **Why this is Sprint 0:** These numbers gate Sprint 4 (Methods rewrite). If Jacobian stats are problematic, you need to know NOW before drafting the response.
 
+**Calculate and record:**
+- [X] Task 1: Jacobian statistics collected ✓ (meshtool volume metric)
+- [X] Task 2: FEM type confirmed (need to add: linear tetrahedra)
+- [ ] Task 3: Cardiac cycle phase (still need CT metadata)
+- [ ] Task 4: Spatial alignment protocol (document UVC approach)
+- [X] Task 5: User mesh control (CGAL parameters documented in Supp)
+- [ ] Task 6: Geometry validation (if Dice scores exist, add them)
+
 ---
 
 ## Checklist
@@ -15,66 +23,13 @@
 **What R2 wants:** Evidence that mesh quality was checked via Jacobian determinant or element distortion metrics.
 
 **What you need:**
-- [ ] Locate output mesh files from pipeline (`.elem`, `.pts`, `.lon` or similar format)
-- [ ] Identify 2-3 representative meshes (1 control, 1 HFN, 1 HFW) for initial check
-- [ ] Determine mesh format compatibility with quality tools
+- [X] Locate output mesh files from pipeline (`.elem`, `.pts`, `.lon` or similar format)
+- [X] Determine mesh format compatibility with quality tools
 
 **Code/Tools:**
-- [ ] Check if meshtool has Jacobian calculation built-in
-  ```bash
-  meshtool --help | grep -i jacobian
-  ```
-- [ ] Check if CARP has mesh quality diagnostics
-  ```bash
-  # Look in CARP documentation or run:
-  carputils --help quality
-  ```
-- [ ] Alternative: Check if you have Python mesh analysis scripts in cemrg-heartbuilder repo
-  ```bash
-  cd /path/to/cemrg-heartbuilder
-  grep -r "jacobian" --include="*.py"
-  ```
-- [ ] If no existing tool, use PyMesh or meshio:
-  ```python
-  import meshio
-  import numpy as np
-  
-  # Load mesh
-  mesh = meshio.read("heart_mesh.vtk")
-  
-  # For tetrahedral meshes, calculate Jacobian per element
-  # (implementation depends on mesh format)
-  ```
-
-**Calculate and record:**
-- [ ] Minimum Jacobian determinant across all 50 meshes
-- [ ] Mean Jacobian determinant across all 50 meshes
-- [ ] Standard deviation
-- [ ] Percentage of inverted elements (Jacobian < 0) per mesh
-- [ ] Percentage of near-degenerate elements (Jacobian < 0.1) per mesh
+- [X] Check if meshtool has Jacobian calculation built-in (`meshtool query quality`)
 
 **Output:** Create `mesh_quality_stats.txt` in repo with:
-```
-Mesh Quality Statistics (n=50 hearts)
-======================================
-
-Jacobian Determinant:
-  Mean: X.XX ± Y.YY
-  Min: Z.ZZ
-  Max: W.WW
-  
-Inverted elements (J < 0):
-  Total across cohort: N elements
-  Percentage: P%
-  Affected meshes: M/50
-  
-Near-degenerate (0 < J < 0.1):
-  Total: N elements
-  Percentage: P%
-  
-Correction protocol:
-  [Describe manual smoothing/remeshing steps taken if any]
-```
 
 ---
 

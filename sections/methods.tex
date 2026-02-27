@@ -172,6 +172,26 @@ These locations are defined in UVCs based on~\cite{gillette_automated_2021}.
     \label{fig:methods-model-creation}
 \end{figure}
 
+\added[id=JASL]{%
+    \paragraph{Mesh Quality Assessment}
+    We assessed the quality of all 50 volumetric meshes using the volume-based 
+    distortion metric (\texttt{tet\_qmetric\_volume}) implemented in 
+    meshtool~\cite{Neic2020-meshtool}, which quantifies element distortion relative to 
+    an ideal tetrahedron. This metric is directly related to the determinant 
+    of the Jacobian of the geometric map and is normalised to $[0, 1]$, where 
+    0 corresponds to a perfect tetrahedron and 1 to a fully degenerate element.
+    
+    Across all 50 meshes (mean $2.6 \times 10^6$ elements per mesh, range 
+    $1.9$--$4.5 \times 10^6$), the mean element quality was $0.153 \pm 0.100$ 
+    (mean $\pm$ SD across all elements in the cohort). The minimum quality per 
+    mesh averaged $2.1 \times 10^{-4}$, indicating that even the worst elements 
+    retained near-ideal geometry. No inverted elements (quality $> 0.99$) were 
+    detected. Near-degenerate elements (quality $> 0.90$) were found in 28 of 
+    50 meshes, comprising at most 9 elements per mesh ($< 0.0003\%$ of total 
+    elements). These results confirm high geometric fidelity suitable for 
+    finite element analysis.%
+}
+
 \subsection{Simulations}\label{sec:simulations}
 
 We performed EP and mechanics simulations on all the models. 

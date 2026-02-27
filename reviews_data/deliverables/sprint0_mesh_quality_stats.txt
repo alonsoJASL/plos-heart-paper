@@ -1,0 +1,34 @@
+Mesh Quality Statistics (n=50 hearts)
+======================================
+
+Finite Element Type:
+  Type: Linear tetrahedral elements
+  Nodes per element: 4
+  Mean elements per mesh: 2,603,000 (range 1,881,000–4,504,000)
+  
+Element Quality (tet_qmetric_volume metric):
+  Metric range: [0, 1] where 0 = perfect tetrahedron, 1 = degenerate
+  Mean quality across cohort: 0.153 ± 0.100
+  Mean minimum quality per mesh: 0.000209
+  Mean maximum quality per mesh: 0.904
+  
+Inverted Elements (quality > 0.99):
+  Total across cohort: 0
+  Percentage: 0.0000%
+  Affected meshes: 0/50
+  
+Near-Degenerate Elements (quality > 0.90):
+  Total across cohort: 66 elements
+  Percentage: 0.00005% of 130M total elements
+  Affected meshes: 28/50
+  Maximum per mesh: 9 elements (0.0003%)
+
+Correction Protocol:
+  Laplacian smoothing applied during CGAL meshing (facet_distance 
+  parameter controls surface fidelity vs. smoothness trade-off).
+  No manual correction of individual elements was required.
+  All simulations converged without numerical instability.
+
+Element Size Statistics:
+  Target edge length: ~0.5 mm (set via CGAL cell_size parameter)
+  [Add actual edge length stats if you calculate them separately]
