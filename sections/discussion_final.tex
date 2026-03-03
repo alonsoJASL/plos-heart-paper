@@ -43,6 +43,14 @@ typically produce 7–10 output labels, insufficient for physiologically realist
 In contrast, our approach employs a 37-label standard~\cite{strocchi2020_cohort,strocchi2020_simulating}, 
 encompassing detailed delineation of blood pools, myocardia, valve planes,
 and major vessels across all four chambers.
+\added[id=JASL]{
+    The current implementation applies uniform meshing parameters globally 
+    across the whole heart. While regional refinement could theoretically be 
+    achieved by meshing structures separately and stitching at interfaces, 
+    we prioritized mesh integrity to ensure numerical stability in coupled 
+    electromechanical simulations, where interface discontinuities can 
+    introduce artifacts.
+}
 
 % \subsection{Discussion on the results}
 \subsection{Impact of Anatomical Variability on Electromechanical Predictions}

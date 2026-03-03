@@ -68,6 +68,16 @@ and a applies a smoothing algorithm~\cite{crozier2016_segsmooth}.
 \subsubsection{Conversion to Mesh}\label{sec:meshing}
 A volumetric mesh is extracted from the smooth segmentation using a meshing tool developed in-house, 
 which comes packaged with CemrgApp and is based on the Computational Geometry Algorithm Library (CGAL)~\cite{cgal}. 
+\added[id=JASL]{
+    The CGAL mesher generates unstructured volumetric meshes 
+    composed of linear tetrahedral elements (4 nodes per element). Target 
+    element edge length was set to approximately 0.5~mm via the 
+    \texttt{cell\_size} and \texttt{facet\_size} parameters. 
+    Mesh density is controlled via CGAL parameters 
+    (\texttt{facet\_size}, \texttt{cell\_size}, \texttt{facet\_distance}), 
+    which are specified globally for the entire heart geometry. Complete 
+    parameter specifications are provided in the Supplementary Material.
+}
 The next step is to extract the myocardia, simplify the mesh topology, and relabel the tags using 
 meshtool~\cite{Neic2020-meshtool}.
 The simplification consists in identifying elements insufficiently connected to neighbours of the same class.
@@ -77,6 +87,10 @@ A complete description of the CGAL parameters, which can be modified by the user
 is available in the Supplementary material. 
 Figure~\ref{fig:methods-mesh} shows the output of the meshing process from the smooth segmentation 
 to the working mesh re-labelled and with the blood pools removed.
+\added[id=JASL]{
+    The final simulation-ready models contained a mean of $2.6 \times 10^6$ elements per heart 
+    (range $1.9$--$4.5 \times 10^6$).
+}
 
 \begin{figure}[hbpt]
     \centering
@@ -110,7 +124,10 @@ to provide a system of coordinates defined on the volumetric mesh that facilitat
 the assignment of different tags within the mesh, and of boundary conditions for the 
 pericardium.
 To achieve this, 
-the left and the right atria were treated as an upside down single ventricle, 
+the left and the right atria were treated as an upside down single ventricle,
+\added[id=JASL]{
+    following the coordinate transformation approach described by~\citet{strocchi2020_simulating},
+} 
 with the apex manually placed between the two right pulmonary veins and behind the 
 supervior vena cava, respectively. 
 
@@ -199,6 +216,17 @@ Simulations were run with a fixed set of parameters to assess the impact
 anatomical differences would have on the outputs. 
 These simulations also served as an additional quality check for the meshes, 
 to ensure the models could be used to run electromechanics simulations. 
+
+\added[id=JASL]{
+    Each patient-specific mesh was simulated in its native 
+    coordinate system without spatial registration to a common anatomical 
+    reference frame. Comparisons between models were performed on scalar 
+    outputs (chamber volumes, total activation times) that are invariant 
+    to rigid transformations. Universal Ventricular Coordinates 
+    (UVCs)~\cite{bayer2018} provide normalized transmural and apicobasal 
+    coordinates for regional functional analysis independent of absolute 
+    spatial positioning.
+}
 
 The EP simulations were started at the \SAN, defined in Section~\ref{fig:methods-model-creation}. 
 The ventricular endocardial electrodes (fascicles) were also activated simulating the early activation 

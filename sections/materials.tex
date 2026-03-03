@@ -2,8 +2,16 @@
 Fifty cases were processed, creating patient-specific four-chamber heart models. 
 The cohort was split into three groups: Controls (\Ctl, $n=26$), Heart Failure (\HF) with narrow QRS (\HFN, $n=12$), 
 and HF with wide QRS (\HFW, $n=12$); each group is balanced by sex (50\% Female).
-A QRS duration of less than 120 ms is considered narrow.
-Each case consisted of a CT scan. 
+A QRS duration of less than 120 ms is considered narrow. 
+\replaced[id=JASL]{
+    Each case consisted of a CT scan, acquired using a consistent imaging 
+    protocol. The reconstructed meshes represent the cardiac anatomy in a 
+    static reference configuration. Subsequent mechanical simulations apply 
+    prescribed endocardial pressures from this baseline geometric state, 
+    enabling comparison of anatomical effects across the cohort.
+}{
+    Each case consisted of a CT scan.
+}
 The study was conducted under ethical approval titled 
 Retrospective analysis of cardiac imaging datasets for development of novel biomarkers study 
 (Short title: RAIDER), 
