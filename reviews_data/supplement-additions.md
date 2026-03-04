@@ -183,3 +183,14 @@ applied in passive inflation simulations.
 
 [Add others as needed]
 ```
+
+## 6. TAT-QRS Correlation Analysis (NEW - Sprint 1)
+
+**Promised in:**
+- Methods Section 3.3: "...Supplementary Figure~S1"
+
+**What must be included:**
+- [x] Supplementary Figure S1: Stratified scatter plot (COMPLETE)
+- [ ] Add legend for S1 Figure after References in main manuscript
+
+**Current status:** Figure ready, legend text needed

@@ -1,0 +1,14 @@
+QRS Duration vs Ventricular TAT Correlation Analysis
+============================================================
+
+Total cases in cohort: 50
+Cases with ECG QRS data: 33
+Missing QRS data: 17
+
+Correlation Statistics:
+  Pearson r = 0.2015 (p = 0.260714)
+  Spearman ρ = 0.4139 (p = 0.016649)
+
+Linear Regression:
+  QRS = 0.335 × TAT + 35.06
+  R² = 0.0406

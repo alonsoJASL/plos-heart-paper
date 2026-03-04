@@ -176,6 +176,18 @@ Finally, limitations remain at the segmentation stage.
 Because this step underpins all subsequent model construction, 
 we discuss its implications in more detail in the following section.
 
+\added[id=JASL]{
+    Our simulations employed uniform electrophysiological and 
+    mechanical parameters across all models to isolate the effects of anatomical 
+    variability. While this approach successfully captured anatomical influences 
+    on cardiac function, evidenced by the strong correlation between simulated 
+    activation times and QRS duration in control hearts, $r=0.649, p<0.005$, it 
+    does not account for patient-specific tissue properties such as fibrosis or 
+    conduction system disease. The absence of correlation in heart failure patients 
+    ($r=-0.127, p=0.64$) reflects this limitation and highlights the need for 
+    patient-specific parameter calibration in future work.
+}
+
 \subsubsection{Critical Role of Segmentation in Model Accuracy}
 The segmentation stage is a critical bottleneck in the pipeline,
 requiring notable manual input to ensure anatomical fidelity.
