@@ -25,8 +25,15 @@ multi-scale integration, and
 clinical translation.
 The resulting models are anatomically detailed, but the method depended on extensive user guidance to 
 create the initial atlas, limiting throughput and scale.
-Other groups~\cite{gillette_personalized_2022} have also demonstrated personalised whole-heart 
-electrophysiology models, but again with significant manual setup and typically small cohorts.
+\replaced[id=JASL]{
+    Other groups, such as Gillette et al.~\cite{gillette_personalized_2022}, have also 
+    demonstrated personalised whole-heart electrophysiology models, but again with 
+    significant manual setup and typically small cohorts.
+}{
+    Other groups~\cite{gillette_personalized_2022} have also demonstrated personalised 
+    whole-heart electrophysiology models, but again with significant manual setup and 
+    typically small cohorts.
+}
 In summary, existing pipelines either produce atria-only or ventricle-only models, 
 or else deliver high-detail four-chamber meshes at the cost of manual effort.
 Our framework seeks to overcome these limitations by producing anatomically complete four-chamber 

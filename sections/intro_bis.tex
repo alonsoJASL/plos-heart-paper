@@ -1,6 +1,6 @@
 \section{Introduction}
 
-Patient-specific computational models and simulations (\CMnS) of the heart have increasingly  
+Patient-specific computational models and simulations \deleted[id=JASL]{(\CMnS)} of the heart have increasingly  
 been used to develop and guide clinical therapies~\cite{solis-lemus2023_reproducibility},
 supporting the  
 design~\cite{gray-2018-models_design,vanderlaan-2024-models_design}, 
@@ -28,22 +28,36 @@ particularly the lack of high-quality, sex-balanced, disease-specific patient da
 Several studies have attempted to bridge this gap through the creation of virtual cohorts that can 
 be used for in-silico trials~\cite{strocchi2020_cohort,rodero2021_linking}.
 Despite these advances, addressing sex balance in cardiac modeling databases is a persisting challenge. 
-The cohorts of cases presented by~\cite{strocchi2020_cohort} has one female patient, 
-while the one presented by~\cite{rodero2021_linking} has 6 out of 20. 
-Finally, in the study by~\cite{Roney2022-predicting} on predicting atrial fibrillation recurrence, 
-28 of the 99 patients were female.
+\replaced[id=JASL]{
+    The cohort presented by Strocchi et al.~\cite{strocchi2020_cohort} has one 
+    female patient, while the one presented by Rodero et al.~\cite{rodero2021_linking} 
+    has 6 out of 20. Finally, in the study by Roney et al.~\cite{Roney2022-predicting} 
+    on predicting atrial fibrillation recurrence, 28 of the 99 patients were female.
+}{
+    The cohorts of cases presented by~\cite{strocchi2020_cohort} has one female patient, 
+    while the one presented by~\cite{rodero2021_linking} has 6 out of 20. 
+    Finally, in the study by~\cite{Roney2022-predicting} on predicting atrial fibrillation recurrence, 
+    28 of the 99 patients were female.
+}
 Large virtual heart cohorts have begun to emerge, enabling in-silico trials and population-level 
 analyses~\cite{passini2021_virtual,rodero-2021-virtualcohort1000,rodero-2021-virtualcohortextreme}. 
-For example, the~\cite{strocchi2020_cohort} database has been widely used for studies on valve 
-mechanics~\cite{feng2024_db_user}, 
-fibrosis detection~\cite{okenov2024_db_user}, and 
-arrhythmia modeling~\cite{kaboudian2023_db_user}.
+\replaced[id=JASL]{
+    For example, the Strocchi et al.~\cite{strocchi2020_cohort} database has been 
+    widely used for studies on valve mechanics~\cite{feng2024_db_user}, 
+    fibrosis detection~\cite{okenov2024_db_user}, and 
+    arrhythmia modeling~\cite{kaboudian2023_db_user}.
+}{
+    For example, the~\cite{strocchi2020_cohort} database has been widely used for 
+    studies on valve mechanics~\cite{feng2024_db_user}, 
+    fibrosis detection~\cite{okenov2024_db_user}, and 
+    arrhythmia modeling~\cite{kaboudian2023_db_user}.
+}
 While these cohorts represent valuable tools for the cardiac modelling community, 
 they also highlight the challenge of having balanced representation of sex or disease subtypes, and 
 workflows for generating new whole-heart cohorts remain poorly defined.
 
 Sex bias is a complex, multi-factorial problem that affects the availability and generalisability 
-of data used for \CMnS~\cite{steuernagel2023_sex_bias}.
+of data used for \replaced[id=JASL]{computational models and simulations}{\CMnS}~\cite{steuernagel2023_sex_bias}.
 Simulation studies can take considerable time and computational resources, 
 which makes it especially relevant to consider whether anatomical differences associated with sex 
 or disease influence the results.
