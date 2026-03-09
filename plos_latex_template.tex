@@ -87,10 +87,15 @@
 % cite package, to clean up citations in the main text. Do not remove.
 \usepackage{cite}
 
-\usepackage[draft]{changes}  % use mode draft to show changes
+\usepackage[draft,commentmarkup=footnote]{changes}  % use mode draft to show changes
 \definechangesauthor[name={Jos\'e Alonso Sol\'is-Lemus}, color=blue]{JASL}
 \definechangesauthor[name={Rosie K. Barrows}, color=orange]{RKB}
 \definechangesauthor[name={Cristobal Rodero}, color=green]{CR}
+
+\definechangesauthor[name={Reviewer 1}, color=blue]{R1}
+\definechangesauthor[name={Reviewer 2}, color=orange]{R2}
+\definechangesauthor[name={Reviewer 3}, color=teal]{R3}
+\definechangesauthor[name={Multiple Reviewers}, color=magenta]{MR}
 
 % Use nameref to cite supporting information files (see Supporting Information section for more info)
 \usepackage{nameref,hyperref}
@@ -279,7 +284,8 @@
 % "Conclusion" sections per journal requirements.
 %
 \section*{Abstract}
-This work presents a study on how \added[id=JASL]{differences in cardiac 
+This work presents a study on how 
+    \added[id=R1, comment={R1-Maj-1: Abstract line 1 precision}]{differences in cardiac 
     anatomy attributed to} sex and disease can influence cardiac 
     electrophysiology and mechanics using a virtual cohort of four-chamber 
     heart models.

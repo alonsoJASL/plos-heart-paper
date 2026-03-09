@@ -1,6 +1,8 @@
 \section{Introduction}
 
-Patient-specific computational models and simulations \deleted[id=JASL]{(\CMnS)} of the heart have increasingly  
+Patient-specific computational models and simulations 
+\deleted[id=R3, comment={R3-Min-3a: CM\&S acronym removal}]{\CMnS}
+of the heart have increasingly  
 been used to develop and guide clinical therapies~\cite{solis-lemus2023_reproducibility},
 supporting the  
 design~\cite{gray-2018-models_design,vanderlaan-2024-models_design}, 
@@ -28,7 +30,7 @@ particularly the lack of high-quality, sex-balanced, disease-specific patient da
 Several studies have attempted to bridge this gap through the creation of virtual cohorts that can 
 be used for in-silico trials~\cite{strocchi2020_cohort,rodero2021_linking}.
 Despite these advances, addressing sex balance in cardiac modeling databases is a persisting challenge. 
-\replaced[id=JASL]{
+\replaced[id=R3, comment={R3-Min-4a: Citation-as-noun fixes}]{
     The cohort presented by Strocchi et al.~\cite{strocchi2020_cohort} has one 
     female patient, while the one presented by Rodero et al.~\cite{rodero2021_linking} 
     has 6 out of 20. Finally, in the study by Roney et al.~\cite{Roney2022-predicting} 
@@ -41,7 +43,7 @@ Despite these advances, addressing sex balance in cardiac modeling databases is 
 }
 Large virtual heart cohorts have begun to emerge, enabling in-silico trials and population-level 
 analyses~\cite{passini2021_virtual,rodero-2021-virtualcohort1000,rodero-2021-virtualcohortextreme}. 
-\replaced[id=JASL]{
+\replaced[id=R3, comment={R3-Min-4a: Citation-as-noun fixes}]{
     For example, the Strocchi et al.~\cite{strocchi2020_cohort} database has been 
     widely used for studies on valve mechanics~\cite{feng2024_db_user}, 
     fibrosis detection~\cite{okenov2024_db_user}, and 
@@ -57,7 +59,8 @@ they also highlight the challenge of having balanced representation of sex or di
 workflows for generating new whole-heart cohorts remain poorly defined.
 
 Sex bias is a complex, multi-factorial problem that affects the availability and generalisability 
-of data used for \replaced[id=JASL]{computational models and simulations}{\CMnS}~\cite{steuernagel2023_sex_bias}.
+of data used for \replaced[id=R3, comment={R3-Min-3: CM\&S acronym removal}]{
+    computational models and simulations}{\CMnS}~\cite{steuernagel2023_sex_bias}.
 Simulation studies can take considerable time and computational resources, 
 which makes it especially relevant to consider whether anatomical differences associated with sex 
 or disease influence the results.
@@ -86,14 +89,15 @@ regional strain analysis~\cite{sillett2023_strain1}.
 However, the extension of such tools to comprehensive whole-heart modelling, including 
 all four chambers, has not been systematically demonstrated or standardised.
 
-In this study, we \replaced[id=JASL]{developed}{present} CEMRG Heartbuilder, 
+In this study, we \replaced[id=MR, comment={R3-Min-3, R3-Min-4, R3-Min-5: Minor Editorial Corrections}]{
+    developed}{present} CEMRG Heartbuilder, 
 a Python-based library designed to systematically generate patient-specific, 
 four-chamber heart models from clinical computerised tomography (CT) data. 
-\deleted[id=JASL]{
-Our workflow integrates custom image analysis routines with 
-wrappers for external tools, building upon the reproducible and user-friendly CemrgApp platform. 
+\deleted[id=R3, comment={R3-Maj-1b: Second-to-last paragraph streamlining}]{
+    Our workflow integrates custom image analysis routines with 
+    wrappers for external tools, building upon the reproducible and user-friendly CemrgApp platform. 
 }
-\replaced[id=JASL]{
+\replaced[id=R3]{
     We applied the workflow to a new cohort of 50 patients (balanced by sex), 
     classified into three clinical groups: controls ($n=26$), heart failure with narrow QRS ($n=12$), 
     and heart failure with wide QRS ($n=12$). For each case, models were created from a CT scan 
@@ -105,14 +109,15 @@ wrappers for external tools, building upon the reproducible and user-friendly Ce
     Benchmark simulations with uniform material properties isolated the impact of anatomical differences 
     attributed to sex and disease on cardiac electrophysiology and mechanics.
 }
-\replaced[id=JASL]{
-    The simulations demonstrated the feasibility and robustness of the approach,
+The simulations \replaced[id=MR]{demonstrated}{demonstrate} the feasibility and robustness of the approach,
+\added[id=R3]{
     and, through the use of uniform material properties, isolated the impact of disease and sex differences 
     in anatomy on reference mechanical and electro physiological simulations.
-}{
-    The results \replaced[id=JASL]{demonstrated}{demonstrate} the feasibility and robustness of the approach.
 }
-\deleted[id=JASL]{The aim of this study is to develop a workflow for creating hearts, 
+% {
+%     The results \replaced[id=JASL]{demonstrated}{demonstrate} the feasibility and robustness of the approach.
+% }
+\deleted[id=R3, comment={R3-Maj-1a: Last paragraph deletion}]{The aim of this study is to develop a workflow for creating hearts, 
 apply the workflow to create a new open source sex balanced control and disease cohort, 
 and test the impact of sex and disease differences in anatomy on reference simulations. }
 \replaced[id=JASL]{Figure~\ref{fig:heartbuilder_pipeline} provides an overview of the pipeline and the resulting cohort.}

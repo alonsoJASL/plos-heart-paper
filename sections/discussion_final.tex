@@ -25,7 +25,7 @@ multi-scale integration, and
 clinical translation.
 The resulting models are anatomically detailed, but the method depended on extensive user guidance to 
 create the initial atlas, limiting throughput and scale.
-\replaced[id=JASL]{
+\replaced[id=R3, comment={R3-Min-4b: Citation-as-noun fix}]{
     Other groups, such as Gillette et al.~\cite{gillette_personalized_2022}, have also 
     demonstrated personalised whole-heart electrophysiology models, but again with 
     significant manual setup and typically small cohorts.
@@ -50,7 +50,7 @@ typically produce 7–10 output labels, insufficient for physiologically realist
 In contrast, our approach employs a 37-label standard~\cite{strocchi2020_cohort,strocchi2020_simulating}, 
 encompassing detailed delineation of blood pools, myocardia, valve planes,
 and major vessels across all four chambers.
-\added[id=JASL]{
+\added[id=R2, comment={R2-5b: Regional mesh refinement discussion}]{
     The current implementation applies uniform meshing parameters globally 
     across the whole heart. While regional refinement could theoretically be 
     achieved by meshing structures separately and stitching at interfaces, 
@@ -58,7 +58,7 @@ and major vessels across all four chambers.
     electromechanical simulations, where interface discontinuities can 
     introduce artifacts.
 }
-\added[id=JASL]{
+\added[id=R1, comment={R1-Maj-5b: Geometric-functional correlation discussion}]{
     The strong correlations between geometric metrics and simulation outputs 
     (Supplementary Table~S2, Figure~S2) demonstrate that anatomical variability 
     is a primary driver of functional differences when using standardized 
@@ -70,7 +70,7 @@ and major vessels across all four chambers.
     geometric path length determining conduction duration.
 }
 
-\added[id=JASL]{
+\added[id=R1, comment={R1-Maj-5b: Geometric-functional correlation discussion}]{
     These findings validate our approach of isolating anatomical effects through 
     parameter standardization. However, they also highlight the limitation: 
     real-world patient-specific predictions would require calibration of tissue 
@@ -87,13 +87,12 @@ We did not include active contraction in the benchmark as these simulations ofte
 parameters to match contraction, pre-load and after load, 
 reducing our ability to compare consistent simulations across anatomies.
 As such, the results reflect the isolated impact of 
-\replaced[id=JASL]{
+\replaced[id=R1, comment={R1-Min-3: Structural variation wording fix}]{
     anatomical structure variation
 }{
     structural variation
 } 
-due to sex or disease due to sex or disease status on 
-predicted electrical activation and mechanical inflation.
+due to sex or disease status on predicted electrical activation and mechanical inflation.
 The results from the two-way ANOVA showed, in most cases, non significant interactions.
 This means that we could only look at the independent effects: control vs \HF\ and 
 male vs female. 
@@ -101,7 +100,7 @@ The characterisation of effect sizes (small, moderate, and large) by~\cite{gigna
 were included as a guideline, based on the distribution of effect sizes obtained.
 
 \subsection{Comparison with Clinical Reference Ranges}
-\replaced[id=JASL]{
+\replaced[id=MR, comment={R1-Maj-3, R3-Maj-2, R3-Maj-6: Validation reframe}]{
     Comparison with population-based MRI reference data~\cite{petersen-2017-reference} 
     demonstrated that control models reproduced expected sex-specific chamber sizes, 
     serving as an anatomical fidelity check for our reconstruction pipeline. 
@@ -134,7 +133,7 @@ were included as a guideline, based on the distribution of effect sizes obtained
 }
 
 \paragraph{Impact of Sex and Heart Failure in \emph{In-Silico} Studies}
-\replaced[id=JASL]{
+\replaced[id=MR, comment={R1-Maj-4: Geometry causality rewrite}]{
     Our simulations consistently separated groups by sex and disease status using 
     uniform electrophysiological and mechanical parameters, demonstrating that 
     anatomical variability alone produces measurable functional differences. 
@@ -146,7 +145,11 @@ were included as a guideline, based on the distribution of effect sizes obtained
     geometry under uniform compliance parameters~\cite{zile-2004-stiffness,aurigemma-2006-stiffness}. 
     Similarly, larger $\deltaVol{LA}$ patterns align with clinical markers of atrial 
     dysfunction~\cite{Carpenito-2021-la-stiffness,kim-2023-la-stiffness}. 
-    When expressed as normalized change, HF females showed the greatest relative differences, 
+    When expressed as normalized change  
+    \added[id=R3, comment={R3-Min-2: }]{
+        (Figure~\ref{fig:cohen-big-effects}(a)), however, 
+    }
+    \HF\ females showed the greatest relative differences, 
     driven by smaller baseline chamber sizes. 
     This emphasizes that absolute and relative measures provide complementary insights in 
     sex-stratified analyses~\cite{steuernagel2023_sex_bias}. 
@@ -212,7 +215,7 @@ For a virtual cohort such as the sex-balanced 50 patient cohort provided here,
 intended for re-use in variety of future device or drug ISCTs, 
 a hierarchical evaluation approach can be used to generate an initial body of credibility evidence 
 to support a future ISCT.
-\replaced[id=JASL]{
+\replaced[id=R1, comment={R1-Maj-6: ISCT language de-escalation}]{
     In this work, we have conducted a preliminary assessment of anatomical representativeness 
     by comparing ventricular and atrial volumes in the male and female cohort subsets with 
     corresponding UK BioBank data. This comparison demonstrates that our reconstruction pipeline 
@@ -264,7 +267,7 @@ Finally, limitations remain at the segmentation stage.
 Because this step underpins all subsequent model construction, 
 we discuss its implications in more detail in the following section.
 
-\added[id=JASL]{
+\added[id=MR, comment={R3-Maj-3b: TAT-QRS limitation acknowledgment}]{
     Our simulations employed uniform electrophysiological and 
     mechanical parameters across all models to isolate the effects of anatomical 
     variability. While this approach successfully captured anatomical influences 
@@ -276,7 +279,7 @@ we discuss its implications in more detail in the following section.
     patient-specific parameter calibration in future work.
 }
 
-\added[id=JASL]{
+\added[id=R3, comment={R3-Maj-7: UKBB Caucasian limitation}]{
     Additionally, the UKBB reference ranges used for anatomical comparison~\cite{petersen-2017-reference} 
     were derived from a predominantly Caucasian population. This may limit the generalizability 
     of our anatomical fidelity assessment across diverse ethnic backgrounds, as chamber sizes 
@@ -301,9 +304,21 @@ Finally, given the limited soft-tissue contrast and resolution of standard CT sc
 the myocardial thickness in chambers outside of the \LV\ is set to a user-specified constant.
 This approximation may not reflect the true myocardial thickness 
 and may underestimate simulation variability.
+\added[id=R2, comment={R2-4: Geometry-image correspondence}]{
+    Full voxel-level correspondence assessment of the 37-label post-processed 
+    geometry against clinical images is not feasible for this dataset: CT 
+    soft-tissue contrast does not resolve myocardial boundaries outside the \LV, 
+    and structures including the \RV\ wall, atria, and great vessel walls are 
+    assigned thickness via distance maps at a user-specified constant. 
+    For the 10-label segmentation stage, geometric accuracy is supported by the 
+    published validation of the deep learning model~\cite{hao2021_ccta}. 
+    Population-level consistency of chamber volumes with \UKBB\ reference 
+    ranges (Section~\ref{sec:simulations}) provides indirect geometric 
+    plausibility evidence at the cohort level.
+}
 
 \subsubsection{Uncertainty Quantification}\label{sec:uq}
-\added[id=JASL]{
+\added[id=R1, comment={R1-Maj-7: Uncertainty quantification discussion}]{
     While this study demonstrates that anatomical variability influences 
     simulation outcomes under fixed parameters, uncertainties in the segmentation and 
     mesh generation process may further contribute to output variance. 
@@ -314,7 +329,8 @@ and may underestimate simulation variability.
     substantially greater complexity, with four chambers, multiple vessel junctions, 
     and valve planes that may amplify uncertainty propagation through the reconstruction 
     workflow.
-
+}
+\added[id=R1, comment={R1-Maj-7}]{
     A systematic approach to quantifying these uncertainties would involve Monte Carlo 
     sampling of plausible segmentation contours within the bounds of image resolution 
     and anatomical variability. For instance, systematically perturbing myocardial 
@@ -324,7 +340,8 @@ and may underestimate simulation variability.
     the sensitivity of activation times and mechanical responses to reconstruction 
     uncertainty, extending our prior single-chamber reproducibility analysis to the 
     multi-chamber whole-heart case.
-
+}
+\added[id=R1, comment={R1-Maj-7}]{
     Such uncertainty quantification analyses align with verification, validation, and 
     uncertainty quantification (VVUQ) frameworks increasingly adopted for computational 
     model credibility assessment in regulatory contexts~\cite{health_assessing_2023}. 
