@@ -68,7 +68,9 @@ and major vessels across all four chambers.
     laws. Similarly, mesh element count (a proxy for anatomical size) predicted 
     87\% of variance in right ventricular activation time, consistent with 
     geometric path length determining conduction duration.
+}
 
+\added[id=JASL]{
     These findings validate our approach of isolating anatomical effects through 
     parameter standardization. However, they also highlight the limitation: 
     real-world patient-specific predictions would require calibration of tissue 
@@ -84,7 +86,13 @@ All whole-heart models were simulated using identical parameters for both electr
 We did not include active contraction in the benchmark as these simulations often require patient specific 
 parameters to match contraction, pre-load and after load, 
 reducing our ability to compare consistent simulations across anatomies.
-As such, the results reflect the isolated impact of structural variation due to sex or disease status on 
+As such, the results reflect the isolated impact of 
+\replaced[id=JASL]{
+    anatomical structure variation
+}{
+    structural variation
+} 
+due to sex or disease due to sex or disease status on 
 predicted electrical activation and mechanical inflation.
 The results from the two-way ANOVA showed, in most cases, non significant interactions.
 This means that we could only look at the independent effects: control vs \HF\ and 
@@ -93,42 +101,87 @@ The characterisation of effect sizes (small, moderate, and large) by~\cite{gigna
 were included as a guideline, based on the distribution of effect sizes obtained.
 
 \subsection{Comparison with Clinical Reference Ranges}
-Validation against population-based MRI reference data~\cite{petersen-2017-reference} 
-confirmed that control models reproduced expected sex-specific chamber sizes.
-Male and female \LV\ and \RV\ volumes were largely consistent with normal ranges, 
-supporting the accuracy of our anatomical pipeline.
-In heart failure, \LV\ enlargement was most pronounced in males, frequently exceeding 
-reference thresholds, consistent with classical patterns of systolic dilation.
-Females also showed increased \LV\ volumes, though these remained mostly within upper limits, 
-highlighting sex differences in disease expression.
-\RV\ enlargement was less prominent in both males and females with \HF. 
-This might be reflecting clinical reports that \RV\ size is less sensitive to early disease~\cite{ro-2023-rv_volume}.
-These results demonstrate that the virtual cohort captures both healthy anatomy and pathological remodelling, 
-while also exposing the limitations of fixed reference ranges that do not account for sex and disease interplay.
+\replaced[id=JASL]{
+    Comparison with population-based MRI reference data~\cite{petersen-2017-reference} 
+    demonstrated that control models reproduced expected sex-specific chamber sizes, 
+    serving as an anatomical fidelity check for our reconstruction pipeline. 
+    Male and female \LV\ and \RV\ volumes were largely consistent with normal ranges, 
+    supporting the accuracy of our segmentation and meshing workflow. 
+    However, because mechanical simulations used uniform material properties across all cases, 
+    the observed volumes represent anatomical structure rather than patient-specific functional state. 
+    In heart failure, \LV\ enlargement was most pronounced in males, frequently exceeding 
+    reference thresholds, consistent with classical patterns of systolic dilation. 
+    Females also showed increased \LV\ volumes, though these remained mostly within upper limits, 
+    highlighting sex differences in disease expression. 
+    \RV\ enlargement was less prominent in both males and females with HF, 
+    reflecting clinical reports that \RV\ size is less sensitive to early disease~\cite{ro-2023-rv_volume}. 
+    These results demonstrate that the virtual cohort captures both healthy anatomy and 
+    pathological remodeling patterns at the population level.
+}{
+    Validation against population-based MRI reference data~\cite{petersen-2017-reference} 
+    confirmed that control models reproduced expected sex-specific chamber sizes. 
+    Male and female \LV\ and \RV\ volumes were largely consistent with normal ranges, 
+    supporting the accuracy of our anatomical pipeline. 
+    In heart failure, \LV\ enlargement was most pronounced in males, frequently exceeding 
+    reference thresholds, consistent with classical patterns of systolic dilation. 
+    Females also showed increased \LV\ volumes, though these remained mostly within upper limits, 
+    highlighting sex differences in disease expression. 
+    \RV\ enlargement was less prominent in both males and females with HF. 
+    This might be reflecting clinical reports that \RV\ size is less sensitive to early disease~\cite{ro-2023-rv_volume}. 
+    These results demonstrate that the virtual cohort captures both healthy anatomy and 
+    pathological remodelling, while also exposing the limitations of fixed reference ranges 
+    that do not account for sex and disease interplay.
+}
 
 \paragraph{Impact of Sex and Heart Failure in \emph{In-Silico} Studies}
-Our simulations consistently separated groups by sex and disease status, even in the absence of tuned 
-electrophysiological or mechanical parameters.
-Absolute \LV\ volume increases were particularly marked in male \HF, reproducing the clinical signature of 
-pathological dilation~\cite{kasa-2024-lv_volume,ito-2021-lv_volume}.
-Larger $\deltaVol{LV}$ in \HF\ patients suggest structurally thinner or more distensible 
-walls~\cite{zile-2004-stiffness,aurigemma-2006-stiffness}.
-Similarly, larger $\deltaVol{LA}$ would indicate other issues like increased prediction of mortality or  
-hospitalisation~\cite{Carpenito-2021-la-stiffness,kim-2023-la-stiffness}.
-When expressed as a normalised change, however, \HF\ females showed the greatest relative differences, 
-a finding likely driven by smaller baseline chamber sizes.
-This emphasises that absolute and relative measures provide complementary insights and must be interpreted carefully 
-in sex-stratified analyses~\cite{steuernagel2023_sex_bias}.
-Electrical activation followed similar logic: ventricular and atrial activation were prolonged in \HF\ and in males, 
-consistent with clinical QRS and conduction observations~\cite{sanders-2003-atrialremodelling,buck-2008-crt}, 
-though interactions were not significant.
-These convergent trends across independent metrics highlight that anatomical variability alone can generate 
-clinically relevant patterns of electromechanical behaviour, a finding consistent with model-based predictions 
-of sex-specific conduction behaviour~\cite{Lee2019_gender}.
-These findings suggest that even without personalisation of tissue properties or conduction parameters, 
-anatomically driven whole-heart simulations can outline group-level trends in cardiac function.
-The consistent importance of sex and disease differences across multiple metrics reinforces the clinical 
-relevance of the modelling pipeline and motivates its use in larger-scale studies~\cite{strocchi2020_cohort}.
+\replaced[id=JASL]{
+    Our simulations consistently separated groups by sex and disease status using 
+    uniform electrophysiological and mechanical parameters, demonstrating that 
+    anatomical variability alone produces measurable functional differences. 
+    When population-level material properties are applied to pathological geometries, 
+    the resulting simulations capture group-level trends consistent with clinical observations. 
+    Absolute LV volume increases were particularly marked in male HF, reproducing the 
+    clinical signature of pathological dilation~\cite{kasa-2024-lv_volume,ito-2021-lv_volume}. 
+    Larger $\deltaVol{LV}$ in HF models reflects the mechanical consequence of dilated 
+    geometry under uniform compliance parameters~\cite{zile-2004-stiffness,aurigemma-2006-stiffness}. 
+    Similarly, larger $\deltaVol{LA}$ patterns align with clinical markers of atrial 
+    dysfunction~\cite{Carpenito-2021-la-stiffness,kim-2023-la-stiffness}. 
+    When expressed as normalized change, HF females showed the greatest relative differences, 
+    driven by smaller baseline chamber sizes. 
+    This emphasizes that absolute and relative measures provide complementary insights in 
+    sex-stratified analyses~\cite{steuernagel2023_sex_bias}. 
+    Electrical activation followed similar patterns: ventricular and atrial activation were 
+    prolonged in HF and in males, consistent with clinical QRS and conduction 
+    observations~\cite{sanders-2003-atrialremodelling,buck-2008-crt}. 
+    These convergent trends highlight that population-level simulations with anatomically 
+    accurate models can reproduce group-level clinical patterns, while individual patient 
+    predictions would require tissue-specific parameter calibration~\cite{strocchi2020_cohort}.
+}{
+    Our simulations consistently separated groups by sex and disease status, even in the 
+    absence of tuned electrophysiological or mechanical parameters. 
+    Absolute LV volume increases were particularly marked in male HF, reproducing the 
+    clinical signature of pathological dilation~\cite{kasa-2024-lv_volume,ito-2021-lv_volume}. 
+    Larger $\deltaVol{LV}$ in HF patients suggest structurally thinner or more distensible 
+    walls~\cite{zile-2004-stiffness,aurigemma-2006-stiffness}. 
+    Similarly, larger $\deltaVol{LA}$ would indicate other issues like increased prediction 
+    of mortality or hospitalisation~\cite{Carpenito-2021-la-stiffness,kim-2023-la-stiffness}. 
+    When expressed as a normalised change, however, HF females showed the greatest relative differences, 
+    a finding likely driven by smaller baseline chamber sizes. 
+    This emphasises that absolute and relative measures provide complementary insights and must 
+    be interpreted carefully in sex-stratified analyses~\cite{steuernagel2023_sex_bias}. 
+    Electrical activation followed similar logic: ventricular and atrial activation were prolonged 
+    in HF and in males, consistent with clinical QRS and conduction 
+    observations~\cite{sanders-2003-atrialremodelling,buck-2008-crt}, though interactions were not significant. 
+    These convergent trends across independent metrics highlight that anatomical variability alone 
+    can generate clinically relevant patterns of electromechanical behaviour, a finding consistent 
+    with model-based predictions of sex-specific conduction behaviour~\cite{Lee2019_gender}. 
+    These findings suggest that even without personalisation of tissue properties or conduction 
+    parameters, anatomically driven whole-heart simulations can outline group-level trends in 
+    cardiac function. 
+    The consistent importance of sex and disease differences across multiple metrics reinforces 
+    the clinical relevance of the modelling pipeline and motivates its use in larger-scale 
+    studies~\cite{strocchi2020_cohort}.
+}
 
 \subsection{Establishing Model Credibility and Validation Strategies for In Silico Clinical Trials}
 In silico studies using virtual cohorts of patients, referred to as in silico clinical trials (ISCTs), 
@@ -159,10 +212,21 @@ For a virtual cohort such as the sex-balanced 50 patient cohort provided here,
 intended for re-use in variety of future device or drug ISCTs, 
 a hierarchical evaluation approach can be used to generate an initial body of credibility evidence 
 to support a future ISCT.
-In this work, we have performed the first steps of such a hierarchical approach, 
-by assessing cohort representativeness (and simultaneously assessing accuracy of the model generation pipeline) 
-through comparison the ventricular and atrial volumes in the male and female cohort subsets with 
-corresponding UK BioBank data.
+\replaced[id=JASL]{
+    In this work, we have conducted a preliminary assessment of anatomical representativeness 
+    by comparing ventricular and atrial volumes in the male and female cohort subsets with 
+    corresponding UK BioBank data. This comparison demonstrates that our reconstruction pipeline 
+    accurately captures population-level anatomical distributions, establishing a foundation 
+    for future credibility assessments. However, full validation for in silico clinical trials 
+    would require additional hierarchical evaluation steps, including patient-specific 
+    functional validation, uncertainty quantification, and context-specific device or drug 
+    interaction studies~\cite{pathmanathan-credibility-2024}.
+}{
+    In this work, we have performed the first steps of such a hierarchical approach, 
+    by assessing cohort representativeness (and simultaneously assessing accuracy of 
+    the model generation pipeline) through comparison the ventricular and atrial volumes 
+    in the male and female cohort subsets with corresponding UK BioBank data.
+}
  
 A natural next step would be to perform sex-specific population-level validation: 
 demonstrating that the distribution of model outputs, for each of the male and female sub-cohorts, 
@@ -212,6 +276,16 @@ we discuss its implications in more detail in the following section.
     patient-specific parameter calibration in future work.
 }
 
+\added[id=JASL]{
+    Additionally, the UKBB reference ranges used for anatomical comparison~\cite{petersen-2017-reference} 
+    were derived from a predominantly Caucasian population. This may limit the generalizability 
+    of our anatomical fidelity assessment across diverse ethnic backgrounds, as chamber sizes 
+    and remodeling patterns can vary by ethnicity. Our cohort lacks systematic ethnicity data, 
+    preventing stratified analysis. 
+    Future work should incorporate ethnicity-specific reference ranges or population-matched 
+    controls to improve the validity of anatomical comparisons across diverse patient demographics.
+}
+
 \subsubsection{Critical Role of Segmentation in Model Accuracy}
 The segmentation stage is a critical bottleneck in the pipeline,
 requiring notable manual input to ensure anatomical fidelity.
@@ -227,6 +301,39 @@ Finally, given the limited soft-tissue contrast and resolution of standard CT sc
 the myocardial thickness in chambers outside of the \LV\ is set to a user-specified constant.
 This approximation may not reflect the true myocardial thickness 
 and may underestimate simulation variability.
+
+\subsubsection{Uncertainty Quantification}\label{sec:uq}
+\added[id=JASL]{
+    While this study demonstrates that anatomical variability influences 
+    simulation outcomes under fixed parameters, uncertainties in the segmentation and 
+    mesh generation process may further contribute to output variance. 
+    We have previously assessed reproducibility of our left atrial modeling 
+    pipeline~\cite{solis-lemus2023_reproducibility}, demonstrating that operator 
+    variability in segmentation introduces quantifiable uncertainty in chamber geometry 
+    and subsequent simulation predictions. However, whole-heart models present 
+    substantially greater complexity, with four chambers, multiple vessel junctions, 
+    and valve planes that may amplify uncertainty propagation through the reconstruction 
+    workflow.
+
+    A systematic approach to quantifying these uncertainties would involve Monte Carlo 
+    sampling of plausible segmentation contours within the bounds of image resolution 
+    and anatomical variability. For instance, systematically perturbing myocardial 
+    boundaries by $\pm 1$--2~mm (corresponding to typical CT voxel dimensions) and 
+    regenerating meshes would yield a distribution of geometries consistent with the 
+    underlying imaging data. Running simulations across this ensemble would quantify 
+    the sensitivity of activation times and mechanical responses to reconstruction 
+    uncertainty, extending our prior single-chamber reproducibility analysis to the 
+    multi-chamber whole-heart case.
+
+    Such uncertainty quantification analyses align with verification, validation, and 
+    uncertainty quantification (VVUQ) frameworks increasingly adopted for computational 
+    model credibility assessment in regulatory contexts~\cite{health_assessing_2023}. 
+    Incorporating systematic whole-heart UQ would strengthen confidence in model 
+    predictions and provide bounds on simulation outputs that account for both 
+    anatomical variability (addressed in this study) and reconstruction uncertainty 
+    (future work). This represents a critical next step toward establishing the 
+    credibility of this virtual cohort for in silico clinical trial applications.
+}
 
 Despite these limitations, our current approach balances physiological realism with scalability, 
 enabling whole-heart simulations across a sizeable cohort. 
