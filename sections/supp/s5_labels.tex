@@ -1,0 +1,63 @@
+% TODO: Fill in the 37 label IDs, names, and types from the CEMRG Heartbuilder
+% label specification (see strocchi2020_cohort / strocchi2020_simulating).
+% The structure types and categories below are derived from the methods section
+% but the integer label IDs must be added before submission.
+%
+% Known structure categories (from Methods Section 3.1.1):
+%   Blood pools:    LV, RV, LA, RA, Aorta, Pulmonary artery,
+%                   LA pulmonary veins (sup/inf), RA pulmonary veins (sup/inf),
+%                   LA appendage, Superior vena cava, Inferior vena cava
+%   Myocardium:     LV, RV (3.5 mm thickness), LA, RA, Aortic wall, PA wall
+%   Valve planes:   Mitral, Tricuspid, Aortic, Pulmonary
+%   Vein rings:     Pulmonary vein rings, Vena cava rings
+
+\subsection*{Mesh Label Specification}
+
+The post-processing stage of the CEMRG Heartbuilder pipeline increases the
+initial 10-label segmentation to 37 labels
+(Figure~\ref{fig:methods-segmentation}c), following the standard introduced
+by~\cite{strocchi2020_cohort,strocchi2020_simulating}. Labels encode
+anatomical structures required for assigning tissue-specific electrophysiology
+and mechanics model parameters during simulation setup.
+
+\begin{table}[htbp]
+\centering
+\caption{
+    \textbf{Complete list of 37 anatomical labels used in mesh generation.}
+    Labels are assigned during the post-processing stage of the segmentation
+    pipeline. Structure types: BP = blood pool, Myo = myocardium,
+    VP = valve plane, Ring = vein/artery ring.
+}
+\begin{tabular}{clll}
+\toprule
+\textbf{Label ID} & \textbf{Structure name} & \textbf{Chamber} & \textbf{Type} \\
+\midrule
+\textit{(add)} & Left ventricular blood pool   & \LV & BP  \\
+\textit{(add)} & Left ventricular myocardium   & \LV & Myo \\
+\textit{(add)} & Right ventricular blood pool  & \RV & BP  \\
+\textit{(add)} & Right ventricular myocardium  & \RV & Myo \\
+\textit{(add)} & Left atrial blood pool        & \LA & BP  \\
+\textit{(add)} & Left atrial myocardium        & \LA & Myo \\
+\textit{(add)} & Left atrial appendage         & \LA & BP  \\
+\textit{(add)} & Right atrial blood pool       & \RA & BP  \\
+\textit{(add)} & Right atrial myocardium       & \RA & Myo \\
+\textit{(add)} & Aortic blood pool             & ---  & BP  \\
+\textit{(add)} & Aortic wall                   & ---  & Myo \\
+\textit{(add)} & Pulmonary artery blood pool   & ---  & BP  \\
+\textit{(add)} & Pulmonary artery wall         & ---  & Myo \\
+\textit{(add)} & Left superior pulmonary vein  & \LA & BP  \\
+\textit{(add)} & Left inferior pulmonary vein  & \LA & BP  \\
+\textit{(add)} & Right superior pulmonary vein & \RA & BP  \\
+\textit{(add)} & Right inferior pulmonary vein & \RA & BP  \\
+\textit{(add)} & Superior vena cava            & \RA & BP  \\
+\textit{(add)} & Inferior vena cava            & \RA & BP  \\
+\textit{(add)} & Mitral valve plane            & \LV/\LA & VP \\
+\textit{(add)} & Tricuspid valve plane         & \RV/\RA & VP \\
+\textit{(add)} & Aortic valve plane            & \LV & VP  \\
+\textit{(add)} & Pulmonary valve plane         & \RV & VP  \\
+% TODO: remaining labels (vein rings and any additional structures) — 23 rows
+% listed above, 14 more needed to reach 37 total.
+\bottomrule
+\end{tabular}
+\label{tab:s5-labels}
+\end{table}

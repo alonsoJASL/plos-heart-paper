@@ -1,0 +1,39 @@
+\subsection*{CGAL Meshing Parameters}
+
+Mesh density is controlled via parameters of the Computational Geometry
+Algorithms Library (CGAL)~\cite{cgal}, specified globally for the entire
+heart geometry. Regional refinement was not applied; a single set of
+parameters governs element density and surface fidelity across all
+anatomical structures.
+
+\begin{table}[htbp]
+\centering
+\caption{
+    \textbf{CGAL meshing parameters used for volumetric mesh generation.}
+    Parameters are specified globally for the entire heart geometry.
+    \texttt{cell\_size} and \texttt{facet\_size} set the target element
+    edge length; \texttt{facet\_distance} controls the surface approximation
+    error (trade-off between surface fidelity and smoothness).
+    All 50 meshes were generated with identical parameter values.
+}
+\begin{tabular}{lcp{7.5cm}}
+\toprule
+\textbf{Parameter} & \textbf{Value} & \textbf{Effect on mesh} \\
+\midrule
+\texttt{cell\_size} & $\approx 0.5$~mm
+    & Maximum target edge length of volumetric tetrahedral elements;
+      controls overall mesh density. \\
+\texttt{facet\_size} & $\approx 0.5$~mm
+    & Maximum target size of surface facets; controls surface mesh
+      resolution and matches \texttt{cell\_size} for uniform density. \\
+\texttt{facet\_distance} & \textit{(add value)}
+    & Maximum Hausdorff distance between the input surface and the
+      Delaunay surface; Laplacian smoothing is applied to balance
+      surface fidelity against smoothness. \\
+\texttt{cell\_radius\_edge\_ratio} & \textit{(add value if used)}
+    & Upper bound on the ratio of circumradius to shortest edge;
+      controls element shape quality. \\
+\bottomrule
+\end{tabular}
+\label{tab:s4-cgal-params}
+\end{table}

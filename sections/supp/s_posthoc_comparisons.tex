@@ -1,0 +1,41 @@
+% Pre-existing supplementary table (first submission).
+% Macros corrected: \Vol{} -> \VOL{}, \normDeltaVol{} -> \deltaVolNorm{}
+% TODO: assign an S-number for this table once s1-s7 numbering is finalised.
+
+\begin{landscape}
+\begin{table}[ht]
+\centering
+\caption{All significant post-hoc comparisons across groups and metrics
+(FDR-corrected). Cohen's $d$ indicates effect size; CI = 95\% confidence
+interval. Group codes: M = Male, F = Female, HF = Heart Failure, C = Control.}
+\begin{tabular}{lllllllllll}
+\toprule
+\textbf{Outcome} & \textbf{Group 1} & \textbf{Group 2} &
+    \textbf{Mean Diff} & \textbf{Cohen's $d$} &
+    \textbf{n$_1$} & \textbf{n$_2$} &
+    \textbf{CI Lower} & \textbf{CI Upper} & \textbf{$p$-adj} \\
+\midrule
+$\TAT{\LA}$         & HF    & C     & 21.96 & 0.62  & 24 & 26 & 0.05  & 1.19 & 0.043    \\
+$\TAT{\LA}$         & M     & F     & 21.00 & 0.59  & 25 & 25 & 0.02  & 1.15 & 0.043    \\
+$\TAT{\LV}$         & M     & F     & 12.99 & 1.20  & 25 & 25 & 0.59  & 1.80 & 0.00021  \\
+$\TAT{\RV}$         & HF    & C     & 16.84 & 0.91  & 24 & 26 & 0.33  & 1.49 & 0.0024   \\
+$\TAT{\RV}$         & M     & F     & 23.67 & 1.44  & 25 & 25 & 0.82  & 2.07 & 0.000013 \\
+$\TAT{V}$           & HF    & C     & 10.72 & 0.72  & 24 & 26 & 0.15  & 1.30 & 0.014    \\
+$\TAT{V}$           & M     & F     & 18.19 & 1.43  & 25 & 25 & 0.81  & 2.05 & 0.000018 \\
+$\VOL{\LV}$         & F\_HF & F\_C  & 43.31 & 0.91  & 12 & 13 & 0.09  & 1.73 & 0.041    \\
+$\VOL{\LV}$         & M\_HF & M\_C  & 109.45 & 1.65 & 12 & 13 & 0.74  & 2.56 & 0.0050   \\
+$\VOL{\LV}$         & M\_C  & F\_C  & 39.91 & 1.16  & 13 & 13 & 0.33  & 1.99 & 0.0091   \\
+$\VOL{\LV}$         & M\_HF & F\_HF & 106.05 & 1.41 & 12 & 12 & 0.51  & 2.30 & 0.0053   \\
+$\VOL{\RV}$         & M     & F     & 69.09 & 1.67  & 25 & 25 & 1.02  & 2.31 & 0.0000011 \\
+$\deltaVol{\LV}$    & HF    & C     & 11.45 & 0.94  & 24 & 26 & 0.36  & 1.53 & 0.0051   \\
+$\deltaVol{\LV}$    & M     & F     & 9.82  & 0.79  & 25 & 25 & 0.21  & 1.36 & 0.0078   \\
+$\deltaVol{\RV}$    & M     & F     & 5.79  & 1.38  & 25 & 25 & 0.76  & 2.00 & 0.000027 \\
+$\deltaVol{\LA}$    & HF    & C     & 4.64  & 0.76  & 24 & 26 & 0.19  & 1.34 & 0.0276   \\
+$\frac{\VOL{\LV}}{\VOL{\RV}}$ & HF & C & 0.32 & 1.41 & 24 & 26 & 0.79 & 2.03 & 0.000041 \\
+$\deltaVolNorm{\LV}$ & M\_HF & M\_C  & $-0.035$ & $-1.33$ & 12 & 13 & $-2.20$ & $-0.47$ & 0.0136 \\
+$\deltaVolNorm{\LV}$ & M\_HF & F\_HF & $-0.039$ & $-1.09$ & 12 & 12 & $-1.95$ & $-0.23$ & 0.0297 \\
+\bottomrule
+\end{tabular}
+\label{tab:all-significant-comparisons}
+\end{table}
+\end{landscape}

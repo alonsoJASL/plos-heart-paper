@@ -87,16 +87,20 @@
 % cite package, to clean up citations in the main text. Do not remove.
 \usepackage{cite}
 
-% \usepackage[draft,commentmarkup=footnote]{changes}  % use mode draft to show changes
-\usepackage[final,commentmarkup=footnote]{changes}  % use mode draft to show changes
-\definechangesauthor[name={Jos\'e Alonso Sol\'is-Lemus}, color=blue]{JASL}
-\definechangesauthor[name={Rosie K. Barrows}, color=orange]{RKB}
-\definechangesauthor[name={Cristobal Rodero}, color=green]{CR}
 
+\newif\iffinal
+\finalfalse  % default: draft mode
+
+\iffinal
+    \usepackage[final,commentmarkup=footnote]{changes}  % use mode draft to show changes
+\else
+    \usepackage[draft,commentmarkup=footnote]{changes}  % use mode draft to show changes
+\fi
 \definechangesauthor[name={Reviewer 1}, color=blue]{R1}
 \definechangesauthor[name={Reviewer 2}, color=orange]{R2}
 \definechangesauthor[name={Reviewer 3}, color=teal]{R3}
 \definechangesauthor[name={Multiple Reviewers}, color=magenta]{MR}
+\definechangesauthor[name={Editor}, color=brown]{ED}
 
 % Use nameref to cite supporting information files (see Supporting Information section for more info)
 \usepackage{nameref,hyperref}
@@ -350,6 +354,11 @@ applications.
 \input{sections/results_final}
 \input{sections/discussion_final}
 \input{sections/conclusion}
+
+\added[id=ED, comment={E-3: supporting information legends}]{Below are the legends for the supporting information files.}
+\listoffigures
+\listoftables
+
 
 \listofchanges
 

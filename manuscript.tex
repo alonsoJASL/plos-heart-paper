@@ -1,0 +1,218 @@
+% plos_latex_template.tex
+% Version 3.7 Aug 2025 — refactored for shared preamble
+%
+% SUBMISSION NOTE: PLOS requires a single flat .tex file.
+% Before submitting, run: ./rerunpdf.sh -f plos_latex_template
+% which calls flatten.py to inline all \input commands.
+% -------------------------------------------------------------------------
+
+\documentclass[10pt,letterpaper]{article}
+
+% PLOS layout
+\usepackage[top=0.85in,left=2.75in,footskip=0.75in]{geometry}
+\usepackage{changepage}
+\usepackage{cite}
+
+% draft/final toggle — must be defined BEFORE \input{preamble_shared}
+% because preamble_shared uses \iffinal to load the changes package
+\newif\iffinal
+\finalfalse  % default: draft. Override via -usepretex="\finaltrue" in rerunpdf.sh -f
+
+% -------------------------------------------------------------------------
+% SHARED PACKAGES AND MACROS
+% -------------------------------------------------------------------------
+\input{preamble_shared}
+
+% -------------------------------------------------------------------------
+% PLOS-SPECIFIC LAYOUT (not shared with supplement)
+% -------------------------------------------------------------------------
+
+% Line numbers
+\usepackage[right]{lineno}
+
+% Ligatures
+\usepackage[nopatch=eqnum]{microtype}
+\DisableLigatures[f]{encoding = *, family = * }
+
+% Captions
+\usepackage[aboveskip=1pt,labelfont=bf,labelsep=period,justification=raggedright,singlelinecheck=off]{caption}
+\renewcommand{\figurename}{Fig}
+
+% Bibliography style
+\bibliographystyle{plos2025}
+\makeatletter
+\renewcommand{\@biblabel}[1]{\quad#1.}
+\makeatother
+
+% Header/footer
+\usepackage{lastpage,fancyhdr,graphicx}
+\usepackage{epstopdf}
+\pagestyle{fancy}
+\fancyhf{}
+\rfoot{\thepage/\pageref{LastPage}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrule}{\hrule height 2pt \vspace{2mm}}
+\fancyheadoffset[L]{2.25in}
+\fancyfootoffset[L]{2.25in}
+\lfoot{\today}
+
+% Text layout
+\raggedright
+\setlength{\parindent}{0.5cm}
+\textwidth 5.25in
+\textheight 8.75in
+
+% -------------------------------------------------------------------------
+% MANUSCRIPT-SPECIFIC MACROS (not needed in supplement)
+% -------------------------------------------------------------------------
+\newcommand{\autor}{%
+    Jos\'e Alonso Sol\'is-Lemus\textsuperscript{1,\Yinyang},
+    Rosie K. Barrows\textsuperscript{1,\Yinyang},
+    Cristobal Rodero\textsuperscript{1},
+    Marina Strocchi\textsuperscript{1,6},
+    Natalie Montarello\textsuperscript{2},
+    Nishant Lahoti\textsuperscript{2},
+    Cesare Corrado\textsuperscript{1},
+    Abdul Qayyum\textsuperscript{1},
+    Shahrokh Rahmani\textsuperscript{1},
+    Caroline Roney\textsuperscript{3},
+    Gernot Plank\textsuperscript{4,5},
+    Cristoph Augustin\textsuperscript{4,5},
+    Hao Xu\textsuperscript{2},
+    Alistair Young\textsuperscript{2},
+    Pras Pathmanathan\textsuperscript{7},
+    Ronak Rajani\textsuperscript{2},
+    Steven A. Niederer\textsuperscript{1,8}%
+}
+
+\newcommand{\titulo}{%
+    Assessing the Importance of Sex and Disease-Specific Anatomy in
+    Electrophysiology and Mechanical Simulations with a Newly Developed
+    Public Virtual Cohort of Four-Chamber Heart Models%
+}
+
+% =========================================================================
+\begin{document}
+\vspace*{0.2in}
+
+\begin{flushleft}
+{\Large\textbf{\titulo}}
+\newline
+\\
+\autor
+\\
+\bigskip
+\textbf{1} National Heart and Lung Institute, Imperial College London \\
+\textbf{2} School of Biomedical Engineering and Imaging Sciences, King's College London \\
+\textbf{3} Queen Mary University of London \\
+\textbf{4} Gottfried Schatz Research Center, Division of Medical Physics and Biophysics, Medical University of Graz \\
+\textbf{5} BioTechMed-Graz \\
+\textbf{6} Cardiac Rhythm Management, Medtronic, London, UK \\
+\textbf{7} Food and Drug Administration, United States \\
+\textbf{8} Alan Turing Institute \\
+\bigskip
+
+\Yinyang These authors share first authorship.
+
+* j.solis-lemus@imperial.ac.uk
+\end{flushleft}
+
+\section*{Abstract}
+This work presents a study on how
+    \added[id=R1, comment={R1-Maj-1: Abstract line 1 precision}]{differences in cardiac
+    anatomy attributed to} sex and disease can influence cardiac
+    electrophysiology and mechanics using a virtual cohort of four-chamber
+    heart models.
+    Patient anatomy varies across sex and disease.
+    However, capturing this variation in in-silico studies remains poorly accounted for,
+    with studies often using either single representative cases or imbalanced virtual cohorts.
+    Whole-heart electromechanics models incorporate the patient's anatomy,
+    electrophysiology and mechanics across different scales, from molecular,
+    tissue and whole-heart and circulatory system levels.
+    However, cardiac models are typically built from one or a small number of anatomies,
+    with sex rarely reported and the effects of anatomical variability, which include those due to
+    sex or disease, largely unexplored.
+    This limits clinical translation and reduces regulatory credibility.
+
+    We developed fifty patient-specific anatomical models of 25 male and 25 female hearts in
+    heart failure and control cases.
+    We ran benchmark passive inflation and paced activation simulations with consistent parameters and
+    boundary conditions across cases to isolate the impact of anatomical variations with sex and disease.
+
+    Heart failure models exhibited increased chamber volumes, larger volume changes during inflation,
+    and delayed activation times relative to controls.
+    These trends were consistent across sexes, although right ventricular activation showed a significant
+    sex-based difference.
+
+    Variations in anatomy with sex and disease have a significant impact on cardiac simulations,
+    which support the inclusion of multiple heart anatomical models in in-silico trials.
+    The resulting virtual cohort captures key anatomical variability and is publicly available at
+    \url{https://doi.org/10.5281/zenodo.17048090} and our code is available
+    at \url{https://github.com/OpenHeartDevelopers/cemrg-heartbuilder}.
+
+\section*{Author summary}
+Understanding how sex and disease affect the heart's electrical and mechanical behaviour is essential
+for developing accurate and credible computational models.
+In this study, we built a balanced virtual cohort of fifty patient-specific, four-chamber heart models
+from male and female individuals with and without heart failure.
+We designed a single, streamlined pipeline to generate these models and ran benchmark simulations of
+electrical activation and passive inflation to evaluate how anatomical differences influence cardiac function.
+
+We found that heart failure models showed larger chamber volumes, greater volume changes, and
+delayed activation times compared with controls.
+These patterns were consistent between sexes, although right ventricular activation showed a clear
+sex-related difference. Our results demonstrate that anatomical variability across sex and disease
+has a measurable effect on cardiac simulations.
+By releasing this virtual cohort and its underlying pipeline publicly, we aim to support reproducible and
+transparent in-silico studies and to advance the use of virtual populations in regulatory and clinical
+applications.
+
+\linenumbers
+
+\input{sections/intro_bis}
+\input{sections/materials}
+\input{sections/methods}
+\input{sections/results_final}
+\input{sections/discussion_final}
+\input{sections/conclusion}
+
+\nolinenumbers
+
+% Supporting Information legends (E3)
+\added[id=ED, comment={E-3: supporting information legends}]{
+\section*{Supporting Information}
+\paragraph{S1 Figure.}
+Correlation between simulated ventricular total activation time (\TAT{V}) and recorded
+ECG QRS duration, stratified by condition. Control hearts (blue, $n=17$) showed strong
+positive correlation (Pearson $r = 0.649$, $p = 0.005$), validating \TAT{V} as a QRS surrogate
+when anatomical variability dominates. Heart failure patients (red, $n=16$) showed no
+correlation ($r = -0.127$, $p = 0.64$), reflecting unmeasured pathological tissue properties.
+
+\paragraph{S2 Table.}
+Geometric characteristics stratified by sex and heart failure status. Mean $\pm$ SD reported
+for age (years), chamber volumes (mL), and total mesh elements (millions).
+
+\paragraph{S3 Figure.}
+Correlation matrix between geometric variables and simulation outputs. Spearman correlation
+coefficients ($\rho$) between geometric metrics (chamber volumes, mesh element count, age)
+and simulation outputs (activation times, volume changes). All shown correlations significant
+at $p < 0.05$.
+
+\paragraph{S4 Table.}
+Complete specification of CGAL meshing parameters used for volumetric mesh generation,
+including \texttt{facet\_size}, \texttt{cell\_size}, and \texttt{facet\_distance} values.
+
+\paragraph{S5 Table.}
+List of all 37 anatomical labels assigned during segmentation and mesh generation,
+including label ID, anatomical structure name, and structure type.
+
+\paragraph{S6 Methods.}
+Detailed specification of pericardial constraints and boundary conditions applied in
+passive inflation simulations.
+}
+
+\listofchanges
+
+\bibliography{myrefs}
+
+\end{document}

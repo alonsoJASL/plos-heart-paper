@@ -45,7 +45,7 @@ A table of the labels is provided in the Supplementary material.
 \begin{figure}[hbpt]
     \centering
     \includegraphics[width=\textwidth]{pics/methods-segmentation.pdf}
-    \caption{
+    \caption[Multi-stage segmentation process. ]{
         \textbf{Multi-stage segmentation process. }
         CemrgApp uses the deep learning model developed by \cite{hao2021_ccta} to segment the heart. 
         (a) The output of the U-Net model, which identifies 10 regions, or ``labels'', 
@@ -95,7 +95,7 @@ to the working mesh re-labelled and with the blood pools removed.
 \begin{figure}[hbpt]
     \centering
     \includegraphics[width=\textwidth]{pics/methods-meshing.pdf}
-    \caption{
+    \caption[Output of the meshing process.]{
         \textbf{Output of the meshing process from the smooth segmentation to the final working mesh.}
         (a) The upsampled and smooth segmentation. 
         (b) The mesh extracted from the segmentation using the CGAL meshing tool. 
@@ -195,7 +195,7 @@ These locations are defined in UVCs based on~\cite{gillette_automated_2021}.
 \begin{figure}[hbpt]
     \centering
     \includegraphics[width=\linewidth]{pics/methods-model-creation.pdf}
-    \caption{
+    \caption[Model creation stage. ]{
         \textbf{Model creation stage. }
         % Description of UVCs and ventricular fibres:
         Universal Ventricular coordinates (a) are calculated from the mesh, then used to assign 
@@ -286,7 +286,7 @@ through the entire chamber.
 
 \begin{table}[hbpt]
     \centering
-    \caption{
+    \caption[Model outputs obtained from the simulations.]{
         \textbf{Model outputs obtained from the simulations.}
         The subscript $x$ refers to the chamber, which can be left ventricle (LV),
         right ventricle (RV), left atrium (LA), or right atrium (RA). 

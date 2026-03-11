@@ -1,0 +1,71 @@
+% preamble_shared.tex
+% Shared packages and macros for plos_latex_template.tex and supplement_main.tex
+% DO NOT add layout/geometry/header packages here — those are file-specific.
+% -------------------------------------------------------------------------
+
+% Core math
+\usepackage{amsmath,amssymb}
+
+% Additional characters
+\usepackage{textcomp,marvosym}
+
+\iffinal
+    \usepackage[final,commentmarkup=footnote]{changes}  % use mode draft to show changes
+\else
+    \usepackage[draft,commentmarkup=footnote]{changes}  % use mode draft to show changes
+\fi
+\definechangesauthor[name={Reviewer 1}, color=blue]{R1}
+\definechangesauthor[name={Reviewer 2}, color=orange]{R2}
+\definechangesauthor[name={Reviewer 3}, color=teal]{R3}
+\definechangesauthor[name={Multiple Reviewers}, color=magenta]{MR}
+\definechangesauthor[name={Editor}, color=brown]{ED}
+
+
+% Hyperlinks (nameref required for SI cross-references)
+\usepackage{nameref,hyperref}
+
+% Color (table shading)
+\usepackage[table]{xcolor}
+
+% Table utilities
+\usepackage{array}
+\usepackage{booktabs}
+
+% Thick rule helpers (used in main manuscript tables)
+\newcolumntype{+}{!{\vrule width 2pt}}
+\newlength\savedwidth
+\newcommand\thickcline[1]{%
+  \noalign{\global\savedwidth\arrayrulewidth\global\arrayrulewidth 2pt}%
+  \cline{#1}%
+  \noalign{\vskip\arrayrulewidth}%
+  \noalign{\global\arrayrulewidth\savedwidth}%
+}
+\newcommand\thickhline{%
+  \noalign{\global\savedwidth\arrayrulewidth\global\arrayrulewidth 2pt}%
+  \hline
+  \noalign{\global\arrayrulewidth\savedwidth}%
+}
+
+% -------------------------------------------------------------------------
+% SHARED MACROS
+% -------------------------------------------------------------------------
+
+% Simulation output symbols
+\newcommand{\TAT}[1]{\ensuremath{\mathrm{TAT}_{#1}}}
+\newcommand{\VOL}[1]{\ensuremath{\mathrm{Vol}_{#1}}}
+\newcommand{\deltaVol}[1]{\ensuremath{\Delta \mathrm{Vol}_{#1}}}
+\newcommand{\deltaVolNorm}[1]{\ensuremath{\mathcal{V}_{#1}}}
+
+% Anatomical abbreviations
+\newcommand{\LV}{LV}
+\newcommand{\RV}{RV}
+\newcommand{\LA}{LA}
+\newcommand{\RA}{RA}
+\newcommand{\SAN}{SAN}
+\newcommand{\UKBB}{UKBB}
+
+% Clinical group abbreviations
+\newcommand{\Ctl}{$C$}
+\newcommand{\HF}{$HF$}
+\newcommand{\HFN}{$HF_N$}
+\newcommand{\HFW}{$HF_W$}

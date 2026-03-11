@@ -1,0 +1,119 @@
+% supplement_main.tex
+% Supplementary Material for:
+% Solis-Lemus et al. | PLOS Computational Biology | PCOMPBIOL-D-25-02375
+%
+% Compile: ./rerunpdf.sh supplement_main
+% Final:   ./rerunpdf.sh -f supplement_main
+% -------------------------------------------------------------------------
+
+\documentclass[10pt,letterpaper]{article}
+
+\usepackage[top=1in,left=1in,right=1in,bottom=1in]{geometry}
+\usepackage{cite}
+
+% draft/final toggle — must be defined BEFORE \input{preamble_shared}
+\newif\iffinal
+\finalfalse
+
+% -------------------------------------------------------------------------
+% SHARED PACKAGES AND MACROS
+% -------------------------------------------------------------------------
+\input{preamble_shared}
+
+% -------------------------------------------------------------------------
+% SUPPLEMENT-SPECIFIC LAYOUT
+% -------------------------------------------------------------------------
+
+% S-numbered figures and tables
+\setcounter{figure}{0}
+\renewcommand{\thefigure}{S\arabic{figure}}
+\setcounter{table}{0}
+\renewcommand{\thetable}{S\arabic{table}}
+
+% Sections as S1, S2... (optional — comment out if you prefer plain numbering)
+\renewcommand{\thesection}{S\arabic{section}}
+
+% Captions
+\usepackage[aboveskip=1pt,labelfont=bf,labelsep=period,
+            justification=raggedright,singlelinecheck=off]{caption}
+\renewcommand{\figurename}{S Fig}
+\renewcommand{\tablename}{S Table}
+
+% Header/footer
+\usepackage{lastpage,fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\rfoot{\thepage/\pageref{LastPage}}
+\lfoot{Solis-Lemus et al. --- Supplementary Material}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrule}{\hrule height 1pt \vspace{2mm}}
+
+% Line numbers (comment out if not wanted in supplement)
+\usepackage[right]{lineno}
+
+% Ligatures
+\usepackage[nopatch=eqnum]{microtype}
+\DisableLigatures[f]{encoding = *, family = * }
+
+% Bibliography
+\bibliographystyle{plos2025}
+\makeatletter
+\renewcommand{\@biblabel}[1]{\quad#1.}
+\makeatother
+
+% Text layout
+\raggedright
+\setlength{\parindent}{0.5cm}
+
+% =========================================================================
+\begin{document}
+
+\begin{center}
+    {\Large\textbf{Supporting Information}}\\[6pt]
+    {\normalsize Solis-Lemus et al. | \textit{PLOS Computational Biology} |
+    PCOMPBIOL-D-25-02375}
+\end{center}
+
+\bigskip
+\linenumbers
+
+% -------------------------------------------------------------------------
+% S1 FIGURE: TAT-QRS Correlation
+% -------------------------------------------------------------------------
+\input{sections/supp/s1_tat_qrs}
+
+% -------------------------------------------------------------------------
+% S2 TABLE: Geometric Characteristics
+% -------------------------------------------------------------------------
+\input{sections/supp/s2_geometric_table}
+
+% -------------------------------------------------------------------------
+% S3 FIGURE: Correlation Heatmap
+% -------------------------------------------------------------------------
+\input{sections/supp/s3_correlation_heatmap}
+
+% -------------------------------------------------------------------------
+% S4 TABLE: CGAL Parameters
+% -------------------------------------------------------------------------
+\input{sections/supp/s4_cgal_params}
+
+% -------------------------------------------------------------------------
+% S5 TABLE: 37-Label Specification
+% -------------------------------------------------------------------------
+\input{sections/supp/s5_labels}
+
+% -------------------------------------------------------------------------
+% S6 METHODS: Boundary Conditions
+% -------------------------------------------------------------------------
+\input{sections/supp/s6_boundary_conditions}
+
+% -------------------------------------------------------------------------
+% S7 TABLE (optional): Per-model Mesh Quality Statistics
+% -------------------------------------------------------------------------
+% \input{sections/supp/s7_mesh_quality}
+
+\nolinenumbers
+
+\bibliography{myrefs}
+
+\end{document}
