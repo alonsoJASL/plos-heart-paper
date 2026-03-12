@@ -13,12 +13,16 @@
 
 % draft/final toggle — must be defined BEFORE \input{preamble_shared}
 \newif\iffinal
-\finalfalse
+\input{rerun_mode}
 
 % -------------------------------------------------------------------------
 % SHARED PACKAGES AND MACROS
 % -------------------------------------------------------------------------
 \input{preamble_shared}
+\usepackage{lastpage,fancyhdr,graphicx}
+\usepackage{xr}
+\externaldocument{manuscript}
+\externaldocument{sections/methods}
 
 % -------------------------------------------------------------------------
 % SUPPLEMENT-SPECIFIC LAYOUT
@@ -110,7 +114,7 @@
 % -------------------------------------------------------------------------
 % S7 TABLE (optional): Per-model Mesh Quality Statistics
 % -------------------------------------------------------------------------
-% \input{sections/supp/s7_mesh_quality}
+\input{sections/supp/s7_mesh_quality}
 
 \nolinenumbers
 

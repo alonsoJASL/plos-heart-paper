@@ -23,40 +23,52 @@ and mechanics model parameters during simulation setup.
 \begin{table}[htbp]
 \centering
 \caption{
-    \textbf{Complete list of 37 anatomical labels used in mesh generation.}
+    \textbf{Complete list of 37 anatomical labels.}
     Labels are assigned during the post-processing stage of the segmentation
     pipeline. Structure types: BP = blood pool, Myo = myocardium,
-    VP = valve plane, Ring = vein/artery ring.
+    VP = valve plane, Ring = vein/artery ring. 
 }
 \begin{tabular}{clll}
 \toprule
 \textbf{Label ID} & \textbf{Structure name} & \textbf{Chamber} & \textbf{Type} \\
 \midrule
-\textit{(add)} & Left ventricular blood pool   & \LV & BP  \\
-\textit{(add)} & Left ventricular myocardium   & \LV & Myo \\
-\textit{(add)} & Right ventricular blood pool  & \RV & BP  \\
-\textit{(add)} & Right ventricular myocardium  & \RV & Myo \\
-\textit{(add)} & Left atrial blood pool        & \LA & BP  \\
-\textit{(add)} & Left atrial myocardium        & \LA & Myo \\
-\textit{(add)} & Left atrial appendage         & \LA & BP  \\
-\textit{(add)} & Right atrial blood pool       & \RA & BP  \\
-\textit{(add)} & Right atrial myocardium       & \RA & Myo \\
-\textit{(add)} & Aortic blood pool             & ---  & BP  \\
-\textit{(add)} & Aortic wall                   & ---  & Myo \\
-\textit{(add)} & Pulmonary artery blood pool   & ---  & BP  \\
-\textit{(add)} & Pulmonary artery wall         & ---  & Myo \\
-\textit{(add)} & Left superior pulmonary vein  & \LA & BP  \\
-\textit{(add)} & Left inferior pulmonary vein  & \LA & BP  \\
-\textit{(add)} & Right superior pulmonary vein & \RA & BP  \\
-\textit{(add)} & Right inferior pulmonary vein & \RA & BP  \\
-\textit{(add)} & Superior vena cava            & \RA & BP  \\
-\textit{(add)} & Inferior vena cava            & \RA & BP  \\
-\textit{(add)} & Mitral valve plane            & \LV/\LA & VP \\
-\textit{(add)} & Tricuspid valve plane         & \RV/\RA & VP \\
-\textit{(add)} & Aortic valve plane            & \LV & VP  \\
-\textit{(add)} & Pulmonary valve plane         & \RV & VP  \\
-% TODO: remaining labels (vein rings and any additional structures) — 23 rows
-% listed above, 14 more needed to reach 37 total.
+1    & Left ventricular blood pool   & \LV & BP  \\
+2    & Left ventricular myocardium   & \LV & Myo \\
+3    & Right ventricular blood pool  & \RV & BP  \\
+4    & Left atrial blood pool        & \LA & BP  \\
+5    & Right atrial blood pool       & \RA & BP  \\
+6    & Aortic blood pool             & ---  & BP  \\
+7    & Pulmonary artery blood pool   & ---  & BP  \\
+8    & Left superior pulmonary vein  & \LA & BP  \\
+9    & Left inferior pulmonary vein  & \LA & BP  \\
+10   & Right superior pulmonary vein & \RA & BP  \\
+11   & Right inferior pulmonary vein & \RA & BP  \\
+12   & Left atrial appendage         & \LA & BP  \\
+13   & Superior vena cava            & \RA & BP  \\
+14   & Inferior vena cava            & \RA & BP  \\
+103    & Right ventricular myocardium  & \RV & Myo \\
+104    & Left atrial myocardium        & \LA & Myo \\
+105    & Right atrial myocardium       & \RA & Myo \\
+106    & Aortic wall                   & ---  & Myo \\
+107    & Pulmonary artery wall         & ---  & Myo \\
+201    & Mitral valve plane            & \LV/\LA & VP \\
+202    & Tricuspid valve plane         & \RV/\RA & VP \\
+203    & Aortic valve plane            & \LV & VP  \\
+204    & Pulmonary valve plane         & \RV & VP  \\
+205   & Left superior pulmonary vein plane & \LA & VP  \\
+206   & Left inferior pulmonary vein plane & \LA & VP  \\
+207   & Right superior pulmonary vein plane & \LA & VP  \\
+208   & Right inferior pulmonary vein plane & \LA & VP  \\
+209   & Left atrial appendage plane & \LA & VP \\
+210   & Superior vena cava plane & \RA & VP  \\
+211   & Inferior vena cava plane  & \RA & VP \\
+221    & Left superior pulmonary vein ring     & \LA & Ring \\
+222    & Left inferior pulmonary vein ring     & \LA  & Ring \\
+223    & Right superior pulmonary vein ring    & \LA  & Ring \\
+224   & Right inferior pulmonary vein ring    & \LA & Ring \\
+225    & Left atrial appendage vein ring   & \LA & Ring \\
+226    & Superior vena cava vein ring  & \RA & Ring  \\
+227    & Inferior vena cava vein ring  & \RA & Ring  \\
 \bottomrule
 \end{tabular}
 \label{tab:s5-labels}

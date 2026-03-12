@@ -22,18 +22,18 @@ This document tracks all commitments made to include information in Supplementar
 - Methods Section 3.1.2: "...specified globally for the entire heart geometry. Complete parameter specifications are provided in the Supplementary Material."
 
 **What must be included:**
-- [ ] Table of CGAL parameters used:
-  - [ ] `facet_size` value (target: ~0.5 mm)
-  - [ ] `cell_size` value (target: ~0.5 mm)
-  - [ ] `facet_distance` value
-  - [ ] `facet_angle` (if used)
-  - [ ] `cell_radius_edge_ratio` (if used)
-- [ ] Brief description of each parameter's effect on mesh quality/density
-- [ ] Note that parameters are applied globally, not regionally
+- [x] Table of CGAL parameters used:
+  - [x] `facet_size` value (target: ~0.5 mm)
+  - [x] `cell_size` value (target: ~0.5 mm)
+  - [x] `facet_distance` value
+  - [x] `facet_angle` (if used)
+  - [x] `cell_radius_edge_ratio` (if used)
+- [x] Brief description of each parameter's effect on mesh quality/density
+- [x] Note that parameters are applied globally, not regionally
 
 **Format suggestion:** Supplementary Table or Supplementary Methods section
 
-**Current status in Supp Material:** [ ] Not verified yet
+**Current status in Supp Material:** [x] Complete — `sections/supp/s4_cgal_params.tex`, legend in `manuscript.tex`
 
 ---
 
@@ -46,12 +46,12 @@ This document tracks all commitments made to include information in Supplementar
 - Methods Section 3.3: "Mechanics simulations were run with the same boundary conditions as the work by~\cite{strocchi2023_cell}, which can be consulted in the Supplementary Material."
 
 **What must be included:**
-- [ ] Description of pericardial boundary conditions
-- [ ] Robin boundary condition parameters (if applicable)
-- [ ] Base constraints (epicardial/basal plane)
-- [ ] Any displacement or force boundary conditions applied
+- [x] Description of pericardial boundary conditions
+- [x] Robin boundary condition parameters (if applicable)
+- [x] Base constraints (epicardial/basal plane)
+- [x] Any displacement or force boundary conditions applied
 
-**Current status in Supp Material:** [~] May already exist - VERIFY
+**Current status in Supp Material:** [x] Complete — `sections/supp/s6_boundary_conditions.tex`, legend in `manuscript.tex`
 
 ---
 
@@ -65,14 +65,14 @@ This document tracks all commitments made to include information in Supplementar
 - Not explicitly promised in manuscript text, but would strengthen it
 
 **What could be included (OPTIONAL):**
-- [ ] Supplementary Table: Full mesh quality statistics per case (50 rows)
+- [x] Supplementary Table: Full mesh quality statistics per case (50 rows) — submitted as S8 Data file instead of rendered table
   - Columns: mesh_id, n_elements, min_quality, max_quality, mean_quality, stddev, n_inverted, n_degenerate
-- [ ] Supplementary Figure: Histogram of mean element quality distribution across cohort
-- [ ] Brief methods description of meshtool quality metric
+- [x] Supplementary Figure: Histogram of mean element quality distribution across cohort — S7 Figure in supplement PDF
+- [x] Brief methods description of meshtool quality metric — in `s7_mesh_quality.tex`
 
-**Current status:** [ ] Data exists in `reviews_data/mesh_quality_summary.csv`, needs formatting for supplement
+**Current status:** [x] Complete — S7 Fig in `supplement_main.tex`; table commented out (`\iffalse`); raw data as `supplementary/S8_Data_mesh_quality.csv`; legends in `manuscript.tex`
 
-**Decision needed:** Include as supplementary material or keep as repository data?
+**Decision:** Figure in supplement PDF (S7); full per-model data submitted as S8 Data file.
 
 ---
 
@@ -85,12 +85,12 @@ This document tracks all commitments made to include information in Supplementar
 - Methods Section 3.1.1: "A table of the labels is provided in the Supplementary material."
 
 **What must be included:**
-- [ ] Table listing all 37 anatomical labels
-- [ ] Label ID number
-- [ ] Anatomical structure name
-- [ ] Structure type (myocardium, blood pool, valve plane, vessel)
+- [x] Table listing all 37 anatomical labels
+- [x] Label ID number
+- [x] Anatomical structure name
+- [x] Structure type (myocardium, blood pool, valve plane, vessel)
 
-**Current status in Supp Material:** [~] May already exist - VERIFY
+**Current status in Supp Material:** [x] Complete — `sections/supp/s5_labels.tex`, legend in `manuscript.tex`
 
 ---
 
@@ -100,12 +100,12 @@ This document tracks all commitments made to include information in Supplementar
 - Various references throughout Results section
 
 **What should be included:**
-- [ ] Full ANOVA tables
-- [ ] Complete pairwise comparison results
-- [ ] Effect size tables (may already be in main manuscript)
-- [ ] Raw data or summary statistics tables
+- [x] Full ANOVA tables — `supplementary/S10_Data_anova.xlsx`
+- [x] Complete pairwise comparison results — `supplementary/S11_Data_posthoc.xlsx`
+- [x] Effect size tables — included in S11 Data (Cohen's d, CI)
+- [x] Raw data or summary statistics tables — `supplementary/S9_Data_summary.xlsx`, `S12_Data_geometric_stats.csv`
 
-**Current status:** [~] Likely already included - VERIFY completeness
+**Current status:** [x] Complete — S9–S13 Data files in `supplementary/`, legends in `manuscript.tex`
 
 ---
 
@@ -122,7 +122,7 @@ This document tracks all commitments made to include information in Supplementar
 **What must be included:**
 - [x] Supplementary Figure S1: Stratified scatter plot (TAT vs QRS by condition) - COMPLETE
   - File: `reviews_data/deliverables/sp1_supp_tat_qrs_stratified.pdf`
-- [ ] Legend for S1 Figure to add after References in main manuscript
+- [x] Legend for S1 Figure added to `manuscript.tex` (Supporting Information section)
 
 **Figure caption template:**
 ```
@@ -138,7 +138,7 @@ conduction delays (fibrosis, scar, conduction blocks) are not captured by
 anatomy alone and would require patient-specific tissue property calibration.
 ```
 
-**Current status:** [x] Figure complete, [ ] legend needs to be added to manuscript
+**Current status:** [x] Figure complete, [x] legend added to `manuscript.tex`
 
 ---
 
@@ -156,8 +156,8 @@ anatomy alone and would require patient-specific tissue property calibration.
 
 ### Supplementary Table S2: Geometric Characteristics
 - [x] Data file ready: `reviews_data/deliverables/sp2_geometric_descriptive_stats.csv` - COMPLETE
-- [ ] Format as proper supplementary table (convert CSV to formatted table)
-- [ ] Add legend after References
+- [x] Formatted as supplementary table — `sections/supp/s2_geometric_table.tex`; raw data also as `supplementary/S12_Data_geometric_stats.csv`
+- [x] Legend added to `manuscript.tex`
 
 **Table caption template:**
 ```
@@ -172,21 +172,9 @@ scaled with anatomical size, reflecting the adaptive meshing algorithm.
 
 ### Supplementary Figure S2: Correlation Heatmap
 - [x] Figure ready: `reviews_data/deliverables/sp2_correlation_heatmap.pdf` - COMPLETE
-- [ ] Add legend after References
+- [x] Legend added to `manuscript.tex`; raw correlation data also as `supplementary/S13_Data_correlation.csv`
 
-**Figure caption template:**
-```
-Supplementary Figure S2. Correlation matrix between geometric variables and 
-simulation outputs.
-
-Spearman correlation coefficients (ρ) shown for relationships between geometric 
-metrics (chamber volumes, mesh element count, age) and simulation outputs 
-(activation times, volume changes). Strong positive correlations (red) indicate 
-geometric variables predict functional outcomes under standardized parameters. 
-All correlations shown are statistically significant (p < 0.05).
-```
-
-**Current status:** [x] Both files complete, [ ] legends need to be added to manuscript
+**Current status:** [x] Both files complete, [x] legends added to `manuscript.tex`
 
 ---
 
@@ -195,51 +183,54 @@ All correlations shown are statistically significant (p < 0.05).
 Before final submission, check your current Supplementary Material document against this list:
 
 ### Critical (Promised explicitly in revisions):
-- [ ] CGAL parameters table (Sprint 4, Tasks 2 & 5)
-- [ ] Boundary conditions description (pre-existing, verify present)
-- [x] TAT-QRS correlation figure (Sprint 1) - FILE READY
-- [x] Geometric characteristics table (Sprint 2) - FILE READY  
-- [x] Correlation heatmap (Sprint 2) - FILE READY
+- [x] CGAL parameters table (Sprint 4, Tasks 2 & 5) — S4 Table
+- [x] Boundary conditions description (pre-existing) — S6 Methods
+- [x] TAT-QRS correlation figure (Sprint 1) — S1 Figure
+- [x] Geometric characteristics table (Sprint 2) — S2 Table
+- [x] Correlation heatmap (Sprint 2) — S3 Figure
 
 ### Important (Promised in main manuscript):
-- [ ] 37-label table (Section 3.1.1)
-- [ ] Statistical analysis details (Results section)
+- [x] 37-label table (Section 3.1.1) — S5 Table
+- [x] Statistical analysis details (Results section) — S10–S11 Data
 
 ### Optional but Recommended:
-- [ ] Mesh quality statistics table (data exists)
-- [ ] Mesh quality histogram figure (can generate)
+- [x] Mesh quality statistics table — submitted as S8 Data (CSV) instead of rendered table
+- [x] Mesh quality histogram figure — S7 Figure
 
 ---
 
 ## FILES READY FOR SUPPLEMENTARY MATERIAL
 
 **Sprint 1 deliverables:**
-- ✅ `reviews_data/deliverables/sp1_supp_tat_qrs_stratified.pdf` → Supplementary Figure S1
+- ✅ `reviews_data/deliverables/sp1_supp_tat_qrs_stratified.pdf` → S1 Figure (in supplement PDF)
 
 **Sprint 2 deliverables:**
-- ✅ `reviews_data/deliverables/sp2_geometric_descriptive_stats.csv` → Supplementary Table S2 (needs formatting)
-- ✅ `reviews_data/deliverables/sp2_correlation_heatmap.pdf` → Supplementary Figure S2
+- ✅ `reviews_data/deliverables/sp2_geometric_descriptive_stats.csv` → S2 Table (in supplement PDF) + S12 Data
+- ✅ `reviews_data/deliverables/sp2_correlation_heatmap.pdf` → S3 Figure (in supplement PDF)
+- ✅ `reviews_data/deliverables/sp2_correlation_results.csv` → S13 Data
 
 **Sprint 0 deliverables:**
-- ✅ `reviews_data/mesh_quality_summary.csv` → Optional Supplementary Table S3
+- ✅ `reviews_data/mesh_quality_summary.csv` → S7 Figure (in supplement PDF) + S8 Data
 
 ---
 
 ## CURRENT SUPPLEMENTARY MATERIAL STRUCTURE
 
-From your project tree, you currently have:
 ```
 supplementary/
-├── classic_anova_results.xlsx
-├── classic_posthoc_results.xlsx
-├── PCOMPBIOL-S-25-02911_amendments.pdf
-└── summary_table.xlsx
+├── PCOMPBIOL-S-25-02911_amendments.pdf   ← revision amendments letter, NOT a SI file
+├── classic_anova_results.xlsx            ← original (kept for reference)
+├── classic_posthoc_results.xlsx          ← original (kept for reference)
+├── summary_table.xlsx                    ← original (kept for reference)
+├── S8_Data_mesh_quality.csv
+├── S9_Data_summary.xlsx
+├── S10_Data_anova.xlsx
+├── S11_Data_posthoc.xlsx
+├── S12_Data_geometric_stats.csv
+└── S13_Data_correlation.csv
 ```
 
-**Action items:**
-1. Check if `PCOMPBIOL-S-25-02911_amendments.pdf` is your Supplementary Material document
-2. Verify which of the above items are already covered
-3. Add missing items before final submission
+**Note:** Submit only S8–S13 files plus the supplement PDF. Do not submit originals or the amendments PDF.
 
 ---
 
@@ -301,5 +292,5 @@ Per-model element quality metrics for all 50 hearts assessed using tet\_qmetric\
 including mean quality, standard deviation, and counts of inverted/degenerate elements.
 ```
 
-**Note:** Adjust numbering if your existing supplementary material already has 
-tables/figures. The order above prioritizes new sprint deliverables first.
+**Status:** [x] Template implemented — S1–S13 legends are live in `manuscript.tex`.
+S7–S13 entries were added 2026-03-12.
