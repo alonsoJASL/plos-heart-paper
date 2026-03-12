@@ -176,7 +176,44 @@ applications.
 \input{sections/discussion_final}
 \input{sections/conclusion}
 
+\section*{Author Contributions}
+\textbf{Authors' initials:}
+Jos\'e Alonso Sol\'is-Lemus (JASL);
+Rosie K. Barrows (RKB);
+Cristobal Rodero (CRG);
+Marina Strocchi (MS);
+Natalie Montarello (NM);
+Nishant Lahoti (NL);
+Cesare Corrado (CC);
+Abdul Qayyum (AQ);
+Shahrokh Rahmani (SR);
+Caroline Roney (CR);
+Gernot Plank (GP);
+Cristoph Augustin (CA);
+Hao Xu (HX);
+Alistair Young (AY);
+Pras Pathmanathan (PP);
+Ronak Rajani (RR);
+Steven A. Niederer (SN).
+
+\textbf{Conceptualization:} JASL, RKB, MS, PP, SN.
+\textbf{Data curation:} NM, NL, RR.
+\textbf{Formal analysis:} JASL, RKB.
+\textbf{Funding acquisition:} CR, GP, CA, AY, SN.
+\textbf{Investigation:} JASL, RKB.
+\textbf{Methodology:} JASL, RKB, CRG, MS, CC, AQ, SR, CR, GP, CA, HX.
+\textbf{Project administration:} SN.
+\textbf{Resources:} NM, NL, RR.
+\textbf{Software:} JASL, RKB, CRG, MS.
+\textbf{Supervision:} AY, RR, PP, SN.
+\textbf{Validation:} JASL, RKB.
+\textbf{Visualization:} JASL, RKB.
+\textbf{Writing -- original draft:} JASL, RKB, CRG, PP.
+\textbf{Writing -- review \& editing:} All authors.
+
 \nolinenumbers
+
+\bibliography{myrefs}
 
 % Supporting Information legends (E3)
 \added[id=ED, comment={E-3: supporting information legends}]{Supporting Information}
@@ -188,35 +225,35 @@ positive correlation (Pearson $r = 0.649$, $p = 0.005$), validating \TAT{V} as a
 when anatomical variability dominates. Heart failure patients (red, $n=16$) showed no
 correlation ($r = -0.127$, $p = 0.64$), reflecting unmeasured pathological tissue properties.
 
-\paragraph{S2 Table.}
+\paragraph{S1 Table.} % S2
 Geometric characteristics stratified by sex and heart failure status. Mean $\pm$ SD reported
 for age (years), chamber volumes (mL), and total mesh elements (millions).
 
-\paragraph{S3 Figure.}
+\paragraph{S2 Figure.} % S3 
 Correlation matrix between geometric variables and simulation outputs. Spearman correlation
 coefficients ($\rho$) between geometric metrics (chamber volumes, mesh element count, age)
 and simulation outputs (activation times, volume changes). All shown correlations significant
 at $p < 0.05$.
 
-\paragraph{S4 Table.}
+\paragraph{S2 Table.} % S4
 Complete specification of CGAL meshing parameters used for volumetric mesh generation,
 including \texttt{facet\_size}, \texttt{cell\_size}, and \texttt{facet\_distance} values.
 
-\paragraph{S5 Table.}
+\paragraph{S3 Table.}
 List of all 37 anatomical labels assigned during segmentation and mesh generation,
 including label ID, anatomical structure name, and structure type.
 
-\paragraph{S6 Methods.}
-Detailed specification of pericardial constraints and boundary conditions applied in
-passive inflation simulations.
-
-\paragraph{S7 Figure.}
+\paragraph{S3 Figure.} % S7
 Distribution of mean element quality across the 50-heart cohort. Each point represents
 one mesh. The \texttt{tet\_qmetric\_volume} metric ranges from 0 (perfect tetrahedron)
 to 1 (degenerate); lower values indicate better quality. Cohort-wide mean was
 $0.153 \pm 0.100$. No inverted elements (quality $> 0.99$) were found in any mesh.
 
-\paragraph{S8 Data.}
+\paragraph{S4 Methods.}
+Detailed specification of pericardial constraints and boundary conditions applied in
+passive inflation simulations.
+
+\paragraph{S8 Data.} % 
 Per-model mesh quality statistics for all 50 hearts. Columns: mesh ID, total element
 count, min/max/mean/SD of \texttt{tet\_qmetric\_volume}, number of inverted elements,
 and percentage of near-degenerate elements.
@@ -241,7 +278,5 @@ Spearman correlation coefficients between geometric variables and simulation out
 with $p$-values and significance levels.
 
 \listofchanges
-
-\bibliography{myrefs}
 
 \end{document}
