@@ -270,24 +270,30 @@ we discuss its implications in more detail in the following section.
 \added[id=MR, comment={R3-Maj-3b: TAT-QRS limitation acknowledgment}]{
     Our simulations employed uniform electrophysiological and 
     mechanical parameters across all models to isolate the effects of anatomical 
-    variability. While this approach successfully captured anatomical influences 
-    on cardiac function, evidenced by the strong correlation between simulated 
-    activation times and QRS duration in control hearts, $r=0.649, p<0.005$, it 
-    does not account for patient-specific tissue properties such as fibrosis or 
-    conduction system disease. The absence of correlation in heart failure patients 
-    ($r=-0.127, p=0.64$) reflects this limitation and highlights the need for 
-    patient-specific parameter calibration in future work.
+    variability. The positive correlation between simulated activation times and 
+    QRS duration in control hearts ($r=0.649, p<0.005$) indicates that reference 
+    conductivity parameters provide an approximate anatomical surrogate for QRS, 
+    and that anatomical variation captures at least part of the inter-subject 
+    variability in conduction time. It does not, however, constitute a precise 
+    prediction of QRS, nor does it account for patient-specific tissue properties 
+    such as fibrosis or conduction system disease. The absence of correlation in 
+    heart failure patients ($r=-0.127, p=0.64$) reflects this limitation and 
+    highlights the need for patient-specific parameter calibration.
 }
 
 \added[id=R3, comment={R3-Maj-7: UKBB Caucasian limitation}]{
-    Additionally, the UKBB reference ranges used for anatomical comparison~\cite{petersen-2017-reference} 
-    were derived from a predominantly Caucasian population. This may limit the generalizability 
-    of our anatomical fidelity assessment across diverse ethnic backgrounds, as chamber sizes 
-    and remodeling patterns can vary by ethnicity. Our cohort lacks systematic ethnicity data, 
-    preventing stratified analysis. 
-    Future work should incorporate ethnicity-specific reference ranges or population-matched 
-    controls to improve the validity of anatomical comparisons across diverse patient demographics.
+    Additionally, the UKBB reference ranges used for anatomical 
+    comparison~\cite{petersen-2017-reference} were derived from a predominantly 
+    Caucasian population. Ethnicity data were not systematically collected for the 
+    present cohort, which is consistent with common clinical practice in 
+    Europe~\cite{reporting_ethnicity_2004}, but may limit the generalisability of 
+    comparisons with these reference ranges for non-Caucasian patients. Racial 
+    differences in cardiac structure and function have been 
+    reported~\cite{effect_on_race_2019}, underscoring the importance of 
+    ethnicity-matched reference data when assessing anatomical fidelity in 
+    diverse cohorts.
 }
+
 
 \subsubsection{Critical Role of Segmentation in Model Accuracy}
 The segmentation stage is a critical bottleneck in the pipeline,
@@ -319,37 +325,22 @@ and may underestimate simulation variability.
 
 \subsubsection{Uncertainty Quantification}\label{sec:uq}
 \added[id=R1, comment={R1-Maj-7: Uncertainty quantification discussion}]{
-    While this study demonstrates that anatomical variability influences 
-    simulation outcomes under fixed parameters, uncertainties in the segmentation and 
-    mesh generation process may further contribute to output variance. 
-    We have previously assessed reproducibility of our left atrial modeling 
-    pipeline~\cite{solis-lemus2023_reproducibility}, demonstrating that operator 
-    variability in segmentation introduces quantifiable uncertainty in chamber geometry 
-    and subsequent simulation predictions. However, whole-heart models present 
-    substantially greater complexity, with four chambers, multiple vessel junctions, 
-    and valve planes that may amplify uncertainty propagation through the reconstruction 
-    workflow.
-}
-\added[id=R1, comment={R1-Maj-7}]{
-    A systematic approach to quantifying these uncertainties would involve Monte Carlo 
-    sampling of plausible segmentation contours within the bounds of image resolution 
-    and anatomical variability. For instance, systematically perturbing myocardial 
-    boundaries by $\pm 1$--2~mm (corresponding to typical CT voxel dimensions) and 
-    regenerating meshes would yield a distribution of geometries consistent with the 
-    underlying imaging data. Running simulations across this ensemble would quantify 
-    the sensitivity of activation times and mechanical responses to reconstruction 
-    uncertainty, extending our prior single-chamber reproducibility analysis to the 
-    multi-chamber whole-heart case.
-}
-\added[id=R1, comment={R1-Maj-7}]{
-    Such uncertainty quantification analyses align with verification, validation, and 
-    uncertainty quantification (VVUQ) frameworks increasingly adopted for computational 
-    model credibility assessment in regulatory contexts~\cite{health_assessing_2023}. 
-    Incorporating systematic whole-heart UQ would strengthen confidence in model 
-    predictions and provide bounds on simulation outputs that account for both 
-    anatomical variability (addressed in this study) and reconstruction uncertainty 
-    (future work). This represents a critical next step toward establishing the 
-    credibility of this virtual cohort for in silico clinical trial applications.
+    This study addresses variability across the population — how anatomical 
+    differences between patients influence simulation outcomes under fixed 
+    parameters. A distinct and equally important source of variability arises 
+    during model construction, introduced through segmentation choices and 
+    boundary placement. Previous work has begun to quantify this 
+    construction-stage uncertainty in the context of left atrial 
+    models~\cite{solis-lemus2023_reproducibility, sim2019reproducibility}, 
+    demonstrating that operator variability in segmentation introduces 
+    quantifiable differences in chamber geometry and downstream simulation 
+    predictions. However, whole-heart models present substantially greater 
+    complexity, with four chambers, multiple vessel junctions, and valve planes 
+    that may amplify uncertainty propagation through the reconstruction workflow. 
+    Explicitly quantifying construction-stage uncertainty in whole-heart models 
+    has not been addressed here and represents an important limitation, 
+    particularly in the context of regulatory credibility frameworks such as 
+    those outlined by the FDA~\cite{health_assessing_2023}.
 }
 
 Despite these limitations, our current approach balances physiological realism with scalability, 
