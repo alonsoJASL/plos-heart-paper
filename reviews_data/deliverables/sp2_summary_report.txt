@@ -3,42 +3,52 @@ Sprint 2: Geometric Characterization Summary
 
 DESCRIPTIVE STATISTICS
 ----------------------------------------------------------------------
-         Group  n         Age       Vol_LV       Vol_RV       Vol_LA       Vol_RA  N_elements
-  Male Control 13 47.2 ± 12.0 179.6 ± 36.3 188.7 ± 25.7  93.9 ± 27.9 100.7 ± 16.9 2.33 ± 0.35
-       Male HF 12 60.1 ± 16.1 289.1 ± 88.1 227.6 ± 60.2 140.5 ± 58.9 138.2 ± 67.7 2.95 ± 0.59
-Female Control 13  49.5 ± 9.8 139.7 ± 32.2 139.7 ± 34.8  79.6 ± 19.4  86.3 ± 32.3 1.91 ± 0.28
-     Female HF 12  60.1 ± 9.0 183.0 ± 60.0 136.7 ± 30.8 104.9 ± 57.4 100.0 ± 47.3 2.17 ± 0.38
+         Group  n         Age       Vol_LV       Vol_RV       Vol_LA       Vol_RA wall_volume_cm3
+  Male Control 13 47.2 ± 12.0 179.6 ± 36.3 188.7 ± 25.7  93.9 ± 27.9 100.7 ± 16.9    319.0 ± 43.7
+       Male HF 12 60.1 ± 16.1 289.1 ± 88.1 227.6 ± 60.2 140.5 ± 58.9 138.2 ± 67.7    396.0 ± 75.2
+Female Control 13  49.5 ± 9.8 139.7 ± 32.2 139.7 ± 34.8  79.6 ± 19.4  86.3 ± 32.3    262.6 ± 36.5
+     Female HF 12  60.1 ± 9.0 183.0 ± 60.0 136.7 ± 30.8 104.9 ± 57.4 100.0 ± 47.3    297.3 ± 50.0
 
 TOP CORRELATIONS (p < 0.05)
 ----------------------------------------------------------------------
-Geometric   Simulation  Spearman_rho      p_value  n Significant
-   Vol_LV delta_Vol_LV      0.958896 6.578543e-28 50         ***
-  N_Total       TAT_RV      0.873037 1.395412e-16 50         ***
-   Vol_LA       TAT_LA      0.869388 2.639242e-16 50         ***
-  N_Total        TAT_V      0.865546 5.058260e-16 50         ***
-   Vol_RV       TAT_LV      0.811861 8.466259e-13 50         ***
-   Vol_RV        TAT_V      0.783721 1.705160e-11 50         ***
-   Vol_RV delta_Vol_RV      0.764802 1.010776e-10 50         ***
-   Vol_LV       TAT_RV      0.730036 1.790855e-09 50         ***
-   Vol_RA       TAT_LA      0.728788 1.969335e-09 50         ***
-  N_Total delta_Vol_RV      0.694694 2.188920e-08 50         ***
-   Vol_LV       TAT_LV      0.683553 4.482565e-08 50         ***
-   Vol_RV delta_Vol_LV      0.666843 1.241148e-07 50         ***
-   Vol_LV        TAT_V      0.657911 2.084259e-07 50         ***
-   Vol_RV       TAT_RV      0.654742 2.494885e-07 50         ***
-  N_Total delta_Vol_LV      0.642545 4.889618e-07 50         ***
-  N_Total       TAT_LA      0.627947 1.053255e-06 50         ***
-  N_Total       TAT_LV      0.617959 1.741191e-06 50         ***
-   Vol_RA        TAT_V      0.590876 6.257403e-06 50         ***
-   Vol_LA       TAT_RV      0.547755 3.836295e-05 50         ***
-   Vol_LA        TAT_V      0.541801 4.833830e-05 50         ***
-   Vol_RA delta_Vol_RV      0.517599 1.184158e-04 50         ***
-   Vol_RA       TAT_RV      0.511164 1.485953e-04 50         ***
-   Vol_LA delta_Vol_RV      0.456230 8.687110e-04 50         ***
-   Vol_LV delta_Vol_RV      0.453733 9.349267e-04 50         ***
-   Vol_RV       TAT_LA      0.388331 5.323919e-03 50          **
-   Vol_RA       TAT_LV      0.300264 3.412054e-02 50           *
-   Vol_LV       TAT_LA      0.290180 4.093372e-02 50           *
+  Geometric   Simulation  Spearman_rho      p_value  n Significant
+     Vol_LV delta_Vol_LV      0.958896 6.578543e-28 50         ***
+wall_volume       TAT_RV      0.872173 1.625616e-16 50         ***
+     Vol_LA       TAT_LA      0.869388 2.639242e-16 50         ***
+wall_volume        TAT_V      0.853157 3.624025e-15 50         ***
+     Vol_RV       TAT_LV      0.811861 8.466259e-13 50         ***
+     Vol_RV        TAT_V      0.783721 1.705160e-11 50         ***
+     Vol_RV delta_Vol_RV      0.764802 1.010776e-10 50         ***
+     Vol_LV       TAT_RV      0.730036 1.790855e-09 50         ***
+     Vol_RA       TAT_LA      0.728788 1.969335e-09 50         ***
+wall_volume delta_Vol_RV      0.687779 3.428172e-08 50         ***
+     Vol_LV       TAT_LV      0.683553 4.482565e-08 50         ***
+     Vol_RV delta_Vol_LV      0.666843 1.241148e-07 50         ***
+     Vol_LV        TAT_V      0.657911 2.084259e-07 50         ***
+     Vol_RV       TAT_RV      0.654742 2.494885e-07 50         ***
+wall_volume delta_Vol_LV      0.634958 7.322277e-07 50         ***
+wall_volume       TAT_LA      0.627755 1.063664e-06 50         ***
+wall_volume       TAT_LV      0.616134 1.905093e-06 50         ***
+     Vol_RA        TAT_V      0.590876 6.257403e-06 50         ***
+     Vol_LA       TAT_RV      0.547755 3.836295e-05 50         ***
+     Vol_LA        TAT_V      0.541801 4.833830e-05 50         ***
+     Vol_RA delta_Vol_RV      0.517599 1.184158e-04 50         ***
+     Vol_RA       TAT_RV      0.511164 1.485953e-04 50         ***
+     Vol_LA delta_Vol_RV      0.456230 8.687110e-04 50         ***
+     Vol_LV delta_Vol_RV      0.453733 9.349267e-04 50         ***
+     Vol_RV       TAT_LA      0.388331 5.323919e-03 50          **
+     Vol_RA       TAT_LV      0.300264 3.412054e-02 50           *
+     Vol_LV       TAT_LA      0.290180 4.093372e-02 50           *
+
+wall_volume CORRELATIONS
+----------------------------------------------------------------------
+  Geometric   Simulation  Spearman_rho      p_value  n Significant
+wall_volume       TAT_RV      0.872173 1.625616e-16 50         ***
+wall_volume        TAT_V      0.853157 3.624025e-15 50         ***
+wall_volume delta_Vol_RV      0.687779 3.428172e-08 50         ***
+wall_volume delta_Vol_LV      0.634958 7.322277e-07 50         ***
+wall_volume       TAT_LA      0.627755 1.063664e-06 50         ***
+wall_volume       TAT_LV      0.616134 1.905093e-06 50         ***
 
 KEY FINDINGS
 ----------------------------------------------------------------------

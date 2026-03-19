@@ -13,14 +13,27 @@ DATA_FILE = Path.home() / "Dropbox/ic/fda_results/report.xlsx"
 OUTPUT_DIR = Path("reviews_data/deliverables")
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
+model_volumes_path = OUTPUT_DIR / "model_volumes.csv"
+
+
 # Load data
 df = pd.read_excel(DATA_FILE)
 print(f"Total cases: {len(df)}")
 
+# Load and merge myocardial wall volumes
+model_volumes = pd.read_csv(model_volumes_path)
+model_volumes = model_volumes.rename(columns={'path': 'Case', 'total_volume': 'wall_volume'})
+model_volumes = model_volumes[['Case', 'wall_volume']]
+df = df.merge(model_volumes, on='Case', how='left')
+n_matched = df['wall_volume'].notna().sum()
+print(f"Wall volumes matched: {n_matched} of {len(df)} cases")
+if n_matched < len(df):
+    print("WARNING: unmatched cases:")
+    print(df[df['wall_volume'].isna()]['Case'].tolist())
+
 # Add total volumes for convenience
 df['Vol_Total_V'] = df['Vol_LV'] + df['Vol_RV']
 df['Vol_Total_A'] = df['Vol_LA'] + df['Vol_RA']
-df['N_Total'] = df['N_Ventricles'] + df['N_Atria']
 
 # Separate by sex and condition
 male = df[df['Sex'] == 'M']
@@ -45,7 +58,7 @@ def compute_stats(group, label):
         'Vol_RV': f"{group['Vol_RV'].mean():.1f} ± {group['Vol_RV'].std():.1f}",
         'Vol_LA': f"{group['Vol_LA'].mean():.1f} ± {group['Vol_LA'].std():.1f}",
         'Vol_RA': f"{group['Vol_RA'].mean():.1f} ± {group['Vol_RA'].std():.1f}",
-        'N_elements': f"{group['N_Total'].mean()/1e6:.2f} ± {group['N_Total'].std()/1e6:.2f}",
+        'wall_volume_cm3': f"{group['wall_volume'].mean():.1f} ± {group['wall_volume'].std():.1f}",
     }
 
 # Compute stats for each group
@@ -69,7 +82,9 @@ print(f"\nDescriptive stats saved to {OUTPUT_DIR / 'sp2_geometric_descriptive_st
 # =============================================================================
 
 # Select geometric and simulation variables
-geometric_vars = ['Age', 'Vol_LV', 'Vol_RV', 'Vol_LA', 'Vol_RA', 'N_Total']
+# wall_volume replaces N_Total (element count is mesh-resolution-dependent,
+# not a biological quantity)
+geometric_vars = ['Age', 'Vol_LV', 'Vol_RV', 'Vol_LA', 'Vol_RA', 'wall_volume']
 simulation_vars = ['TAT_LV', 'TAT_RV', 'TAT_V', 'TAT_LA', 'delta_Vol_LV', 'delta_Vol_RV']
 
 # Compute Spearman correlations (handles non-normal distributions better)
@@ -81,7 +96,7 @@ for geom_var in geometric_vars:
         clean = df[[geom_var, sim_var]].dropna()
         if len(clean) < 10:  # Need minimum sample size
             continue
-        
+
         rho, p = stats.spearmanr(clean[geom_var], clean[sim_var])
         correlations.append({
             'Geometric': geom_var,
@@ -97,6 +112,9 @@ corr_df = corr_df.sort_values('p_value')
 
 print("\n=== Top 10 Strongest Correlations ===")
 print(corr_df.head(10).to_string(index=False))
+
+print("\n=== wall_volume correlations ===")
+print(corr_df[corr_df['Geometric'] == 'wall_volume'].to_string(index=False))
 
 # Save full correlation table
 corr_df.to_csv(OUTPUT_DIR / 'sp2_correlation_results.csv', index=False)
@@ -114,7 +132,7 @@ corr_matrix = geom_sim_data.corr(method='spearman')
 corr_subset = corr_matrix.loc[geometric_vars, simulation_vars]
 
 fig, ax = plt.subplots(figsize=(10, 6))
-sns.heatmap(corr_subset, annot=True, fmt='.2f', cmap='coolwarm', 
+sns.heatmap(corr_subset, annot=True, fmt='.2f', cmap='coolwarm',
             center=0, vmin=-1, vmax=1, ax=ax,
             cbar_kws={'label': 'Spearman ρ'})
 ax.set_xlabel('Simulation Outputs', fontsize=12)
@@ -128,12 +146,12 @@ print(f"\nHeatmap saved to {OUTPUT_DIR / 'sp2_correlation_heatmap.pdf'}")
 # PART 4: Stratified Analysis (Sex and HF)
 # =============================================================================
 
-print("\n=== Stratified Correlations (Vol_LV vs TAT_LV) ===")
+print("\n=== Stratified Correlations (wall_volume vs TAT_V) ===")
 
 for group, label in [(control, 'Control'), (hf, 'HF'), (male, 'Male'), (female, 'Female')]:
-    clean = group[['Vol_LV', 'TAT_LV']].dropna()
+    clean = group[['wall_volume', 'TAT_V']].dropna()
     if len(clean) >= 5:
-        rho, p = stats.spearmanr(clean['Vol_LV'], clean['TAT_LV'])
+        rho, p = stats.spearmanr(clean['wall_volume'], clean['TAT_V'])
         print(f"{label:15} (n={len(clean):2}): ρ={rho:6.3f}, p={p:.4f}")
 
 # =============================================================================
@@ -143,18 +161,23 @@ for group, label in [(control, 'Control'), (hf, 'HF'), (male, 'Male'), (female, 
 with open(OUTPUT_DIR / 'sp2_summary_report.txt', 'w') as f:
     f.write("Sprint 2: Geometric Characterization Summary\n")
     f.write("=" * 70 + "\n\n")
-    
+
     f.write("DESCRIPTIVE STATISTICS\n")
     f.write("-" * 70 + "\n")
     f.write(stats_table.to_string(index=False))
     f.write("\n\n")
-    
+
     f.write("TOP CORRELATIONS (p < 0.05)\n")
     f.write("-" * 70 + "\n")
     sig_corr = corr_df[corr_df['p_value'] < 0.05]
     f.write(sig_corr.to_string(index=False))
     f.write("\n\n")
-    
+
+    f.write("wall_volume CORRELATIONS\n")
+    f.write("-" * 70 + "\n")
+    f.write(corr_df[corr_df['Geometric'] == 'wall_volume'].to_string(index=False))
+    f.write("\n\n")
+
     f.write("KEY FINDINGS\n")
     f.write("-" * 70 + "\n")
     f.write(f"- Total correlations tested: {len(corr_df)}\n")
