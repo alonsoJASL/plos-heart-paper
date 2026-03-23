@@ -63,6 +63,12 @@
 \textheight 8.75in
 
 % -------------------------------------------------------------------------
+% CROSS-DOCUMENT REFERENCES (supplement ↔ manuscript)
+% -------------------------------------------------------------------------
+\usepackage{xr}
+\externaldocument{supplement_main}
+
+% -------------------------------------------------------------------------
 % MANUSCRIPT-SPECIFIC MACROS (not needed in supplement)
 % -------------------------------------------------------------------------
 \newcommand{\autor}{%
@@ -225,17 +231,17 @@ positive correlation (Pearson $r = 0.649$, $p = 0.005$), validating \TAT{V} as a
 when anatomical variability dominates. Heart failure patients (red, $n=16$) showed no
 correlation ($r = -0.127$, $p = 0.64$), reflecting unmeasured pathological tissue properties.
 
-\paragraph{S1 Table.} % S2
+\paragraph{S1 Table.}
 Geometric characteristics stratified by sex and heart failure status. Mean $\pm$ SD reported
 for age (years), chamber volumes (mL), and total mesh elements (millions).
 
-\paragraph{S2 Figure.} % S3 
+\paragraph{S2 Figure.}
 Correlation matrix between geometric variables and simulation outputs. Spearman correlation
 coefficients ($\rho$) between geometric metrics (chamber volumes, mesh element count, age)
 and simulation outputs (activation times, volume changes). All shown correlations significant
 at $p < 0.05$.
 
-\paragraph{S2 Table.} % S4
+\paragraph{S2 Table.}
 Complete specification of CGAL meshing parameters used for volumetric mesh generation,
 including \texttt{facet\_size}, \texttt{cell\_size}, and \texttt{facet\_distance} values.
 
@@ -243,37 +249,37 @@ including \texttt{facet\_size}, \texttt{cell\_size}, and \texttt{facet\_distance
 List of all 37 anatomical labels assigned during segmentation and mesh generation,
 including label ID, anatomical structure name, and structure type.
 
-\paragraph{S3 Figure.} % S7
+\paragraph{S3 Figure.}
 Distribution of mean element quality across the 50-heart cohort. Each point represents
 one mesh. The \texttt{tet\_qmetric\_volume} metric ranges from 0 (perfect tetrahedron)
 to 1 (degenerate); lower values indicate better quality. Cohort-wide mean was
 $0.153 \pm 0.100$. No inverted elements (quality $> 0.99$) were found in any mesh.
 
-\paragraph{S4 Methods.}
+\paragraph{S1 Text.}
 Detailed specification of pericardial constraints and boundary conditions applied in
 passive inflation simulations.
 
-\paragraph{S8 Data.} % 
+\paragraph{S1 Data.}
 Per-model mesh quality statistics for all 50 hearts. Columns: mesh ID, total element
 count, min/max/mean/SD of \texttt{tet\_qmetric\_volume}, number of inverted elements,
 and percentage of near-degenerate elements.
 
-\paragraph{S9 Data.}
+\paragraph{S2 Data.}
 Summary statistics for geometric characteristics and simulation outputs, stratified by
 sex and heart failure status.
 
-\paragraph{S10 Data.}
+\paragraph{S3 Data.}
 Complete ANOVA results for all simulation outputs and geometric metrics.
 
-\paragraph{S11 Data.}
+\paragraph{S4 Data.}
 All pairwise post-hoc comparison results (FDR-corrected) for simulation outputs and
 geometric metrics. Includes Cohen's $d$ effect sizes and 95\% confidence intervals.
 
-\paragraph{S12 Data.}
+\paragraph{S5 Data.}
 Descriptive statistics (mean $\pm$ SD) for geometric variables stratified by group
 (Male/Female $\times$ Control/HF).
 
-\paragraph{S13 Data.}
+\paragraph{S6 Data.}
 Spearman correlation coefficients between geometric variables and simulation outputs,
 with $p$-values and significance levels.
 

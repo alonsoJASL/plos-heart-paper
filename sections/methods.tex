@@ -38,7 +38,7 @@ This stage creates the myocardia, valve planes, and vein rings.
 The myocardia of the right ventricle (\RV), the atria, the aorta and pulmonary artery are extracted
 through the use of distance maps, with a user-selected thickness of 3.5mm for the \RV, and 
 2mm for the remaining structures and coupling the different regions to ensure no overlap occurs.
-A table of the labels is provided in the Supplementary material.
+A table of the labels is provided in Supplementary Table~\ref{tab:s3-labels}.
 % See the Supplementary material for a detailed explanation of these points' locations and 
 % of the evolution of the segmentation as the post-processing stage occurs.
 
@@ -75,16 +75,16 @@ which comes packaged with CemrgApp and is based on the Computational Geometry Al
     \texttt{cell\_size} and \texttt{facet\_size} parameters. 
     Mesh density is controlled via CGAL parameters 
     (\texttt{facet\_size}, \texttt{cell\_size}, \texttt{facet\_distance}), 
-    which are specified globally for the entire heart geometry. Complete 
-    parameter specifications are provided in the Supplementary Material.
+    which are specified globally for the entire heart geometry. Complete
+    parameter specifications are provided in Supplementary Table~\ref{tab:s2-cgal-params}.
 }
 The next step is to extract the myocardia, simplify the mesh topology, and relabel the tags using 
 meshtool~\cite{Neic2020-meshtool}.
 The simplification consists in identifying elements insufficiently connected to neighbours of the same class.
 % The element tags of the entire volumetric mesh are cleaned up and relabelled 
 % with meshtool~\cite{Neic2020-meshtool}, before removing the blood pools.
-A complete description of the CGAL parameters, which can be modified by the user, 
-is available in the Supplementary material. 
+A complete description of the CGAL parameters, which can be modified by the user,
+is available in Supplementary Table~\ref{tab:s2-cgal-params}. 
 Figure~\ref{fig:methods-mesh} shows the output of the meshing process from the smooth segmentation 
 to the working mesh re-labelled and with the blood pools removed.
 \added[id=R2, comment={R2-2b: Final mesh statistics}]{
