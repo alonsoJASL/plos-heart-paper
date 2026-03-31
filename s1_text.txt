@@ -1,0 +1,29 @@
+Mechanics Simulation Boundary Conditions
+
+As boundary conditions, the pericardial sac was modelled using normal springs
+with varying stiffness and omni-directional springs were applied at the
+superior vena cava and the right pulmonary veins~\cite{strocchi2023_cell}.
+All the tissues were modelled as incompressible with an incompressibility
+value of $\kappa=1000$ kPa.
+The bulk stiffness of left ventricle, right ventricle and atria were set to
+$a_{\LV}=1.7$ kPa,
+$a_{\RV}=2.55$ kPa, and
+$a_{\text{atria}}=3.4$ kPa, respectively.
+The anisotropy factors in the ventricles in the fibre, cross-fibre and
+cross-sheet directions were set to
+$b_f=8$,
+$b_{fs}=4$, and
+$b_t=3$, respectively;
+while in the atria were set to
+$b_f=16$,
+$b_{fs}=8$, and
+$b_t=6$.
+The valves, aorta, pulmonary artery and vein rings had a stiffness value of
+$c_{\text{valves}}=1000$ kPa,
+$c_{\text{aorta}}=26.66$ kPa,
+$c_{\text{PA}}=3.7$ kPa, and
+$c_{\text{rings}}=7.45$ kPa, respectively.
+The maximum stiffness at the pericardium was set to $0.005$ kPa/$\mu$m and
+to $0.001$ kPa/$\mu$m in the veins.
+The pressure was increased linearly from $0$ to $1$ mmHg in increments of
+$0.02$ mmHg/ms.

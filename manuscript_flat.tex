@@ -178,14 +178,14 @@
 \autor
 \\
 \bigskip
-\textbf{1} National Heart and Lung Institute, Imperial College London \\
-\textbf{2} School of Biomedical Engineering and Imaging Sciences, King's College London \\
-\textbf{3} Queen Mary University of London \\
-\textbf{4} Gottfried Schatz Research Center, Division of Medical Physics and Biophysics, Medical University of Graz \\
-\textbf{5} BioTechMed-Graz \\
+\textbf{1} National Heart and Lung Institute, Imperial College London, UK \\
+\textbf{2} School of Biomedical Engineering and Imaging Sciences, King's College London, UK \\
+\textbf{3} Queen Mary University of London, UK \\
+\textbf{4} Gottfried Schatz Research Center, Division of Medical Physics and Biophysics, Medical University of Graz, Austria \\
+\textbf{5} BioTechMed-Graz, Austria \\
 \textbf{6} Cardiac Rhythm Management, Medtronic, London, UK \\
 \textbf{7} Food and Drug Administration, United States \\
-\textbf{8} Alan Turing Institute \\
+\textbf{8} Alan Turing Institute, London, UK \\
 \bigskip
 
 \Yinyang These authors share first authorship.
@@ -223,7 +223,7 @@ This work presents a study on how
     Variations in anatomy with sex and disease have a significant impact on cardiac simulations,
     which support the inclusion of multiple heart anatomical models in in-silico trials.
     The resulting virtual cohort captures key anatomical variability and is publicly available at
-    \url{https://doi.org/10.5281/zenodo.17048090} and our code is available
+    \url{https://doi.org/10.5281/zenodo.19351401} and our code is available
     at \url{https://github.com/OpenHeartDevelopers/cemrg-heartbuilder}.
 
 \section*{Author summary}
@@ -374,7 +374,7 @@ and test the impact of sex and disease differences in anatomy on reference simul
 
 \begin{figure}[hbpt]
     \centering
-    \includegraphics[width=\textwidth]{pics/graphical_abstract.pdf}
+    \includegraphics[width=\textwidth]{pics/fig1_graphical_abstract.pdf}
     \caption[Cohort creation and pipeline overview.]{
         \textbf{Cohort creation and pipeline overview. }
         Starting from clinical CT scans, the workflow performs multi-label segmentation and mesh generation 
@@ -501,7 +501,7 @@ A table of the labels is provided in Supplementary Table~\ref{tab:s3-labels}.
 
 \begin{figure}[hbpt]
     \centering
-    \includegraphics[width=\textwidth]{pics/methods-segmentation.pdf}
+    \includegraphics[width=\textwidth]{pics/fig2_methods-segmentation.pdf}
     \caption[Multi-stage segmentation process. ]{
         \textbf{Multi-stage segmentation process. }
         CemrgApp uses the deep learning model developed by \cite{hao2021_ccta} to segment the heart. 
@@ -551,7 +551,7 @@ to the working mesh re-labelled and with the blood pools removed.
 
 \begin{figure}[hbpt]
     \centering
-    \includegraphics[width=\textwidth]{pics/methods-meshing.pdf}
+    \includegraphics[width=\textwidth]{pics/fig3_methods-meshing.pdf}
     \caption[Output of the meshing process.]{
         \textbf{Output of the meshing process from the smooth segmentation to the final working mesh.}
         (a) The upsampled and smooth segmentation. 
@@ -651,7 +651,7 @@ These locations are defined in UVCs based on~\cite{gillette_automated_2021}.
 
 \begin{figure}[hbpt]
     \centering
-    \includegraphics[width=\linewidth]{pics/methods-model-creation.pdf}
+    \includegraphics[width=\linewidth]{pics/fig4_methods-model-creation.pdf}
     \caption[Model creation stage. ]{
         \textbf{Model creation stage. }
         % Description of UVCs and ventricular fibres:
@@ -878,7 +878,7 @@ We found no significant difference in age between males and females
 
 \begin{figure}[hbpt]
     \centering
-    \includegraphics[width=\linewidth]{pics/hearts2.pdf}
+    \includegraphics[width=\linewidth]{pics/fig5_hearts2.pdf}
     \caption[Three-dimensional whole-heart reconstructions from the virtual cohort]{
         \textbf{Three-dimensional whole-heart reconstructions from the virtual cohort, grouped }
         and labelled by sex and condition. Each colour corresponds to a different structure in the mesh.
@@ -917,7 +917,7 @@ while interactions involving males were higher than $d>1.4$
 
 \begin{figure}[hbpt]
     \centering
-    \includegraphics[width=\textwidth]{pics/results-validation-volumes-improved.pdf}
+    \includegraphics[width=\textwidth]{pics/fig6_results-validation-volumes-improved.pdf}
     \caption[Comparison vs clinical literature values and ranges from UKBB.]{
         \textbf{Comparison of measured ventricle volumes from the virtual cohort with}
         clinical literature values and ranges from UKBB.
@@ -986,7 +986,7 @@ both with $p<0.05$.
 
 \begin{figure}[hbpt]
     \centering
-    \includegraphics[width=\linewidth]{pics/cohen-big-effects.pdf}
+    \includegraphics[width=\linewidth]{pics/fig7_cohen-big-effects.pdf}
     \caption[Large effect sizes from post-hoc comparisons.]{
         \textbf{Cohen’s d effect sizes from post-hoc comparisons following two-way ANOVA.}
         Metrics and group comparisons are displayed on the y-axis.
@@ -1422,6 +1422,15 @@ Steven A. Niederer (SN).
 % Supporting Information legends (E3)
 \added[id=ED, comment={E-3: supporting information legends}]{Supporting Information}
 \section*{Supporting Information}
+\paragraph{S0 Figure. Graphical Abstract.}
+Cohort creation and pipeline overview. 
+Starting from clinical CT scans, the workflow performs multi-label segmentation and mesh generation 
+to create simulation-ready models with assigned fibre orientations. 
+A new dataset of 50 patients (26 controls, 24 with heart failure subtypes: narrow QRS and wide QRS) 
+balanced by sex is processed. 
+Resulting models are used in simulations of cardiac electrophysiology and mechanics to extract 
+clinically relevant measurements.
+
 \paragraph{S1 Figure.}
 Correlation between simulated ventricular total activation time (\TAT{V}) and recorded
 ECG QRS duration, stratified by condition. Control hearts (blue, $n=17$) showed strong
