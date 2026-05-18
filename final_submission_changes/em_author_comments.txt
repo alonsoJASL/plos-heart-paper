@@ -1,0 +1,69 @@
+==============================================================
+Author Comments  --  PCOMPBIOL-D-25-02375R1
+Paste the block below into the "Author Comments" field at the
+bottom of the EM upload window. Do not remove the editor's
+template text above it.
+==============================================================
+
+Dear PLOS Computational Biology Editorial Office,
+
+Please find the corrected files for the final submission of PCOMPBIOL-D-25-02375R1. The points below summarise the changes made to address the FTC requests, plus two items that require your action in Editorial Manager.
+
+----------------------------------------------------------------
+1. Author-name corrections required in Editorial Manager
+----------------------------------------------------------------
+
+Two author entries in the system currently differ from the authors' preferred spelling. The manuscript file in this submission uses the correct spellings; please update the EM records to match so that PubMed indexing is consistent:
+    INCORRECT SPELLING   -> CORRECT SPELLING 
+  - "Cristoph Augustin"  ->  "Christoph Augustin"
+  - "Shahrohk Rahmani"   ->  "Shahrokh Rahmani"
+
+I have also flagged these corrections in the separate email covering the author-contributions update.
+
+----------------------------------------------------------------
+2. Manuscript changes addressing the FTC formatting requests
+----------------------------------------------------------------
+
+  (a) Corresponding-author marker: the corresponding author on the title page is now indicated with only an asterisk (*) next to the existing email address.
+
+  (b) Ethics Statement: relocated from the Study Population section to the start of Methods, under a dedicated "Ethics Statement" subheading, per PLOS style.
+
+  (c) Figure and table citation style throughout the body: "Figure" replaced with "Fig" (no full stop) for all in-text figure citations; supporting-information citations now use the "S1 Fig", "S1 Table", "S1 Text", "S1 Data" form.
+
+  (d) Supporting Information legend list (in the manuscript file) reformatted: "S0 Figure. Graphical Abstract" was removed (reserved for the optional Striking Image upload); remaining items renamed and renumbered to start at 1; legend headings now read "S1 Fig", "S2 Fig", etc.
+
+  (e) Single .tex deliverable: a flattened, single-file .tex version of the manuscript and accompanying bib file (myrefs.bib).
+
+  (f) Per-author CRediT contributor roles in the manuscript have been aligned with the per-author entries in the EM submission form, with the corrections detailed in my separate email response.
+
+----------------------------------------------------------------
+3. Additional change requested by a reviewer
+----------------------------------------------------------------
+
+The cohort overview figure (previously Fig 5 in the main text, pics/fig5_hearts2.pdf) has been moved to the Supporting Information as S1 Fig, in response to a reviewer comment that this material is more appropriate as supporting material than as a main-text figure. The remaining supplementary figures have shifted accordingly: S1 Fig is now the cohort overview, S2 Fig is the TAT-QRS correlation, S3 Fig is the geometry-output correlation matrix, and S4 Fig is the mesh-quality distribution. In-text citations in Results and Discussion have been updated to match this new numbering.
+
+----------------------------------------------------------------
+4. Confirmations of metadata fields
+----------------------------------------------------------------
+
+I have reviewed the metadata fields in the FTC letter and confirm that the following are correct as currently typeset and should be retained without changes:
+
+  - Title and short title (typeset from the submission system).
+  - Financial / Funding disclosure statement.
+  - Competing interests statement.
+  - Data availability statement (Zenodo DOI
+    https://doi.org/10.5281/zenodo.17048090 and GitHub
+    repository OpenHeartDevelopers/cemrg-heartbuilder).
+  - Corresponding-author details (Jose Alonso Solis-Lemus,
+    j.solis-lemus@imperial.ac.uk, ORCID 0000-0002-2596-7811).
+  - Authorship and affiliations on the title page.
+  - "Early Version" option (WILL be published online ahead of
+    the final version).
+
+Please let me know if anything else is needed.
+
+Best regards,
+Jose Alonso Solis-Lemus
+Corresponding author
+j.solis-lemus@imperial.ac.uk
+ORCID: 0000-0002-2596-7811

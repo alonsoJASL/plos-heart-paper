@@ -1,6 +1,7 @@
 \section{Results}
-Fifty whole-heart models (Figure~\ref{fig:hearts}) were created, 
-each including EP and mechanics simulations described in Section~\ref{sec:simulations}.
+Fifty whole-heart models
+\replaced[id=PLOS, comment={Reviewer: cohort overview figure moved to supplement; cited as S1 Fig.}]{(\ref{fig:s1-hearts} Fig)}{(Figure~\ref{fig:hearts})}
+were created, each including EP and mechanics simulations described in Section~\ref{sec:simulations}.
 All simulations were performed with the same parameters for each model.
 Therefore, the differences in simulations between sexes reported below relate to 
 differences in anatomy.
@@ -12,39 +13,28 @@ We found no significant difference in age between males and females
 % % supplementary material: summary_table.xlsx 
 
 \paragraph{Geometric characterization and correlation with simulation outputs.}
-\added[id=R1, comment={R1-Maj-5: Quantitative geometric characterization}]{
-    Geometric metrics stratified by sex and condition are provided in Supplementary Table~\ref{tab:s1-geometric-characteristics}. Heart failure patients exhibited substantially larger chamber volumes 
-    compared to controls, with male HF patients showing the most pronounced dilation 
-    (LV: $289 \pm 88$~mL vs control: $180 \pm 36$~mL, $p<0.001$). Myocardial wall 
-    volume scaled with anatomical size, ranging from $263 \pm 37$~cm$^3$ 
-    in female controls to $396 \pm 75$~cm$^3$ in male HF patients.
-}
-\added[id=R1, comment={R1-Maj-5}]{
-    Geometric variables showed strong correlations with simulation outputs 
-    (Supplementary Figure~\ref{fig:s2-correlation-heatmap}). Chamber volume was the strongest predictor of 
-    volume change during passive inflation ($\rho = 0.96$ for LV, $p < 0.001$), 
-    indicating that larger ventricles exhibit greater absolute compliance under 
-    uniform material properties. Myocardial wall volume correlated strongly with 
-    activation times ($\rho = 0.87$ for TAT$_{\mathrm{RV}}$, $\rho = 0.85$ for 
-    TAT$_{\mathrm{V}}$, both $p < 0.001$), reflecting the expected increase in 
-    conduction path length with anatomical size. Notably, cross-chamber geometric 
-    correlations were observed, such as RV volume predicting LV activation time 
-    ($\rho = 0.81$, $p < 0.001$), consistent with whole-heart anatomical coupling.
-}
+Geometric metrics stratified by sex and condition are provided in 
+\replaced[id=PLOS, comment={PLOS: S1 Table form}]{\ref{tab:s1-geometric-characteristics} Table}{Supplementary Table~\ref{tab:s1-geometric-characteristics}}. 
+Heart failure patients exhibited substantially larger chamber volumes 
+compared to controls, with male HF patients showing the most pronounced dilation 
+(LV: $289 \pm 88$~mL vs control: $180 \pm 36$~mL, $p<0.001$). Myocardial wall 
+volume scaled with anatomical size, ranging from $263 \pm 37$~cm$^3$ 
+in female controls to $396 \pm 75$~cm$^3$ in male HF patients.
 
-\begin{figure}[hbpt]
-    \centering
-    \includegraphics[width=\linewidth]{pics/fig5_hearts2.pdf}
-    \caption[Three-dimensional whole-heart reconstructions from the virtual cohort]{
-        \textbf{Three-dimensional whole-heart reconstructions from the virtual cohort, grouped }
-        and labelled by sex and condition. Each colour corresponds to a different structure in the mesh.
-        Each model was derived from a patient’s CT scan and includes fibre orientations, 
-        illustrating anatomical variability across sex and heart-failure subtypes. 
-        Abbreviations: $M_{HF_N}$: Male, HF narrow-QRS; $M_{HF_W}$: Male, HF wide-QRS; $M_C$: Male, Control; 
-        $F_{HF_N}$: Female, HF narrow-QRS; $F_{HF_W}$: Female, HF wide-QRS; $F_C$: Female, Control.
-    }
-    \label{fig:hearts}
-\end{figure}
+Geometric variables showed strong correlations with simulation outputs 
+(\replaced[id=PLOS, comment={PLOS/REV: S3 Fig (renumbered after hearts moved to S1)}]{\ref{fig:s3-correlation-heatmap} Fig}{Supplementary Figure~2}).
+Chamber volume was the strongest predictor of 
+volume change during passive inflation ($\rho = 0.96$ for LV, $p < 0.001$), 
+indicating that larger ventricles exhibit greater absolute compliance under 
+uniform material properties. Myocardial wall volume correlated strongly with 
+activation times ($\rho = 0.87$ for TAT$_{\mathrm{RV}}$, $\rho = 0.85$ for 
+TAT$_{\mathrm{V}}$, both $p < 0.001$), reflecting the expected increase in 
+conduction path length with anatomical size. Notably, cross-chamber geometric 
+correlations were observed, such as RV volume predicting LV activation time 
+($\rho = 0.81$, $p < 0.001$), consistent with whole-heart anatomical coupling.
+
+% Reviewer request: cohort overview figure (fig:hearts) moved to supplement as S1 Fig.
+% See sections/supp/s_fig1_hearts.tex; label is now fig:s1-hearts.
 
 
 % \subsection{Clinical literature metrics.}
@@ -53,7 +43,8 @@ In each case, we report the results from the two-way ANOVA and the post-hoc test
 the effect sizes. 
 Where no interaction was present, we examined independent effects.
 In both cases, only statistically significant results after FDR correction are reported here.
-Effect sizes were computed using Cohen’s $d$ and are visualised in Figure~\ref{fig:cohen-big-effects}.
+Effect sizes were computed using Cohen’s $d$ and are visualised in 
+\replaced[id=PLOS, comment={PLOS: Fig (no period)}]{Fig}{Figure}~\ref{fig:cohen-big-effects}.
 
 % \paragraph{\LA volume.} $\VOL{LA}$ had a significanfly higher mean in \HF\ patients,
 \paragraph{\LV\ volume.} 
@@ -64,12 +55,12 @@ For all but three male controls, the \LV\ volumes fall within the normal range
 compared to the UKBB reference values~\cite{petersen-2017-reference}.
 Similarly, female controls also fall mostly within their corresponding normal range
 ($[88,161]~mL$).
-We display the results in Figure~\ref{fig:validation-volumes}.
+We display the results in \replaced[id=PLOS, comment={PLOS: Fig (no period)}]{Fig}{Figure}~\ref{fig:validation-volumes}.
 The effects sizes were also large between \HF\ and control groups, but they were much 
 larger in males than in females, for instance, 
 interactions involving females ranged between $0.9<d<1.17$, 
 while interactions involving males were higher than $d>1.4$ 
-($p<0.05$ in all cases, Figure~\ref{fig:cohen-big-effects}(a)).
+($p<0.05$ in all cases, \replaced[id=PLOS, comment={PLOS: Fig (no period)}]{Fig}{Figure}~\ref{fig:cohen-big-effects}(a)).
 
 \begin{figure}[hbpt]
     \centering
@@ -84,10 +75,7 @@ while interactions involving males were higher than $d>1.4$
         Heart Failure in orange.
         Normal ranges are shown as greyed areas, and exceeding the upper limit of the
         reference range may indicate pathological ventricular dilation. 
-        \added[id=R3, comment={R3-Maj-5: Figure 6 quantitative validation}]{
-            Percentages of each group within the UKBB normal range are displayed in the 
-            legend.
-        }
+        Percentages of each group within the UKBB normal range are displayed in the legend.
     }
     \label{fig:validation-volumes}
 \end{figure}
@@ -95,12 +83,12 @@ while interactions involving males were higher than $d>1.4$
 \paragraph{Volume change in the \LV.}
 We used volume change as a surrogate for stiffness. 
 \LV volume change was significantly larger in males compared to females and in 
-\replaced[id=R3, comment={R3-Min-5: HF spacing}]{
-    \HF\ patients}{\HF patients} compared to controls (both main effects with $p<0.01$), 
+\HF\ patients compared to controls (both main effects with $p<0.01$), 
 but we did not detect a significant sex~$\times$~condition interaction ($p=0.44$), 
 indicating that sex and condition contribute independently to \LV\ volume change. 
 The effect sizes were large, with $d=0.94, p<0.01$ for \HF\ vs controls, 
-and $d=0.78, p<0.01$ for male vs female comparisons (Figure~\ref{fig:cohen-big-effects}(b)).
+and $d=0.78, p<0.01$ for male vs female comparisons 
+(\replaced[id=PLOS, comment={PLOS: Fig (no period)}]{Fig}{Figure}~\ref{fig:cohen-big-effects}b).
 
 \paragraph{Activation times.}
 For ventricular $\TAT{V}$, no significant interaction was found between sex and condition ($p=0.76$), 
@@ -112,20 +100,19 @@ was found ($p=0.24$). Second, the independent effects were significant and moder
 prolonged activation times in \HF\ vs. controls ($d=0.62, p<0.05$) and prolonged activation 
 in males vs. females ($d=0.59, p<0.05$). 
 
-\added[id=MR, comment={R3-Maj-3, R1-Maj-3: TAT-QRS correlation context}]{
-    To assess the validity of using \TAT{} as a surrogate for QRS 
-    duration in the absence of torso modeling, we correlated simulated ventricular 
-    \TAT{} with recorded ECG QRS duration in cases where ECG data were available 
-    ($n=33$ of $50$). In control hearts, \TAT{} showed a positive correlation with 
-    QRS duration (Pearson $r = 0.649, p < 0.005$, Supplementary Figure~\ref{fig:s1-tat-qrs}), 
-    indicating that simulations using reference conductivity parameters provide an 
-    approximate anatomical surrogate for QRS duration, and that anatomical variation 
-    captures at least part of the inter-subject variability in activation time. 
-    In heart failure patients, no correlation was observed ($r = -0.127, p = 0.64$), 
-    consistent with the expected influence of pathological tissue properties 
-    (fibrosis, conduction blocks) that are not represented in our standardised 
-    parameter set.
-}
+To assess the validity of using \TAT{} as a surrogate for QRS 
+duration in the absence of torso modeling, we correlated simulated ventricular 
+\TAT{} with recorded ECG QRS duration in cases where ECG data were available 
+($n=33$ of $50$). In control hearts, \TAT{} showed a positive correlation with 
+QRS duration (Pearson $r = 0.649, p < 0.005$, 
+\replaced[id=PLOS, comment={PLOS/REV: S2 Fig (renumbered after hearts moved to S1)}]{\ref{fig:s2-tat-qrs} Fig}{Supplementary Figure~1}),
+indicating that simulations using reference conductivity parameters provide an 
+approximate anatomical surrogate for QRS duration, and that anatomical variation 
+captures at least part of the inter-subject variability in activation time. 
+In heart failure patients, no correlation was observed ($r = -0.127, p = 0.64$), 
+consistent with the expected influence of pathological tissue properties 
+(fibrosis, conduction blocks) that are not represented in our standardised 
+parameter set.
 
 \paragraph{Normalised volume changes in \LV.}
 $\deltaVolNorm{LV}$ showed a significant interaction in the ANOVA between sex and condition ($p<0.05$).
@@ -150,9 +137,7 @@ both with $p<0.05$.
         (a) Effect sizes for group comparisons performed when the Sex~$\times$~Condition 
         interaction was statistically significant, justifying 4 simple-effect post-hoc tests.
         (b) Effect sizes for marginal comparisons, when no significant interaction was found.
-        \added[id=R3, comment={R3-Min-1: Figure 7b Line Distinction}]{
-            Error bars line styles represent the comparison made: solid for sex, dotted for condition.
-        }
+        Error bars line styles represent the comparison made: solid for sex, dotted for condition.
         \textit{Abbreviations}: M=Male, F=Female; C=Control, HF=Heart Failure; TAT=Total Activation time, 
         L/R=Left/Right, V=Ventricle.
     }

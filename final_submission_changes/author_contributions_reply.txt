@@ -1,0 +1,94 @@
+Subject: PCOMPBIOL-D-25-02375R1 — Updated Author Contributions
+
+Dear PLOS Computational Biology Editorial Office,
+
+Thank you for highlighting the discrepancy between the Author Contributions in the manuscript file and the contributor roles recorded in the submission system.
+
+Before the role list, please also note two author-name corrections that must be applied in Editorial Manager so the system record matches the manuscript and (for one of them) the author's preferred spelling:
+
+  1. Christoph Augustin: Editorial Manager currently shows
+     "Cristoph Augustin"; the correct spelling is "Christoph Augustin". 
+     The manuscript has been updated in this final submission to use "Christoph Augustin".
+  2. Shahrokh Rahmani: Editorial Manager currently shows
+     "Shahrohk Rahmani"; the correct spelling is "Shahrokh Rahmani".
+     The manuscript already uses the correct form, but the system entry needs updating to match.
+
+Please apply both corrections in the system so that the published record, the PubMed metadata, and the manuscript agree. Below please find the consolidated per-author CRediT contributor roles. These should replace the contributor-role entries currently in Editorial Manager so that the two records align.
+
+The list reflects the contributions reported in the manuscript Author Contributions section, with corrections to fill in entries missing from the submission form (notably Pras Pathmanathan, whose roles were empty in the form) and to add roles that were either reported in the manuscript or in the submission form but not both (e.g. Resources for Marina Strocchi, Gernot Plank, Christoph Augustin, Hao Xu, and Alistair Young; Supervision for Caroline Roney; Writing – original draft for Alistair Young).
+
+------------------------------------------------------------
+Per-author CRediT contributor roles (please update in EM):
+------------------------------------------------------------
+
+Jose Alonso Solis-Lemus
+  Conceptualization; Formal analysis; Investigation; Methodology;
+  Software; Validation; Visualization; Writing – original draft;
+  Writing – review & editing
+
+Rosie K. Barrows
+  Conceptualization; Formal analysis; Investigation; Methodology;
+  Software; Validation; Visualization; Writing – original draft;
+  Writing – review & editing
+
+Cristobal Rodero
+  Methodology; Software; Writing – original draft;
+  Writing – review & editing
+
+Marina Strocchi
+  Conceptualization; Methodology; Resources; Software;
+  Writing – review & editing
+
+Natalie Montarello
+  Data curation; Resources; Writing – review & editing
+
+Nishant Lahoti
+  Data curation; Resources; Writing – review & editing
+
+Cesare Corrado
+  Methodology; Writing – review & editing
+
+Abdul Qayyum
+  Methodology; Writing – review & editing
+
+Shahrokh Rahmani
+  Methodology; Writing – review & editing
+
+Caroline Roney
+  Methodology; Supervision; Writing – review & editing
+
+Gernot Plank
+  Methodology; Resources; Writing – review & editing
+
+Christoph Augustin
+  Methodology; Resources; Writing – review & editing
+
+Hao Xu
+  Methodology; Resources; Writing – review & editing
+
+Alistair Young
+  Resources; Supervision; Writing – original draft;
+  Writing – review & editing
+
+Pras Pathmanathan
+  Conceptualization; Supervision; Writing – original draft;
+  Writing – review & editing
+
+Ronak Rajani
+  Data curation; Resources; Supervision; Writing – review & editing
+
+Steven A. Niederer
+  Conceptualization; Funding acquisition; Project administration;
+  Supervision; Writing – review & editing
+
+------------------------------------------------------------
+
+The Author Contributions paragraph in the manuscript file has been updated in this final submission to match the per-author list above. I will submit the task on the Editorial Manager and mention these on my Author's Comments.
+
+Please let me know if you need anything further to action this update.
+
+Best regards,
+Jose Alonso Solis-Lemus
+Corresponding author
+j.solis-lemus@imperial.ac.uk
+ORCID: 0000-0002-2596-7811

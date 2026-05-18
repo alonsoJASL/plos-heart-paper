@@ -1,4 +1,13 @@
 \section{Methods}
+
+\subsection*{Ethics Statement}
+The study was conducted under ethical approval titled
+Retrospective analysis of cardiac imaging datasets for development of novel biomarkers study
+(Short title: RAIDER),
+approved by GSTT,
+reference number 306914,
+protocol version 1.0 01/10/2021.
+
 We developed CEMRG Heartbuilder, a pipeline for the streamlined creation of simulation-ready meshes, 
 generated from a CT scan. 
 The pipeline to process the CT scans is based on the work by~\cite{strocchi2020_cohort} 
@@ -19,7 +28,7 @@ included to be made completely open source.
 \subsection{Image to Mesh Stage}
 \subsubsection{Multi-stage Segmentation}\label{sec:segmentation}
 The image to mesh stage consists of a segmentation of the CT scan via the 
-deep learning model by~\cite{hao2021_ccta}, Figure~\ref{fig:methods-segmentation}a, 
+deep learning model by~\cite{hao2021_ccta}, Fig~\ref{fig:methods-segmentation}a, 
 which identifies 10 distinct regions: 
 left ventricle myocardium, and blood pools of the left and right ventricles, the left and right atrium, 
 the pulmonary artery, the aorta, 
@@ -33,7 +42,7 @@ The user then identifies the different labels in the U-Net output, which splits 
 into the superior and inferior veins. 
 The user selects two sets of 3~points to identify the location and orientation of 
 the superior and the inferior venae cavae.
-A post-processing stage follows, increasing the number of labels to 37 (Figure~\ref{fig:methods-segmentation}b). 
+A post-processing stage follows, increasing the number of labels to 37 (Fig~\ref{fig:methods-segmentation}b). 
 This stage creates the myocardia, valve planes, and vein rings. 
 The myocardia of the right ventricle (\RV), the atria, the aorta and pulmonary artery are extracted
 through the use of distance maps, with a user-selected thickness of 3.5mm for the \RV, and 
@@ -75,7 +84,7 @@ The simplification consists in identifying elements insufficiently connected to 
 % with meshtool~\cite{Neic2020-meshtool}, before removing the blood pools.
 A complete description of the CGAL parameters, which can be modified by the user, 
 is available in the Supplementary material. 
-Figure~\ref{fig:methods-mesh} shows the output of the meshing process from the smooth segmentation 
+Fig~\ref{fig:methods-mesh} shows the output of the meshing process from the smooth segmentation 
 to the working mesh re-labelled and with the blood pools removed.
 
 \begin{figure}[hbpt]
@@ -99,7 +108,7 @@ The last stage of the pipeline included takes the smooth mesh and produces
 a model with fibre orientations, tagged with the different labels needed for the simulations.
 This stage is run using CARP and meshtool~\cite{Neic2020-meshtool,carp-2003} along with 
 the CEMRG Heartbuilder python library. 
-Figure~\ref{fig:methods-model-creation} shows a visual overview of the model creation stage, 
+Fig~\ref{fig:methods-model-creation} shows a visual overview of the model creation stage, 
 which is described in detail below.
 
 % Description of UVCs and ventricular fibres:
@@ -142,7 +151,7 @@ control the atrioventricular delay,
 the atria and the ventricles were electrically isolated from each other by defining a 
 layer on non-conduting tissue between the atrial and ventriclar myocardium.
 Finally, the \SAN\ and the left and right ventricular fascicles are also created, 
-Figure~\ref{fig:methods-model-creation}~(f.1, f.2, f.3). 
+Fig~\ref{fig:methods-model-creation}~(f.1, f.2, f.3). 
 The SAN and fascicles are used to initiate electrical activation in the electrophysiology (EP) simulations. 
 The left and right fascicles represent the first breakthrough from the Purkinje network into 
 the myocardium to mimic the activation reported by the Durrer maps~\cite{durrer-1970-fascicles}. 

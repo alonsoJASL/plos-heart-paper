@@ -72,8 +72,8 @@
 % MANUSCRIPT-SPECIFIC MACROS (not needed in supplement)
 % -------------------------------------------------------------------------
 \newcommand{\autor}{%
-    Jos\'e Alonso Sol\'is-Lemus\textsuperscript{1,\Yinyang},
-    Rosie K. Barrows\textsuperscript{1,\Yinyang},
+    Jos\'e Alonso Sol\'is-Lemus\textsuperscript{1,\Cross,*},
+    Rosie K. Barrows\textsuperscript{1,\Cross},
     Cristobal Rodero\textsuperscript{1},
     Marina Strocchi\textsuperscript{1,6},
     Natalie Montarello\textsuperscript{2},
@@ -83,7 +83,7 @@
     Shahrokh Rahmani\textsuperscript{1},
     Caroline Roney\textsuperscript{3},
     Gernot Plank\textsuperscript{4,5},
-    Cristoph Augustin\textsuperscript{4,5},
+    \replaced[id=PLOS, comment={EM: correct spelling per author}]{Christoph}{Cristoph} Augustin\textsuperscript{4,5},
     Hao Xu\textsuperscript{2},
     Alistair Young\textsuperscript{2},
     Pras Pathmanathan\textsuperscript{7},
@@ -118,15 +118,14 @@
 \textbf{8} Alan Turing Institute, London, UK \\
 \bigskip
 
-\Yinyang These authors share first authorship.
+\Cross These authors share first authorship.
 
 * j.solis-lemus@imperial.ac.uk
 \end{flushleft}
 
 \section*{Abstract}
-This work presents a study on how
-    \added[id=R1, comment={R1-Maj-1: Abstract line 1 precision}]{differences in cardiac
-    anatomy attributed to} sex and disease can influence cardiac
+    This work presents a study on how differences in cardiac
+    anatomy attributed to sex and disease can influence cardiac
     electrophysiology and mechanics using a virtual cohort of four-chamber
     heart models.
     Patient anatomy varies across sex and disease.
@@ -195,7 +194,7 @@ Abdul Qayyum (AQ);
 Shahrokh Rahmani (SR);
 Caroline Roney (CR);
 Gernot Plank (GP);
-Cristoph Augustin (CA);
+\replaced[id=PLOS, comment={EM: correct spelling per author}]{Christoph}{Cristoph} Augustin (CA);
 Hao Xu (HX);
 Alistair Young (AY);
 Pras Pathmanathan (PP);
@@ -205,16 +204,16 @@ Steven A. Niederer (SN).
 \textbf{Conceptualization:} JASL, RKB, MS, PP, SN.
 \textbf{Data curation:} NM, NL, RR.
 \textbf{Formal analysis:} JASL, RKB.
-\textbf{Funding acquisition:} CR, GP, CA, AY, SN.
+\textbf{Funding acquisition:} \replaced[id=PLOS, comment={PLOS: align with submission-form per-author CRediT roles}]{SN}{CR, GP, CA, AY, SN}.
 \textbf{Investigation:} JASL, RKB.
 \textbf{Methodology:} JASL, RKB, CRG, MS, CC, AQ, SR, CR, GP, CA, HX.
 \textbf{Project administration:} SN.
-\textbf{Resources:} NM, NL, RR.
+\textbf{Resources:} \replaced[id=PLOS, comment={PLOS: align Resources with submission-form per-author roles}]{MS, NM, NL, GP, CA, HX, AY, RR}{NM, NL, RR}.
 \textbf{Software:} JASL, RKB, CRG, MS.
-\textbf{Supervision:} AY, RR, PP, SN.
+\textbf{Supervision:} \replaced[id=PLOS, comment={PLOS: add CR (Caroline Roney) per submission-form roles}]{CR, AY, PP, RR, SN}{AY, RR, PP, SN}.
 \textbf{Validation:} JASL, RKB.
 \textbf{Visualization:} JASL, RKB.
-\textbf{Writing -- original draft:} JASL, RKB, CRG, PP.
+\textbf{Writing -- original draft:} \replaced[id=PLOS, comment={PLOS: add AY per submission-form roles}]{JASL, RKB, CRG, AY, PP}{JASL, RKB, CRG, PP}.
 \textbf{Writing -- review \& editing:} All authors.
 
 \nolinenumbers
@@ -222,18 +221,21 @@ Steven A. Niederer (SN).
 \bibliography{myrefs}
 
 % Supporting Information legends (E3)
-\added[id=ED, comment={E-3: supporting information legends}]{Supporting Information}
+% PLOS-round cleanup applied below; see consolidated \added note for the change log.
 \section*{Supporting Information}
-\paragraph{S0 Figure. Graphical Abstract.}
-Cohort creation and pipeline overview. 
-Starting from clinical CT scans, the workflow performs multi-label segmentation and mesh generation 
-to create simulation-ready models with assigned fibre orientations. 
-A new dataset of 50 patients (26 controls, 24 with heart failure subtypes: narrow QRS and wide QRS) 
-balanced by sex is processed. 
-Resulting models are used in simulations of cardiac electrophysiology and mechanics to extract 
-clinically relevant measurements.
+\added[id=PLOS, comment={PLOS final-submission + reviewer cleanup of the SI legend list:
+(a) removed S0 Graphical Abstract block (reserved for optional Striking Image upload);
+(b) renamed S1/S2/S3 Figure -> S1/S2/S3 Fig per PLOS naming;
+(c) SI numbering starts at 1;
+(d) cohort overview figure (was Fig 5 in main, label fig:hearts) moved to supplement as S1 Fig (fig:s1-hearts) per reviewer request; remaining SI figures shift by one: tat-qrs is now S2 Fig, correlation heatmap is S3 Fig, mesh quality is S4 Fig.}]{}
+\paragraph{S1 Fig.}
+Three-dimensional whole-heart reconstructions from the virtual cohort, grouped and
+labelled by sex and condition. Each colour corresponds to a different structure in the
+mesh; each model was derived from a patient's CT scan and includes fibre orientations,
+illustrating anatomical variability across sex and heart-failure subtypes. (Originally
+Fig 5 in main; relocated to supplement per reviewer request.)
 
-\paragraph{S1 Figure.}
+\paragraph{S2 Fig.}
 Correlation between simulated ventricular total activation time (\TAT{V}) and recorded
 ECG QRS duration, stratified by condition. Control hearts (blue, $n=17$) showed strong
 positive correlation (Pearson $r = 0.649$, $p = 0.005$), validating \TAT{V} as a QRS surrogate
@@ -244,7 +246,7 @@ correlation ($r = -0.127$, $p = 0.64$), reflecting unmeasured pathological tissu
 Geometric characteristics stratified by sex and heart failure status. Mean $\pm$ SD reported
 for age (years), chamber volumes (mL), and total mesh elements (millions).
 
-\paragraph{S2 Figure.}
+\paragraph{S3 Fig.}
 Correlation matrix between geometric variables and simulation outputs. Spearman correlation
 coefficients ($\rho$) between geometric metrics (chamber volumes, mesh element count, age)
 and simulation outputs (activation times, volume changes). All shown correlations significant
@@ -258,7 +260,7 @@ including \texttt{facet\_size}, \texttt{cell\_size}, and \texttt{facet\_distance
 List of all 37 anatomical labels assigned during segmentation and mesh generation,
 including label ID, anatomical structure name, and structure type.
 
-\paragraph{S3 Figure.}
+\paragraph{S4 Fig.}
 Distribution of mean element quality across the 50-heart cohort. Each point represents
 one mesh. The \texttt{tet\_qmetric\_volume} metric ranges from 0 (perfect tetrahedron)
 to 1 (degenerate); lower values indicate better quality. Cohort-wide mean was

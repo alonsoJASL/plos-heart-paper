@@ -1,4 +1,15 @@
+
 \section{Methods}
+\paragraph{Ethics Statement}
+\added[id=PLOS, comment={PLOS: Ethics Statement subsection moved here from Study Population per journal style}]{
+    The study was conducted under ethical approval titled
+    Retrospective analysis of cardiac imaging datasets for development of novel biomarkers study
+    (Short title: RAIDER),
+    approved by GSTT,
+    reference number 306914,
+    protocol version 1.0 01/10/2021.
+}
+
 We developed CEMRG Heartbuilder, a pipeline for the streamlined creation of simulation-ready meshes, 
 generated from a CT scan. 
 The pipeline to process the CT scans is based on the work by~\cite{strocchi2020_cohort} 
@@ -19,7 +30,8 @@ included to be made completely open source.
 \subsection{Image to Mesh Stage}
 \subsubsection{Multi-stage Segmentation}\label{sec:segmentation}
 The image to mesh stage consists of a segmentation of the CT scan via the 
-deep learning model by~\cite{hao2021_ccta}, Figure~\ref{fig:methods-segmentation}a, 
+deep learning model by~\cite{hao2021_ccta}, 
+\replaced[id=PLOS, comment={PLOS: Fig (no period)}]{Fig}{Figure}~\ref{fig:methods-segmentation}a, 
 which identifies 10 distinct regions: 
 left ventricle myocardium, and blood pools of the left and right ventricles, the left and right atrium, 
 the pulmonary artery, the aorta, 
@@ -33,12 +45,14 @@ The user then identifies the different labels in the U-Net output, which splits 
 into the superior and inferior veins. 
 The user selects two sets of 3~points to identify the location and orientation of 
 the superior and the inferior venae cavae.
-A post-processing stage follows, increasing the number of labels to 37 (Figure~\ref{fig:methods-segmentation}b). 
+A post-processing stage follows, increasing the number of labels to 37 
+(\replaced[id=PLOS, comment={PLOS: Fig (no period)}]{Fig}{Figure}~\ref{fig:methods-segmentation}b). 
 This stage creates the myocardia, valve planes, and vein rings. 
 The myocardia of the right ventricle (\RV), the atria, the aorta and pulmonary artery are extracted
 through the use of distance maps, with a user-selected thickness of 3.5mm for the \RV, and 
 2mm for the remaining structures and coupling the different regions to ensure no overlap occurs.
-A table of the labels is provided in Supplementary Table~\ref{tab:s3-labels}.
+A table of the labels is provided in 
+\replaced[id=PLOS, comment={PLOS: S3 Table form}]{\ref{tab:s3-labels} Table}{Supplementary Table~\ref{tab:s3-labels}}.
 % See the Supplementary material for a detailed explanation of these points' locations and 
 % of the evolution of the segmentation as the post-processing stage occurs.
 
@@ -51,7 +65,7 @@ A table of the labels is provided in Supplementary Table~\ref{tab:s3-labels}.
         (a) The output of the U-Net model, which identifies 10 regions, or ``labels'', 
         as described in the text.
         (b) The output of the intermediate stage, where the user manually 
-        splits the pulmonary veins into superior and inferior \added[id=R1, comment={R1-Min-1: Figure 2 Visual Distinction}]{(marked by contrasting colours)}.
+        splits the pulmonary veins into superior and inferior (marked by contrasting colours).
         (c) The final output of the post-processing stage, where the myocardium of the different structures
         is extracted, increasing the number of labels to 37.
         The final segmented images are then upsampled to an isotropic resolution of 0.1mm and 
@@ -68,29 +82,28 @@ and a applies a smoothing algorithm~\cite{crozier2016_segsmooth}.
 \subsubsection{Conversion to Mesh}\label{sec:meshing}
 A volumetric mesh is extracted from the smooth segmentation using a meshing tool developed in-house, 
 which comes packaged with CemrgApp and is based on the Computational Geometry Algorithm Library (CGAL)~\cite{cgal}. 
-\added[id=R2, comment={R2-2a, R2-5: Element type and mesh density control}]{
-    The CGAL mesher generates unstructured volumetric meshes 
-    composed of linear tetrahedral elements (4 nodes per element). Target 
-    element edge length was set to approximately 0.5~mm via the 
-    \texttt{cell\_size} and \texttt{facet\_size} parameters. 
-    Mesh density is controlled via CGAL parameters 
-    (\texttt{facet\_size}, \texttt{cell\_size}, \texttt{facet\_distance}), 
-    which are specified globally for the entire heart geometry. Complete
-    parameter specifications are provided in Supplementary Table~\ref{tab:s2-cgal-params}.
-}
+The CGAL mesher generates unstructured volumetric meshes 
+composed of linear tetrahedral elements (4 nodes per element). Target 
+element edge length was set to approximately 0.5~mm via the 
+\texttt{cell\_size} and \texttt{facet\_size} parameters. 
+Mesh density is controlled via CGAL parameters 
+(\texttt{facet\_size}, \texttt{cell\_size}, \texttt{facet\_distance}), 
+which are specified globally for the entire heart geometry. Complete
+parameter specifications are provided in \replaced[id=PLOS, comment={PLOS: S2 Table form}]{\ref{tab:s2-cgal-params} Table}{Supplementary Table~\ref{tab:s2-cgal-params}}.
+
 The next step is to extract the myocardia, simplify the mesh topology, and relabel the tags using 
 meshtool~\cite{Neic2020-meshtool}.
 The simplification consists in identifying elements insufficiently connected to neighbours of the same class.
 % The element tags of the entire volumetric mesh are cleaned up and relabelled 
 % with meshtool~\cite{Neic2020-meshtool}, before removing the blood pools.
 A complete description of the CGAL parameters, which can be modified by the user,
-is available in Supplementary Table~\ref{tab:s2-cgal-params}. 
-Figure~\ref{fig:methods-mesh} shows the output of the meshing process from the smooth segmentation 
+is available in 
+\replaced[id=PLOS, comment={PLOS: S2 Table form}]{\ref{tab:s2-cgal-params} Table}{Supplementary Table~\ref{tab:s2-cgal-params}}. 
+\replaced[id=PLOS, comment={PLOS: Fig (no period)}]{Fig}{Figure}~\ref{fig:methods-mesh} 
+shows the output of the meshing process from the smooth segmentation 
 to the working mesh re-labelled and with the blood pools removed.
-\added[id=R2, comment={R2-2b: Final mesh statistics}]{
-    The final simulation-ready models contained a mean of $2.6 \times 10^6$ elements per heart 
-    (range $1.9$--$4.5 \times 10^6$).
-}
+The final simulation-ready models contained a mean of $2.6 \times 10^6$ elements per heart 
+(range $1.9$--$4.5 \times 10^6$).
 
 \begin{figure}[hbpt]
     \centering
@@ -113,7 +126,8 @@ The last stage of the pipeline included takes the smooth mesh and produces
 a model with fibre orientations, tagged with the different labels needed for the simulations.
 This stage is run using CARP and meshtool~\cite{Neic2020-meshtool,carp-2003} along with 
 the CEMRG Heartbuilder python library. 
-Figure~\ref{fig:methods-model-creation} shows a visual overview of the model creation stage, 
+\replaced[id=PLOS, comment={PLOS: Fig (no period)}]{Fig}{Figure}~\ref{fig:methods-model-creation} 
+shows a visual overview of the model creation stage, 
 which is described in detail below.
 
 % Description of UVCs and ventricular fibres:
@@ -125,9 +139,7 @@ the assignment of different tags within the mesh, and of boundary conditions for
 pericardium.
 To achieve this, 
 the left and the right atria were treated as an upside down single ventricle,
-\added[id=R1, comment={R1-Maj-2: Upside down ventricle citation}]{
-    following the approach described by Strocchi et al.~\cite{strocchi2020_simulating},
-} 
+following the approach described by Strocchi et al.~\cite{strocchi2020_simulating}, 
 with the apex manually placed between the two right pulmonary veins and behind the 
 supervior vena cava, respectively. 
 
@@ -157,30 +169,23 @@ ventricles representing the Purkinje network.
 In addition, to prevent unphysiological propagation from the atria to the ventricles and to 
 control the atrioventricular delay, 
 the atria and the ventricles were electrically isolated from each other by defining a 
-layer on 
-\replaced[id=R1, comment={R1-Min-2: Non-conduting typo fix}]{
-    non-conducting
-}{
-    non-conduting
-} 
+layer on non-conducting
 tissue between the atrial and ventriclar myocardium.
 Finally, the \SAN\ and the left and right ventricular fascicles are also created, 
-Figure~\ref{fig:methods-model-creation}~(f.1, f.2, f.3). 
+\replaced[id=PLOS, comment={PLOS: Fig (no period)}]{Fig}{Figure}~\ref{fig:methods-model-creation}~(f.1, f.2, f.3). 
 The SAN and fascicles are used to initiate electrical activation in the electrophysiology (EP) simulations. 
 The left and right fascicles represent the first breakthrough from the Purkinje network into 
 the myocardium to mimic the activation reported by the Durrer maps~\cite{durrer-1970-fascicles}. 
 These locations are defined in UVCs based on~\cite{gillette_automated_2021}.
 
 \paragraph{Mesh Quality Assessment}
-\added[id=R2, comment={R2-3: Mesh quality assessment paragraph}]{
     We assessed the quality of all 50 volumetric meshes using the volume-based 
     distortion metric (\texttt{tet\_qmetric\_volume}) implemented in 
     meshtool~\cite{Neic2020-meshtool}, which quantifies element distortion relative to 
     an ideal tetrahedron. This metric is directly related to the determinant 
     of the Jacobian of the geometric map and is normalised to $[0, 1]$, where 
     0 corresponds to a perfect tetrahedron and 1 to a fully degenerate element.
-}
-\added[id=R2, comment={R2-3}]{
+
     Across all 50 meshes (mean $2.6 \times 10^6$ elements per mesh, range 
     $1.9$--$4.5 \times 10^6$), the mean element quality was $0.153 \pm 0.100$ 
     (mean $\pm$ SD across all elements in the cohort). The minimum quality per 
@@ -190,7 +195,6 @@ These locations are defined in UVCs based on~\cite{gillette_automated_2021}.
     50 meshes, comprising at most 9 elements per mesh ($< 0.0003\%$ of total 
     elements). These results confirm high geometric fidelity suitable for 
     finite element analysis.
-}
 
 \begin{figure}[hbpt]
     \centering
@@ -224,16 +228,14 @@ anatomical differences would have on the outputs.
 These simulations also served as an additional quality check for the meshes, 
 to ensure the models could be used to run electromechanics simulations. 
 
-\added[id=R2, comment={R2-4: Spatial alignment protocol}]{
-    Each patient-specific mesh was simulated in its native 
-    coordinate system without spatial registration to a common anatomical 
-    reference frame. Comparisons between models were performed on scalar 
-    outputs (chamber volumes, total activation times) that are invariant 
-    to rigid transformations. Universal Ventricular Coordinates 
-    (UVCs)~\cite{bayer2018} provide normalized transmural and apicobasal 
-    coordinates for regional functional analysis independent of absolute 
-    spatial positioning.
-}
+Each patient-specific mesh was simulated in its native 
+coordinate system without spatial registration to a common anatomical 
+reference frame. Comparisons between models were performed on scalar 
+outputs (chamber volumes, total activation times) that are invariant 
+to rigid transformations. Universal Ventricular Coordinates 
+(UVCs)~\cite{bayer2018} provide normalized transmural and apicobasal 
+coordinates for regional functional analysis independent of absolute 
+spatial positioning.
 
 The EP simulations were started at the \SAN, defined in Section~\ref{fig:methods-model-creation}. 
 The ventricular endocardial electrodes (fascicles) were also activated simulating the early activation 
