@@ -89,15 +89,18 @@ provides an overview of the pipeline and the resulting cohort.
 
 \begin{figure}[hbpt]
     \centering
-    \includegraphics[width=\textwidth]{pics/fig1_graphical_abstract.pdf}
+    % File renamed from pics/fig1_graphical_abstract.pdf to pics/fig1_pipeline_overview.pdf
+    % per EM round 2: this is the methods pipeline overview figure, not a graphical abstract.
+    \includegraphics[width=\textwidth]{pics/fig1_pipeline_overview.pdf}
     \caption[Cohort creation and pipeline overview.]{
         \textbf{Cohort creation and pipeline overview. }
-        Starting from clinical CT scans, the workflow performs multi-label segmentation and mesh generation 
-        to create simulation-ready models with assigned fibre orientations. 
-        A new dataset of 50 patients (26 controls, 24 with heart failure subtypes: narrow QRS and wide QRS) 
-        balanced by sex is processed. 
-        Resulting models are used in simulations of cardiac electrophysiology and mechanics to extract 
+        Starting from clinical CT scans, the workflow performs multi-label segmentation and mesh generation
+        to create simulation-ready models with assigned fibre orientations.
+        A new dataset of 50 patients (26 controls, 24 with heart failure subtypes: narrow QRS and wide QRS)
+        balanced by sex is processed.
+        Resulting models are used in simulations of cardiac electrophysiology and mechanics to extract
         clinically relevant measurements.
+        \added[id=PLOS, comment={EM: CC0 attribution for heart icons (already reported)}]{Heart icons in this figure were derived from a CC0 image obtained from openclipart.org (\url{https://openclipart.org/246884}) and modified to fit the figure design.}
     }
     \label{fig:heartbuilder_pipeline}
 \end{figure}

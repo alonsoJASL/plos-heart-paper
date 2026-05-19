@@ -60,6 +60,63 @@ I have reviewed the metadata fields in the FTC letter and confirm that the follo
   - "Early Version" option (WILL be published online ahead of
     the final version).
 
+----------------------------------------------------------------
+5. Responses to the second FTC letter (Round 2)
+----------------------------------------------------------------
+
+  (a) Affiliations on the title page have been expanded to
+      include the city and the unabbreviated country name (and,
+      for the FDA affiliation, the unabbreviated state name).
+      Specifically:
+
+        1  National Heart and Lung Institute, Imperial College
+           London, London, United Kingdom
+        2  School of Biomedical Engineering and Imaging Sciences,
+           King's College London, London, United Kingdom
+        3  School of Engineering and Materials Science, Queen
+           Mary University of London, London, United Kingdom
+        4  Gottfried Schatz Research Center, Division of Medical
+           Physics and Biophysics, Medical University of Graz,
+           Graz, Austria
+        5  BioTechMed-Graz, Graz, Austria
+        6  Cardiac Rhythm Management, Medtronic, London,
+           United Kingdom
+        7  Food and Drug Administration, Silver Spring, Maryland,
+           United States of America
+        8  Alan Turing Institute, London, United Kingdom
+
+  (b) The two URLs (Zenodo DOI and GitHub repository) have been
+      removed from the Abstract. Both remain in the Data
+      Availability statement, which is the canonical location
+      for these links.
+
+  (c) Two remaining in-text citations to "the Supplementary
+      Material" have been rewritten in the PLOS-style format:
+        - Results (means/SD table) -> "S2 Data"
+        - Methods (boundary conditions) -> "S1 Text"
+      All supporting-information citations in the body now use
+      "S1 Fig", "S1 Table", "S1 Text", "S1 Data" form, including
+      on pages 9 and 10 as flagged in the FTC letter.
+
+  (d) Graphical-abstract clarification: the file previously
+      named "fig1_graphical_abstract" is the methods pipeline
+      overview figure of the manuscript, referenced as Fig 1
+      throughout the body. It is not a graphical abstract. To
+      remove the ambiguity introduced by the legacy filename,
+      the source file has been renamed
+        fig1_graphical_abstract.pdf -> fig1_pipeline_overview.pdf
+      and the upload-named copy in the manuscript package is
+      Fig1.tif / Fig1.pdf. We wish to retain it as a regular
+      Fig 1 of the main manuscript; no Striking Image upload is
+      intended.
+
+      The heart icons in Fig 1 were derived from a CC0 image
+      sourced from openclipart.org (https://openclipart.org/246884)
+      and modified to fit the figure design. This attribution
+      has been added to the Fig 1 caption (it was reported
+      previously in correspondence but was not yet present in
+      the manuscript text).
+
 Please let me know if anything else is needed.
 
 Best regards,

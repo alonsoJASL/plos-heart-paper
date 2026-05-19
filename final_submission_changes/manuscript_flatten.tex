@@ -155,7 +155,7 @@
     Shahrokh Rahmani\textsuperscript{1},
     Caroline Roney\textsuperscript{3},
     Gernot Plank\textsuperscript{4,5},
-    \replaced[id=PLOS, comment={EM: correct spelling per author}]{Christoph}{Cristoph} Augustin\textsuperscript{4,5},
+    Christoph Augustin\textsuperscript{4,5},
     Hao Xu\textsuperscript{2},
     Alistair Young\textsuperscript{2},
     Pras Pathmanathan\textsuperscript{7},
@@ -180,14 +180,14 @@
 \autor
 \\
 \bigskip
-\textbf{1} National Heart and Lung Institute, Imperial College London, UK \\
-\textbf{2} School of Biomedical Engineering and Imaging Sciences, King's College London, UK \\
-\textbf{3} Queen Mary University of London, UK \\
-\textbf{4} Gottfried Schatz Research Center, Division of Medical Physics and Biophysics, Medical University of Graz, Austria \\
-\textbf{5} BioTechMed-Graz, Austria \\
-\textbf{6} Cardiac Rhythm Management, Medtronic, London, UK \\
-\textbf{7} Food and Drug Administration, United States \\
-\textbf{8} Alan Turing Institute, London, UK \\
+\textbf{1} National Heart and Lung Institute, Imperial College London, London, United Kingdom \\
+\textbf{2} School of Biomedical Engineering and Imaging Sciences, King's College London, London, United Kingdom \\
+\textbf{3} School of Engineering and Materials Science, Queen Mary University of London, London, United Kingdom \\
+\textbf{4} Gottfried Schatz Research Center, Division of Medical Physics and Biophysics, Medical University of Graz, Graz, Austria \\
+\textbf{5} BioTechMed-Graz, Graz, Austria \\
+\textbf{6} Cardiac Rhythm Management, Medtronic, London, United Kingdom\\
+\textbf{7} Food and Drug Administration, Silver Spring, Maryland, United States of America\\
+\textbf{8} Alan Turing Institute, London, United Kingdom \\
 \bigskip
 
 \Cross These authors share first authorship.
@@ -223,9 +223,11 @@
 
     Variations in anatomy with sex and disease have a significant impact on cardiac simulations,
     which support the inclusion of multiple heart anatomical models in in-silico trials.
-    The resulting virtual cohort captures key anatomical variability and is publicly available at
+    \replaced[id=PLOS, comment={EM: remove URLs from Abstract; DOI and repository links remain in the Data Availability statement}]{
+        The resulting virtual cohort captures key anatomical variability and is publicly available, along with the underlying code (see Data Availability statement).
+        }{The resulting virtual cohort captures key anatomical variability and is publicly available at
     \url{https://doi.org/10.5281/zenodo.19351401} and our code is available
-    at \url{https://github.com/OpenHeartDevelopers/cemrg-heartbuilder}.
+    at \url{https://github.com/OpenHeartDevelopers/cemrg-heartbuilder}.}
 
 \section*{Author summary}
 Understanding how sex and disease affect the heart's electrical and mechanical behaviour is essential
@@ -339,15 +341,18 @@ provides an overview of the pipeline and the resulting cohort.
 
 \begin{figure}[hbpt]
     \centering
-    \includegraphics[width=\textwidth]{pics/fig1_graphical_abstract.pdf}
+    % File renamed from pics/fig1_graphical_abstract.pdf to pics/fig1_pipeline_overview.pdf
+    % per EM round 2: this is the methods pipeline overview figure, not a graphical abstract.
+    \includegraphics[width=\textwidth]{pics/fig1_pipeline_overview.pdf}
     \caption[Cohort creation and pipeline overview.]{
         \textbf{Cohort creation and pipeline overview. }
-        Starting from clinical CT scans, the workflow performs multi-label segmentation and mesh generation 
-        to create simulation-ready models with assigned fibre orientations. 
-        A new dataset of 50 patients (26 controls, 24 with heart failure subtypes: narrow QRS and wide QRS) 
-        balanced by sex is processed. 
-        Resulting models are used in simulations of cardiac electrophysiology and mechanics to extract 
+        Starting from clinical CT scans, the workflow performs multi-label segmentation and mesh generation
+        to create simulation-ready models with assigned fibre orientations.
+        A new dataset of 50 patients (26 controls, 24 with heart failure subtypes: narrow QRS and wide QRS)
+        balanced by sex is processed.
+        Resulting models are used in simulations of cardiac electrophysiology and mechanics to extract
         clinically relevant measurements.
+        \added[id=PLOS, comment={EM: CC0 attribution for heart icons (already reported)}]{Heart icons in this figure were derived from a CC0 image obtained from openclipart.org (\url{https://openclipart.org/246884}) and modified to fit the figure design.}
     }
     \label{fig:heartbuilder_pipeline}
 \end{figure}
@@ -682,7 +687,7 @@ Guccione's material law~\cite{Guccione-1991-material-props},
 while the rest of the cardiac structures were modelled as isotropic hyperelastic materials using a 
 NeoHookean material law~\cite{faulkner-1972-nearly}. 
 Mechanics simulations were run with the same boundary conditions as the work by~\cite{strocchi2023_cell}, 
-which can be consulted in the Supplementary Material.
+which can be consulted in \replaced[id=PLOS, comment={EM: PLOS-style SI citation}]{S1 Text}{the Supplementary Material}.
 
 Simulations were run to assess the impact of anatomical differences on the outputs and to serve as 
 a quality chech for the meshes. 
@@ -817,7 +822,7 @@ Therefore, the differences in simulations between sexes reported below relate to
 differences in anatomy.
 % \paragraph{Descriptive statistics.}
 We first examined the distributions of all core metrics across sex and condition.
-A full table of means and standard deviations is provided in the Supplementary Material.
+A full table of means and standard deviations is provided in \replaced[id=PLOS, comment={EM: PLOS-style SI citation}]{S2 Data}{the Supplementary Material}.
 We found no significant difference in age between males and females
 (M: $53.4\pm15.0$\,y; F: $54.6\pm10.7$\,y; $p=0.75$). 
 % % supplementary material: summary_table.xlsx 
@@ -1292,8 +1297,8 @@ Steven A. Niederer (SN).
 \textbf{Supervision:} \replaced[id=PLOS, comment={PLOS: add CR (Caroline Roney) per submission-form roles}]{CR, AY, PP, RR, SN}{AY, RR, PP, SN}.
 \textbf{Validation:} JASL, RKB.
 \textbf{Visualization:} JASL, RKB.
-\textbf{Writing -- original draft:} \replaced[id=PLOS, comment={PLOS: add AY per submission-form roles}]{JASL, RKB, CRG, AY, PP}{JASL, RKB, CRG, PP}.
-\textbf{Writing -- review \& editing:} All authors.
+\textbf{Writing, original draft:} \replaced[id=PLOS, comment={PLOS: add AY per submission-form roles}]{JASL, RKB, CRG, AY, PP}{JASL, RKB, CRG, PP}.
+\textbf{Writing, review \& editing:} All authors.
 
 \nolinenumbers
 
